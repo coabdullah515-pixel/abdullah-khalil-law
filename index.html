@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>مؤسسة المستشار عبدالله محمد خليل والمستشارة أميرة محمد العرابي للمحاماة والاستشارات القانونية</title>
+    <!-- وصف تعريفي تحفيزي لمحركات البحث (SEO Meta Description) -->
+    <meta name="description" content="مؤسسة المستشار عبدالله محمد خليل والمستشاره أميره محمد العرابي للمحاماة والاستشارات القانونية - 10 سنوات من الريادة في القضايا الجنائية، المدنية، التجارية، والأحوال الشخصية في مصر.">
+    <meta name="keywords" content="محامي في مصر, استشارات قانونية, مؤسسة المستشار عبدالله خليل, محامي جنايات, محامي شركات, تأسيس شركات في مصر">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -51,7 +54,7 @@
             overflow-x: hidden !important;
             width: 100%;
             max-width: 100vw;
-            touch-action: pan-y pinch-zoom !important; /* ضمان استجابة التمرير الرأسي من السحب الأولى تماماً */
+            touch-action: pan-y pinch-zoom !important; /* ضمان استجابة التمرير فورا من اللمسة الأولى */
         }
 
         html {
@@ -59,6 +62,19 @@
             scroll-behavior: smooth;
             max-width: 100vw;
             touch-action: pan-y pinch-zoom !important;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch !important; /* تمرير سلس وفوري على الموبايل */
+        }
+
+        html {
+            overflow-x: hidden !important;
+            scroll-behavior: smooth;
+            max-width: 100vw;
+            touch-action: auto !important;
         }
 
         * {
