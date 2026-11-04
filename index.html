@@ -182,14 +182,39 @@
             background-color: rgba(197, 160, 89, 0.25) !important;
             color: #8c6b2d !important;
             border-right: 4px solid #b08b43 !important;
+            border-left: none !important;
             font-weight: 800 !important;
+        }
+
+        html[dir="ltr"] body.light-mode #mobile-menu a.bg-gold-500\/20,
+        html[dir="ltr"] body.light-mode #mobile-menu a[class*="border-gold-500"] {
+            border-right: none !important;
+            border-left: 4px solid #b08b43 !important;
+            border-radius: 0.5rem 0 0 0.5rem !important;
         }
 
         #mobile-menu a {
             transition: all 0.2s ease-in-out;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
         }
+        
+        #mobile-menu a.bg-gold-500\/30 {
+            border-right: 4px solid #d4af37 !important;
+            border-left: none !important;
+        }
+
+        html[dir="ltr"] #mobile-menu a.bg-gold-500\/30 {
+            border-right: none !important;
+            border-left: 4px solid #d4af37 !important;
+        }
+
         #mobile-menu a:hover {
             padding-right: 1.25rem !important;
+        }
+        html[dir="ltr"] #mobile-menu a:hover {
+            padding-right: 1rem !important;
+            padding-left: 1.25rem !important;
         }
 
         header, header * {
@@ -504,16 +529,16 @@
             <div class="flex items-center justify-between h-20 gap-3 sm:gap-4 w-full">
                 
                 <div class="flex items-center gap-2 sm:gap-3 order-1 shrink-0">
-                    <button id="mobile-menu-btn" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-4 py-2.5 h-10 lg:h-11 rounded-xl text-xs sm:text-sm focus:outline-none transition-all flex items-center gap-2 shrink-0 cursor-pointer shadow-md">
+                    <button id="mobile-menu-btn" aria-label="القائمة والخدمات" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-4 py-2.5 h-10 lg:h-11 rounded-xl text-xs sm:text-sm focus:outline-none transition-all flex items-center gap-2 shrink-0 cursor-pointer shadow-md">
                         <i class="fa-solid fa-bars text-sm sm:text-base text-gold-400"></i>
                         <span class="text-xs sm:text-sm font-extrabold hidden sm:inline-block text-gold-400" data-ar="القائمة والخدمات" data-en="Menu">القائمة والخدمات</span>
                     </button>
 
-                    <button onclick="toggleThemeMode()" id="theme-toggle-btn" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-3.5 py-2.5 h-10 lg:h-11 rounded-xl text-sm flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer" title="تبديل الوضع (ليلي / نهاري)">
+                    <button onclick="toggleThemeMode()" id="theme-toggle-btn" aria-label="تبديل الوضع ليلي أو نهاري" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-3.5 py-2.5 h-10 lg:h-11 rounded-xl text-sm flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer" title="تبديل الوضع (ليلي / نهاري)">
                         <i id="theme-icon" class="fa-solid fa-moon text-base text-gold-400"></i>
                     </button>
 
-                    <button onclick="toggleLanguage()" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-3.5 sm:px-4 py-2.5 h-10 lg:h-11 rounded-xl text-xs sm:text-sm flex items-center gap-2 transition-all shadow-md shrink-0 cursor-pointer">
+                    <button onclick="toggleLanguage()" aria-label="تغيير اللغة إلى الانجليزية" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-3.5 sm:px-4 py-2.5 h-10 lg:h-11 rounded-xl text-xs sm:text-sm flex items-center gap-2 transition-all shadow-md shrink-0 cursor-pointer">
                         <i class="fa-solid fa-globe text-sm text-gold-400"></i>
                         <span id="lang-btn-text" class="font-extrabold text-gold-400">English</span>
                     </button>
@@ -959,7 +984,7 @@
     </section>
 
     <!-- Calculator Section -->
-    <section id="calculator" class="py-24 bg-navy-950 text-white border-t border-gold-500/20">
+    <section id="calculator" class="py-24 bg-navy-950 text-white border-t border-gold-500/25">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-gold-400 font-bold text-sm uppercase tracking-wider block mb-2" data-ar="حاسبة التكاليف التقديرية" data-en="Estimated Fee Calculator">حاسبة التكاليف التقديرية</span>
@@ -970,16 +995,16 @@
             <div class="bg-navy-900 border border-gold-500/40 rounded-3xl p-8 md:p-12 shadow-2xl space-y-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="اختر الخدمة القانونية" data-en="Select Legal Service">اختر الخدمة القانونية</label>
-                        <select id="calc-service-type" onchange="updateSubOptions(); calculateFee();" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-calc-service-type" for="calc-service-type" class="block text-xs font-bold text-gray-300 mb-2" data-ar="اختر الخدمة القانونية" data-en="Select Legal Service">اختر الخدمة القانونية</label>
+                        <select id="calc-service-type" aria-labelledby="label-calc-service-type" aria-label="اختر الخدمة القانونية لتحديد التكلفة" onchange="updateSubOptions(); calculateFee();" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                             <option value="consultation" data-ar="الاستشارات" data-en="Legal Consultations">الاستشارات</option>
                             <option value="drafting_review" data-ar="فحص وصياغة العقود" data-en="Contract Drafting & Review">فحص وصياغة العقود</option>
                             <option value="lawsuit" data-ar="اقامة الدعاوي ( أو الطعون )" data-en="Initiating Lawsuits (or Appeals)">اقامة الدعاوي ( أو الطعون )</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="تفاصيل أو نطاق الخدمة" data-en="Service Scope & Details">تفاصيل أو نطاق الخدمة</label>
-                        <select id="calc-sub-option" onchange="calculateFee()" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-calc-sub-option" for="calc-sub-option" class="block text-xs font-bold text-gray-300 mb-2" data-ar="تفاصيل أو نطاق الخدمة" data-en="Service Scope & Details">تفاصيل أو نطاق الخدمة</label>
+                        <select id="calc-sub-option" aria-labelledby="label-calc-sub-option" aria-label="تفاصيل أو نطاق الخدمة القانونية" onchange="calculateFee()" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                             <!-- Populated dynamically via JS -->
                         </select>
                     </div>
@@ -1016,36 +1041,36 @@
             <form onsubmit="submitAppointmentBooking(event)" class="bg-navy-950 border border-gold-500/40 rounded-3xl p-8 md:p-12 shadow-2xl space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="اسم الموكل الكريم" data-en="Client Full Name">اسم الموكل الكريم</label>
-                        <input type="text" id="appt-name" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="ثلاثي أو بالصفة" data-ar-placeholder="ثلاثي أو بالصفة" data-en-placeholder="Full Name or Title" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-appt-name" for="appt-name" class="block text-xs font-bold text-gray-300 mb-2" data-ar="اسم الموكل الكريم" data-en="Client Full Name">اسم الموكل الكريم</label>
+                        <input type="text" id="appt-name" aria-labelledby="label-appt-name" aria-label="اسم الموكل الكريم" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="ثلاثي أو بالصفة" data-ar-placeholder="ثلاثي أو بالصفة" data-en-placeholder="Full Name or Title" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="رقم الواتساب للتواصل" data-en="WhatsApp Contact Number">رقم الواتساب للتواصل</label>
-                        <input type="tel" id="appt-phone" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="01xxxxxxxx" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-appt-phone" for="appt-phone" class="block text-xs font-bold text-gray-300 mb-2" data-ar="رقم الواتساب للتواصل" data-en="WhatsApp Contact Number">رقم الواتساب للتواصل</label>
+                        <input type="tel" id="appt-phone" aria-labelledby="label-appt-phone" aria-label="رقم الواتساب للتواصل" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="01xxxxxxxx" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="نوع المقابلة أو الاستشارة" data-en="Consultation or Meeting Type">نوع المقابلة أو الاستشارة</label>
-                        <select id="appt-type" onchange="adjustAppointmentDate()" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-3 py-3.5 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-appt-type" for="appt-type" class="block text-xs font-bold text-gray-300 mb-2" data-ar="نوع المقابلة أو الاستشارة" data-en="Consultation or Meeting Type">نوع المقابلة أو الاستشارة</label>
+                        <select id="appt-type" aria-labelledby="label-appt-type" aria-label="نوع المقابلة أو الاستشارة القانونية" onchange="adjustAppointmentDate()" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-3 py-3.5 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
                             <option value="استشارة هاتفية مفصلة (خلال ٧٢ ساعة) - الحد الأدنى 1,000 ج.م" data-ar="استشارة هاتفية مفصلة (خلال ٧٢ ساعة) - الحد الأدنى 1,000 ج.م" data-en="Detailed Phone Consultation (within 72 hrs) - Min 1,000 EGP">استشارة هاتفية مفصلة (خلال ٧٢ ساعة) - الحد الأدنى 1,000 ج.م</option>
                             <option value="استشارة بالمقابلة الشخصية بالمقر (خلال ٧٢ ساعة) - الحد الأدنى 2,000 ج.م" data-ar="استشارة بالمقابلة الشخصية بالمقر (خلال ٧٢ ساعة) - الحد الأدنى 2,000 ج.م" data-en="In-Person Office Consultation (within 72 hrs) - Min 2,000 EGP">استشارة بالمقابلة الشخصية بالمقر (خلال ٧٢ ساعة) - الحد الأدنى 2,000 ج.م</option>
                             <option value="استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة) - الحد الأدنى 3,500 ج.م" data-ar="استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة) - الحد الأدنى 3,500 ج.م" data-en="Urgent Phone or In-Person Consultation (within 24 hrs) - Min 3,500 EGP">استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة) - الحد الأدنى 3,500 ج.م</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="فرع المؤسسة المطلوب ومواعيده" data-en="Preferred Branch & Hours">فرع المؤسسة المطلوب ومواعيده</label>
-                        <select id="appt-branch" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-3 py-3.5 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-appt-branch" for="appt-branch" class="block text-xs font-bold text-gray-300 mb-2" data-ar="فرع المؤسسة المطلوب ومواعيده" data-en="Preferred Branch & Hours">فرع المؤسسة المطلوب ومواعيده</label>
+                        <select id="appt-branch" aria-labelledby="label-appt-branch" aria-label="فرع المؤسسة المطلوب ومواعيده" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-3 py-3.5 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
                             <option value="فرع النزهة 2 (من 8 مساءً إلى 1 صباحاً)" data-ar="فرع النزهة 2 (من 8 مساءً إلى 1 صباحاً)" data-en="Nozha 2 Branch (8:00 PM - 1:00 AM)">فرع النزهة 2 (من 8 مساءً إلى 1 صباحاً)</option>
                             <option value="فرع مدينة نصر (من 5 مساءً إلى 9 مساءً)" data-ar="فرع مدينة نصر (من 5 مساءً إلى 9 مساءً)" data-en="Nasr City Branch (5:00 PM - 9:00 PM)">فرع مدينة نصر (من 5 مساءً إلى 9 مساءً)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="تاريخ الموعد المقترح" data-en="Proposed Appointment Date">تاريخ الموعد المقترح</label>
+                        <label id="label-appt-date-display" for="appt-date-display" class="block text-xs font-bold text-gray-300 mb-2" data-ar="تاريخ الموعد المقترح" data-en="Proposed Appointment Date">تاريخ الموعد المقترح</label>
                         <div class="relative">
-                            <input type="text" id="appt-date-display" readonly onclick="openNativeDatePicker()" required placeholder="YYYY-MM-DD" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500 cursor-pointer" style="text-align: right; direction: rtl; font-family: 'Cairo', sans-serif;">
-                            <input type="date" id="appt-date" onchange="syncDateSelection(this)" required class="absolute inset-0 opacity-0 pointer-events-none [color-scheme:dark]">
+                            <input type="text" id="appt-date-display" aria-labelledby="label-appt-date-display" aria-label="تاريخ الموعد المقترح المعروض" readonly onclick="openNativeDatePicker()" required placeholder="YYYY-MM-DD" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500 cursor-pointer" style="text-align: right; direction: rtl; font-family: 'Cairo', sans-serif;">
+                            <input type="date" id="appt-date" aria-label="تاريخ الموعد المقترح" onchange="syncDateSelection(this)" required class="absolute inset-0 opacity-0 pointer-events-none [color-scheme:dark]">
                         </div>
                         <span id="date-validation-msg" class="text-[10px] text-gold-400 mt-1 block" data-ar="يتأقلم التاريخ تلقائياً حسب نوع الاستشارة (24 أو 72 ساعة)" data-en="Date adapts automatically based on consultation type (24 or 72 hrs)">يتأقلم التاريخ تلقائياً حسب نوع الاستشارة (24 أو 72 ساعة)</span>
                     </div>
@@ -1053,8 +1078,8 @@
 
                 <div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="ملاحظات أو تفاصيل سريعة" data-en="Quick Notes or Details">ملاحظات أو تفاصيل سريعة</label>
-                        <input type="text" id="appt-notes" placeholder="اختياري..." data-ar-placeholder="اختياري..." data-en-placeholder="Optional..." class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-appt-notes" for="appt-notes" class="block text-xs font-bold text-gray-300 mb-2" data-ar="ملاحظات أو تفاصيل سريعة" data-en="Quick Notes or Details">ملاحظات أو تفاصيل سريعة</label>
+                        <input type="text" id="appt-notes" aria-labelledby="label-appt-notes" aria-label="ملاحظات أو تفاصيل سريعة" placeholder="اختياري..." data-ar-placeholder="اختياري..." data-en-placeholder="Optional..." class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                     </div>
                 </div>
 
@@ -1400,7 +1425,7 @@
                     <div class="border-t border-white/10 pt-4 flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full bg-navy-900 text-gold-400 flex items-center justify-center font-bold" data-ar="ب.ق" data-en="B.Q">ب.ق</div>
                         <div>
-                            <h4 class="font-extrabold text-sm text-white" data-ar="الشيخ / بندر القحطاني" data-en="Sheikh / Bandar Al-Qahtani">الشيخ / بندر القحطاني</h4>
+                            <h3 class="font-extrabold text-sm text-white" data-ar="الشيخ / بندر القحطاني" data-en="Sheikh / Bandar Al-Qahtani">الشيخ / بندر القحطاني</h3>
                             <p class="text-xs text-gray-400" data-ar="رجل أعمال" data-en="Businessman">رجل أعمال</p>
                         </div>
                     </div>
@@ -1561,12 +1586,12 @@
                 <form onsubmit="sendReviewWhatsApp(event)" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-gray-300 mb-1.5" data-ar="الاسم الكريم" data-en="Your Name">الاسم الكريم</label>
-                            <input type="text" id="reviewer-name" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="اسمك أو صفتك" data-ar-placeholder="اسمك أو صفتك" data-en-placeholder="Your Name or Title" class="w-full bg-navy-950 border border-gold-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
+                            <label id="label-reviewer-name" for="reviewer-name" class="block text-xs font-bold text-gray-300 mb-1.5" data-ar="الاسم الكريم" data-en="Your Name">الاسم الكريم</label>
+                            <input type="text" id="reviewer-name" aria-labelledby="label-reviewer-name" aria-label="الاسم الكريم" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="اسمك أو صفتك" data-ar-placeholder="اسمك أو صفتك" data-en-placeholder="Your Name or Title" class="w-full bg-navy-950 border border-gold-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-300 mb-1.5" data-ar="التقييم بالنجوم" data-en="Star Rating">التقييم بالنجوم</label>
-                            <select id="reviewer-rating" class="w-full bg-navy-950 border border-gold-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
+                            <label id="label-reviewer-rating" for="reviewer-rating" class="block text-xs font-bold text-gray-300 mb-1.5" data-ar="التقييم بالنجوم" data-en="Star Rating">التقييم بالنجوم</label>
+                            <select id="reviewer-rating" aria-labelledby="label-reviewer-rating" aria-label="التقييم بالنجوم" class="w-full bg-navy-950 border border-gold-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
                                 <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ <span data-ar="(ممتاز - 5 نجوم)" data-en="(Excellent - 5 Stars)">(ممتاز - 5 نجوم)</span></option>
                                 <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ <span data-ar="(جيد جداً - 4 نجوم)" data-en="(Very Good - 4 Stars)">(جيد جداً - 4 نجوم)</span></option>
                                 <option value="⭐⭐⭐">⭐⭐⭐ <span data-ar="(جيد - 3 نجوم)" data-en="(Good - 3 Stars)">(جيد - 3 نجوم)</span></option>
@@ -1574,8 +1599,8 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1.5" data-ar="رأيك أو تجربتك معنا" data-en="Your Review or Experience">رأيك أو تجربتك معنا</label>
-                        <textarea id="reviewer-comment" rows="3" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="اكتب تقييمك أو رأيك هنا..." data-ar-placeholder="اكتب تقييمك أو رأيك هنا..." data-en-placeholder="Write your review here..." class="w-full bg-navy-950 border border-gold-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500"></textarea>
+                        <label id="label-reviewer-comment" for="reviewer-comment" class="block text-xs font-bold text-gray-300 mb-1.5" data-ar="رأيك أو تجربتك معنا" data-en="Your Review or Experience">رأيك أو تجربتك معنا</label>
+                        <textarea id="reviewer-comment" aria-labelledby="label-reviewer-comment" aria-label="رأيك أو تجربتك معنا" rows="3" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="اكتب تقييمك أو رأيك هنا..." data-ar-placeholder="اكتب تقييمك أو رأيك هنا..." data-en-placeholder="Write your review here..." class="w-full bg-navy-950 border border-gold-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500"></textarea>
                     </div>
                     <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-navy-950 font-extrabold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm">
                         <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -1639,8 +1664,8 @@
             <form onsubmit="sendWhatsApp(event)" class="max-w-2xl mx-auto bg-navy-950 border border-gold-500/40 p-8 md:p-10 rounded-3xl space-y-6 shadow-2xl backdrop-blur-md">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="التخصص القانوني المطلوب" data-en="Requested Practice Area">التخصص القانوني المطلوب</label>
-                        <select id="specialty" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-specialty" for="specialty" class="block text-xs font-bold text-gray-300 mb-2" data-ar="التخصص القانوني المطلوب" data-en="Requested Practice Area">التخصص القانوني المطلوب</label>
+                        <select id="specialty" aria-labelledby="label-specialty" aria-label="التخصص القانوني المطلوب" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                             <option data-ar="استشارات عامة (غير متأكد من التخصص)" data-en="General Advisory (Uncertain)">استشارات عامة (غير متأكد من التخصص)</option>
                             <option data-ar="القانون الجنائي والمدافعة الإجرائية" data-en="Criminal Law & Litigation">القانون الجنائي والمدافعة الإجرائية</option>
                             <option data-ar="المنازعات المدنية والعقارية" data-en="Civil & Real Estate Disputes">المنازعات المدنية والعقارية</option>
@@ -1654,13 +1679,13 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="رقم الهاتف المحمول" data-en="Mobile Phone Number">رقم الهاتف المحمول</label>
-                        <input type="tel" id="phone" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="01xxxxxxxx" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                        <label id="label-phone" for="phone" class="block text-xs font-bold text-gray-300 mb-2" data-ar="رقم الهاتف المحمول" data-en="Mobile Phone Number">رقم الهاتف المحمول</label>
+                        <input type="tel" id="phone" aria-labelledby="label-phone" aria-label="رقم الهاتف المحمول" required oninvalid="checkInputValidity(this)" oninput="this.setCustomValidity('')" placeholder="01xxxxxxxx" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="وصف مختصر للنزاع أو الاستشارة (اختياري)" data-en="Brief Dispute Description (Optional)">وصف مختصر للنزاع أو الاستشارة (اختياري)</label>
-                    <textarea id="message" rows="4" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500" placeholder="اكتب نبذة موجزة..." data-ar-placeholder="اكتب نبذة موجزة..." data-en-placeholder="Write a brief overview..."></textarea>
+                    <label id="label-message" for="message" class="block text-xs font-bold text-gray-300 mb-2" data-ar="وصف مختصر للنزاع أو الاستشارة (اختياري)" data-en="Brief Dispute Description (Optional)">وصف مختصر للنزاع أو الاستشارة (اختياري)</label>
+                    <textarea id="message" aria-labelledby="label-message" aria-label="وصف مختصر للنزاع أو الاستشارة" rows="4" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500" placeholder="اكتب نبذة موجزة..." data-ar-placeholder="اكتب نبذة موجزة..." data-en-placeholder="Write a brief overview..."></textarea>
                 </div>
                 <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-navy-950 font-black py-4 rounded-xl transition-all shadow-xl flex items-center justify-center gap-3 text-base">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
@@ -1674,7 +1699,7 @@
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-solid fa-location-dot brand-icon-location"></i>
                         </div>
-                        <h4 class="font-extrabold text-white text-base mb-1" id="principal-title-box" data-ar="المقر الرئيسي (مدينة نصر)" data-en="Principal Office (Nasr City)">المقر الرئيسي (مدينة نصر)</h4>
+                        <h3 class="font-extrabold text-white text-base mb-1" id="principal-title-box" data-ar="المقر الرئيسي (مدينة نصر)" data-en="Principal Office (Nasr City)">المقر الرئيسي (مدينة نصر)</h3>
                         <p class="text-xs font-black leading-relaxed mb-3" id="principal-address-text" style="color: inherit;" data-ar="جمهورية مصر العربية - القاهرة<br/>مدينة نصر - النزهة 2" data-en="Arab Republic of Egypt - Cairo<br/>Nasr City - Nozha 2">جمهورية مصر العربية - القاهرة<br/>مدينة نصر - النزهة 2</p>
                         <a href="https://maps.app.goo.gl/XZei19urwW8VASeh9?g_st=ac" target="_blank" class="inline-flex items-center gap-1.5 text-xs hover:opacity-80 font-bold mt-auto transition-colors" style="color: #f43f5e !important;">
                             <i class="fa-solid fa-map-location-dot brand-icon-location" style="color: #f43f5e !important;"></i>
@@ -1685,21 +1710,21 @@
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-solid fa-users text-gold-400"></i>
                         </div>
-                        <h4 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="جروب الاستفسارات العامة" data-en="General Inquiries Group">جروب الاستفسارات العامة</h4>
+                        <h3 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="جروب الاستفسارات العامة" data-en="General Inquiries Group">جروب الاستفسارات العامة</h3>
                         <a href="https://chat.whatsapp.com/JhMvzrWZsNm3qaGe1F9gxO?s=cl&p=a&iam=2" target="_blank" class="text-xs text-emerald-400 hover:underline leading-relaxed font-bold mt-1 block" data-ar="انضم للجروب الرسمي للاستفسارات" data-en="Join Official Community Group">انضم للجروب الرسمي للاستفسارات</a>
                     </div>
                     <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center rtl:md:items-start ltr:md:items-start">
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-brands fa-facebook brand-icon-facebook"></i>
                         </div>
-                        <h4 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="صفحة الفيسبوك" data-en="Facebook Page">صفحة الفيسبوك</h4>
+                        <h3 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="صفحة الفيسبوك" data-en="Facebook Page">صفحة الفيسبوك</h3>
                         <a href="https://www.facebook.com/share/19df1t5VHE/" target="_blank" class="text-xs text-blue-400 hover:underline leading-relaxed font-bold mt-1 block" data-ar="تابعنا عبر صفحة الفيسبوك" data-en="Follow our Facebook Page">تابعنا عبر صفحة الفيسبوك</a>
                     </div>
                     <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center rtl:md:items-start ltr:md:items-start">
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-brands fa-whatsapp brand-icon-whatsapp"></i>
                         </div>
-                        <h4 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="واتساب المواعيد الرسمي" data-en="Official WhatsApp Hotline">واتساب المواعيد الرسمي</h4>
+                        <h3 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="واتساب المواعيد الرسمي" data-en="Official WhatsApp Hotline">واتساب المواعيد الرسمي</h3>
                         <a href="https://wa.me/201558115954" target="_blank" class="text-xs text-gold-400 hover:underline leading-relaxed font-mono mt-1 block" dir="ltr">+20 01558115954</a>
                     </div>
                 </div>
@@ -2710,11 +2735,19 @@
                 mobileMenu.classList.add('hidden');
             }
 
+            const isEnglish = currentLang === 'en';
             document.querySelectorAll('.nav-menu-item').forEach(item => {
                 if (item.getAttribute('data-target') === sectionId) {
-                    item.classList.add('bg-gold-500/30', 'text-gold-400', 'border-r-4', 'border-gold-500', 'font-black');
+                    item.classList.add('bg-gold-500/30', 'text-gold-400', 'font-black');
+                    if (isEnglish) {
+                        item.classList.add('border-l-4', 'border-gold-500');
+                        item.classList.remove('border-r-4');
+                    } else {
+                        item.classList.add('border-r-4', 'border-gold-500');
+                        item.classList.remove('border-l-4');
+                    }
                 } else {
-                    item.classList.remove('bg-gold-500/30', 'text-gold-400', 'border-r-4', 'border-gold-500', 'font-black');
+                    item.classList.remove('bg-gold-500/30', 'text-gold-400', 'border-r-4', 'border-l-4', 'border-gold-500', 'font-black');
                 }
             });
 
