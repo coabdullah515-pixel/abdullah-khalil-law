@@ -3,10 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>مؤسسة المستشار عبدالله محمد خليل والمستشارة أميرة محمد العرابي للمحاماة والاستشارات القانونية</title>
-    <!-- وصف تعريفي تحفيزي لمحركات البحث (SEO Meta Description) -->
-    <meta name="description" content="مؤسسة المستشار عبدالله محمد خليل والمستشاره أميره محمد العرابي للمحاماة والاستشارات القانونية - 10 سنوات من الريادة في القضايا الجنائية، المدنية، التجارية، والأحوال الشخصية في مصر.">
-    <meta name="keywords" content="محامي في مصر, استشارات قانونية, مؤسسة المستشار عبدالله خليل, محامي جنايات, محامي شركات, تأسيس شركات في مصر">
+    <title>مؤسسة المستشار عبدالله محمد خليل والمستشارة أميرة محمد العرابي للمحاماة والاستشارات القانونية | Law Firm of Abdullah & Amira</title>
+    <!-- وصف تعريفي تحفيزي ومزدوج اللغة لمحركات البحث (SEO Meta Description & Keywords) -->
+    <meta name="description" content="مؤسسة المستشار عبدالله محمد خليل والمستشاره أميره محمد العرابي للمحاماة والاستشارات القانونية - 10 سنوات من الريادة في القضايا الجنائية، المدنية، التجارية، والأحوال الشخصية في مصر. | Premier Egyptian Law Firm specializing in criminal, civil, corporate law, and legal consultations.">
+    <meta name="keywords" content="محامي في مصر, استشارات قانونية, مؤسسة المستشار عبدالله خليل, محامي جنايات, محامي شركات, تأسيس شركات في مصر, Egyptian lawyer, law firm Cairo, legal consultancy Egypt, corporate lawyer Egypt, criminal defense Egypt">
+    <link rel="alternate" hreflang="ar" href="https://abdallahkhalillaw.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://abdallahkhalillaw.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://abdallahkhalillaw.vercel.app/" />
+    <!-- Structured Data JSON-LD for Bilingual Legal Services (Enriched & Comprehensive) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "مؤسسة المستشار عبدالله محمد خليل والمستشاره أميره محمد العرابي للمحاماة والاستشارات القانونية",
+      "alternateName": "The Law Firm of Counselor Abdullah M. Khalil & Counselor Amira M. El-Oraby",
+      "url": "https://abdallahkhalillaw.vercel.app/",
+      "image": "https://i.postimg.cc/TwGNjzwZ/advisor-jpg.jpg",
+      "telephone": "+201558115954",
+      "priceRange": "$$",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "النزهة 2",
+          "addressLocality": "مدينة نصر",
+          "addressRegion": "القاهرة",
+          "addressCountry": "EG"
+        }
+      ],
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "عبدالله محمد خليل",
+          "jobTitle": "مؤسس ورئيس المؤسسة - محام بالاستئناف العالي ومجلس الدولة"
+        },
+        {
+          "@type": "Person",
+          "name": "أميره محمد العرابي",
+          "jobTitle": "مؤسس مشارك ورئيس المؤسسة - محامية بالاستئناف العالي ومجلس الدولة"
+        }
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Egypt"
+      },
+      "availableLanguage": ["Arabic", "English"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"],
+          "opens": "17:00",
+          "closes": "01:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "الخدمات القانونية والاستشارية",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "المنازعات المدنية والعقارية وصحة ونفاذ العقود"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "القانون التجاري وحوكمة الشركات وتأسيسها أمام هيئة الاستثمار"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "قضايا الأحوال الشخصية والولاية على المال"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس"
+            }
+          }
+        ]
+      }
+    }
+    </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -54,7 +145,20 @@
             overflow-x: hidden !important;
             width: 100%;
             max-width: 100vw;
-            touch-action: pan-y pinch-zoom !important; /* ضمان استجابة التمرير فورا من اللمسة الأولى */
+            touch-action: pan-y pinch-zoom !important;
+        }
+
+        html {
+            overflow-x: hidden !important;
+            scroll-behavior: smooth;
+            max-width: 100vw;
+            touch-action: pan-y pinch-zoom !important;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch !important;
         }
 
         html {
@@ -701,7 +805,7 @@
                 <div class="w-full bg-navy-900 border border-gold-500/40 rounded-3xl p-8 shadow-2xl flex flex-col justify-between">
                     <div>
                         <div class="flex justify-center mb-6">
-                            <img src="https://i.postimg.cc/TwGNjzwZ/advisor-jpg.jpg" alt="المستشار عبدالله خليل" class="rounded-2xl shadow-xl w-full max-w-[320px] h-[360px] object-cover border-2 border-gold-500/40 bg-navy-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop';">
+                            <img src="https://i.postimg.cc/TwGNjzwZ/advisor-jpg.jpg" alt="المستشار عبدالله خليل" loading="lazy" fetchpriority="high" class="rounded-2xl shadow-xl w-full max-w-[320px] h-[360px] object-cover border-2 border-gold-500/40 bg-navy-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop';">
                         </div>
                         <span class="text-gold-400 font-bold text-xs uppercase tracking-wider block text-center mb-1" data-ar="رئيس ومؤسس المؤسسة" data-en="Founder & Head of Firm">رئيس ومؤسس المؤسسة</span>
                         <h3 class="text-2xl font-black text-white text-center mb-2" data-ar="المستشار / عبدالله محمد خليل" data-en="Counselor / Abdullah Mohamed Khalil">المستشار / عبدالله محمد خليل</h3>
@@ -726,7 +830,7 @@
                 <div class="w-full lg:w-1/2 bg-navy-900 border border-gold-500/40 rounded-3xl p-8 shadow-2xl flex flex-col justify-between">
                     <div>
                         <div class="flex justify-center mb-6">
-                            <img src="https://i.postimg.cc/RhYYkhZW/IMG-20261103-WA0000.jpg" alt="المستشاره أميره محمد العرابي" class="rounded-2xl shadow-xl w-full max-w-[320px] h-[360px] object-cover border-2 border-gold-500/45 bg-navy-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop';">
+                            <img src="https://i.postimg.cc/RhYYkhZW/IMG-20261103-WA0000.jpg" alt="المستشاره أميره محمد العرابي" loading="lazy" class="rounded-2xl shadow-xl w-full max-w-[320px] h-[360px] object-cover border-2 border-gold-500/45 bg-navy-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop';">
                         </div>
                         <span class="text-gold-400 font-bold text-xs uppercase tracking-wider block text-center mb-1" data-ar="مؤسس مشارك ورئيس المؤسسة" data-en="Co-Founder & Head of Firm">مؤسس مشارك ورئيس المؤسسة</span>
                         <h3 class="text-2xl font-black text-white text-center mb-2" data-ar="المستشاره / أميره محمد العرابي" data-en="Counselor / Amira Mohamed El-Oraby">المستشاره / أميره محمد العرابي</h3>
