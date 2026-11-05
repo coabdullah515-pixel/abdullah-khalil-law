@@ -142,60 +142,26 @@
             -webkit-text-size-adjust: 100%;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden !important;
+            overflow-x: auto !important;
+            overflow-y: auto !important;
             width: 100%;
-            max-width: 100vw;
-            touch-action: pan-y pinch-zoom !important;
+            min-width: 320px;
+            letter-spacing: -0.01em;
+            line-height: 1.75;
         }
 
         html {
-            overflow-x: hidden !important;
+            overflow-x: auto !important;
+            overflow-y: auto !important;
             scroll-behavior: smooth;
-            max-width: 100vw;
-            touch-action: pan-y pinch-zoom !important;
+            min-width: 320px;
+            width: 100%;
         }
 
         * {
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
             -webkit-overflow-scrolling: touch !important;
-        }
-
-        html {
-            overflow-x: hidden !important;
-            scroll-behavior: smooth;
-            max-width: 100vw;
-            touch-action: pan-y pinch-zoom !important;
-        }
-
-        * {
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            -webkit-overflow-scrolling: touch !important; /* تمرير سلس وفوري على الموبايل */
-        }
-
-        html {
-            overflow-x: hidden !important;
-            scroll-behavior: smooth;
-            max-width: 100vw;
-            touch-action: auto !important;
-        }
-
-        * {
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            -webkit-overflow-scrolling: touch; /* تمرير سلس وفوري على الموبايل */
-        }
-
-        html {
-            overflow-x: hidden !important;
-            scroll-behavior: smooth;
-            max-width: 100vw;
-        }
-
-        * {
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
         }
 
         body:not(.light-mode) h1, 
@@ -208,17 +174,22 @@
         }
 
         h1, h2, h3, h4 {
-            letter-spacing: -0.02em;
-            word-spacing: 0.05em;
+            letter-spacing: -0.025em;
+            word-spacing: 0.02em;
+            line-height: 1.35;
+        }
+
+        p, span, li, a {
+            letter-spacing: -0.005em;
         }
 
         @media (max-width: 640px) {
             body {
-                font-size: 14px;
-                line-height: 1.6;
+                font-size: 14.5px;
+                line-height: 1.7;
             }
-            h1 { font-size: 1.85rem !important; line-height: 1.3 !important; }
-            h2 { font-size: 1.5rem !important; line-height: 1.35 !important; }
+            h1 { font-size: 1.85rem !important; line-height: 1.25 !important; }
+            h2 { font-size: 1.5rem !important; line-height: 1.3 !important; }
             h3 { font-size: 1.15rem !important; }
         }
 
@@ -577,6 +548,16 @@
             font-weight: 800 !important;
         }
 
+        /* ضمان بقاء لون رابط ومكتوب الفيسبوك أزرق دائمًا حتى في الوضع النهاري */
+        body.light-mode a.text-blue-400,
+        body.light-mode a.text-blue-500,
+        body.light-mode .brand-icon-facebook + * + a,
+        body.light-mode a[href*="facebook.com"] {
+            color: #3b82f6 !important;
+            opacity: 1 !important;
+            font-weight: 800 !important;
+        }
+
         body.light-mode p,
         body.light-mode span,
         body.light-mode label,
@@ -805,7 +786,7 @@
                 <div class="w-full bg-navy-900 border border-gold-500/40 rounded-3xl p-8 shadow-2xl flex flex-col justify-between">
                     <div>
                         <div class="flex justify-center mb-6">
-                            <img src="https://i.postimg.cc/TwGNjzwZ/advisor-jpg.jpg" alt="المستشار عبدالله خليل" loading="lazy" fetchpriority="high" class="rounded-2xl shadow-xl w-full max-w-[320px] h-[360px] object-cover border-2 border-gold-500/40 bg-navy-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop';">
+                            <img src="https://i.postimg.cc/02cXqg8j/IMG-20261105-WA0004.jpg" alt="المستشار عبدالله خليل" loading="lazy" fetchpriority="high" class="rounded-2xl shadow-xl w-full max-w-[320px] h-[360px] object-cover border-2 border-gold-500/40 bg-navy-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop';">
                         </div>
                         <span class="text-gold-400 font-bold text-xs uppercase tracking-wider block text-center mb-1" data-ar="رئيس ومؤسس المؤسسة" data-en="Founder & Head of Firm">رئيس ومؤسس المؤسسة</span>
                         <h3 class="text-2xl font-black text-white text-center mb-2" data-ar="المستشار / عبدالله محمد خليل" data-en="Counselor / Abdullah Mohamed Khalil">المستشار / عبدالله محمد خليل</h3>
@@ -1495,14 +1476,14 @@
                     <button onclick="toggleFaq(this)" class="w-full text-start sm:text-right ltr:text-left rtl:text-right p-6 flex items-center justify-between gap-4 focus:outline-none cursor-pointer group">
                         <span class="font-extrabold text-base text-white group-hover:text-gold-400 transition-colors flex items-center gap-3">
                             <i class="fa-solid fa-circle-question text-gold-400 shrink-0"></i>
-                            <span data-ar="ماذا أفعل إذا لم أكن متأكداً من التخصص القانوني لمشكلتي؟" data-en="What should I do if I am uncertain of the legal practice area for my issue?">ماذا أفعل إذا لم أكن متأكداً من التخصص القانوني لمشكلتي؟</span>
+                            <span data-ar="ما هي الآلية المتبعة عند تكليف المؤسسة بقضية جنائية أو تجارية أو عقارية؟" data-en="What is the procedure when retaining the firm for criminal, commercial, or real estate litigation?">ما هي الآلية المتبعة عند تكليف المؤسسة بقضية جنائية أو تجارية أو عقارية؟</span>
                         </span>
                         <div class="w-8 h-8 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0 transition-transform duration-300 faq-icon">
                             <i class="fa-solid fa-chevron-down text-xs"></i>
                         </div>
                     </button>
                     <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6" style="max-height: 0px;">
-                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed pb-6 pt-2 border-t border-white/10" data-ar="قم باختيار خدمة 'استشارات عامة (غير متأكد من التخصص)' المتاحة في موقعنا، وسيقوم فريق المؤسسة بدراسة حالتك وتوجيهك بالرأي السليم والقسم المختص." data-en="Select 'General Legal Advisory' on our platform, and our team will review your case and direct you to the proper department.">قم باختيار خدمة "استشارات عامة (غير متأكد من التخصص)" المتاحة في موقعنا، وسيقوم فريق المؤسسة بدراسة حالتك وتوجيهك بالرأي السليم والقسم المختص.</p>
+                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed pb-6 pt-2 border-t border-white/10" data-ar="نبدأ أولاً بدراسة المستندات والوقائع بدقة عبر الاستشارة القانونية، ثم وضع استراتيجية إجرائية واضحة ومحددة تناسب طبيعة القطاع (سواء قضايا جنائية، منازعات عقارية، تأسيس شركات، أحوال شخصية، أو شئون أجانب) قبل البدء في اتخاذ الخطوات القضائية." data-en="We begin by meticulously analyzing documents and facts through a legal consultation, then formulate a clear procedural strategy tailored to the specific sector (criminal, real estate, corporate, family law, or expatriate affairs) prior to initiating legal steps.">نبدأ أولاً بدراسة المستندات والوقائع بدقة عبر الاستشارة القانونية، ثم وضع استراتيجية إجرائية واضحة ومحددة تناسب طبيعة القطاع (سواء قضايا جنائية، منازعات عقارية، تأسيس شركات، أحوال شخصية، أو شئون أجانب) قبل البدء في اتخاذ الخطوات القضائية.</p>
                     </div>
                 </div>
             </div>
@@ -1770,16 +1751,16 @@
                     <div>
                         <label id="label-specialty" for="specialty" class="block text-xs font-bold text-gray-300 mb-2" data-ar="التخصص القانوني المطلوب" data-en="Requested Practice Area">التخصص القانوني المطلوب</label>
                         <select id="specialty" aria-labelledby="label-specialty" aria-label="التخصص القانوني المطلوب" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
-                            <option data-ar="استشارات عامة (غير متأكد من التخصص)" data-en="General Advisory (Uncertain)">استشارات عامة (غير متأكد من التخصص)</option>
-                            <option data-ar="القانون الجنائي والمدافعة الإجرائية" data-en="Criminal Law & Litigation">القانون الجنائي والمدافعة الإجرائية</option>
+                            <option data-ar="قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات" data-en="Criminal Litigation Department & Defense Before Misdemeanor and Felony Courts">قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات</option>
                             <option data-ar="المنازعات المدنية والعقارية" data-en="Civil & Real Estate Disputes">المنازعات المدنية والعقارية</option>
                             <option data-ar="القانون التجاري وحوكمة الشركات" data-en="Commercial Law & Corporate Governance">القانون التجاري وحوكمة الشركات</option>
-                            <option data-ar="الأحوال الشخصية وقضايا الأسرة" data-en="Family Law & Personal Status">الأحوال الشخصية وقضايا الأسرة</option>
-                            <option data-ar="القانون الإداري ومجلس الدولة" data-en="Administrative Law & State Council">القانون الإداري ومجلس الدولة</option>
+                            <option data-ar="قضايا الأحوال الشخصية والولاية على المال" data-en="Personal Status & Financial Guardianship Matters">قضايا الأحوال الشخصية والولاية على المال</option>
+                            <option data-ar="القانون الإداري وعقود مجلس الدولة" data-en="Administrative Law & State Council Contracts">القانون الإداري وعقود مجلس الدولة</option>
                             <option data-ar="الملكية الفكرية والعلامات التجارية" data-en="Intellectual Property & Trademarks">الملكية الفكرية والعلامات التجارية</option>
-                            <option data-ar="خدمات الأجانب" data-en="Expatriate Legal Services">خدمات الأجانب</option>
-                            <option data-ar="صياغة العقود وفحص المستندات" data-en="Contract Drafting & Due Diligence">صياغة العقود وفحص المستندات</option>
-                            <option data-ar="فحص ودراسة القضايا المتداولة" data-en="Pending Litigation Case Auditing">فحص ودراسة القضايا المتداولة</option>
+                            <option data-ar="شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس" data-en="Expatriate Affairs, Investment Licensing, Foreign Marriage & Naturalization">شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس</option>
+                            <option data-ar="صياغة العقود والفحص النافي للجهالة" data-en="Contract Drafting & Due Diligence Auditing">صياغة العقود والفحص النافي للجهالة</option>
+                            <option data-ar="دراسة ومراجعة القضايا المتداولة" data-en="Auditing & Evaluation of Pending Litigations">دراسة ومراجعة القضايا المتداولة</option>
+                            <option data-ar="استشارات قانونية عامة ومتنوعة" data-en="General & Diverse Legal Advisory">استشارات قانونية عامة ومتنوعة</option>
                         </select>
                     </div>
                     <div>
@@ -1798,33 +1779,33 @@
             </form>
 
             <div class="mt-10 pt-8 border-t border-gold-500/20 max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center rtl:md:text-right ltr:md:text-left mb-6">
-                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center rtl:md:items-start ltr:md:items-start">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center mb-6">
+                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center justify-center text-center">
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-solid fa-location-dot brand-icon-location"></i>
                         </div>
                         <h3 class="font-extrabold text-white text-base mb-1" id="principal-title-box" data-ar="المقر الرئيسي (مدينة نصر)" data-en="Principal Office (Nasr City)">المقر الرئيسي (مدينة نصر)</h3>
                         <p class="text-xs font-black leading-relaxed mb-3" id="principal-address-text" style="color: inherit;" data-ar="جمهورية مصر العربية - القاهرة<br/>مدينة نصر - النزهة 2" data-en="Arab Republic of Egypt - Cairo<br/>Nasr City - Nozha 2">جمهورية مصر العربية - القاهرة<br/>مدينة نصر - النزهة 2</p>
-                        <a href="https://maps.app.goo.gl/XZei19urwW8VASeh9?g_st=ac" target="_blank" class="inline-flex items-center gap-1.5 text-xs hover:opacity-80 font-bold mt-auto transition-colors" style="color: #f43f5e !important;">
+                        <a href="https://maps.app.goo.gl/XZei19urwW8VASeh9?g_st=ac" target="_blank" class="inline-flex items-center gap-1.5 text-xs hover:opacity-80 font-bold mt-auto transition-colors justify-center" style="color: #f43f5e !important;">
                             <i class="fa-solid fa-map-location-dot brand-icon-location" style="color: #f43f5e !important;"></i>
                             <span data-ar="عرض موقع الفرع على الخريطة" data-en="View Branch Map" class="font-extrabold" style="color: #f43f5e !important;">عرض موقع الفرع على الخريطة</span>
                         </a>
                     </div>
-                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center rtl:md:items-start ltr:md:items-start">
+                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center justify-center text-center">
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-solid fa-users text-gold-400"></i>
                         </div>
                         <h3 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="جروب الاستفسارات العامة" data-en="General Inquiries Group">جروب الاستفسارات العامة</h3>
                         <a href="https://chat.whatsapp.com/JhMvzrWZsNm3qaGe1F9gxO?s=cl&p=a&iam=2" target="_blank" class="text-xs text-emerald-400 hover:underline leading-relaxed font-bold mt-1 block" data-ar="انضم للجروب الرسمي للاستفسارات" data-en="Join Official Community Group">انضم للجروب الرسمي للاستفسارات</a>
                     </div>
-                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center rtl:md:items-start ltr:md:items-start">
+                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center justify-center text-center">
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-brands fa-facebook brand-icon-facebook"></i>
                         </div>
                         <h3 class="font-extrabold text-white text-base mb-1" style="color: inherit;" data-ar="صفحة الفيسبوك" data-en="Facebook Page">صفحة الفيسبوك</h3>
-                        <a href="https://www.facebook.com/share/19df1t5VHE/" target="_blank" class="text-xs text-blue-400 hover:underline leading-relaxed font-bold mt-1 block" data-ar="تابعنا عبر صفحة الفيسبوك" data-en="Follow our Facebook Page">تابعنا عبر صفحة الفيسبوك</a>
+                        <a href="https://www.facebook.com/share/19df1t5VHE/" target="_blank" class="text-xs text-blue-500 hover:underline leading-relaxed font-bold mt-1 block" style="color: #3b82f6 !important;" data-ar="تابعنا عبر صفحة الفيسبوك" data-en="Follow our Facebook Page">تابعنا عبر صفحة الفيسبوك</a>
                     </div>
-                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center rtl:md:items-start ltr:md:items-start">
+                    <div class="bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 flex flex-col items-center justify-center text-center">
                         <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 border border-gold-500/30">
                             <i class="fa-brands fa-whatsapp brand-icon-whatsapp"></i>
                         </div>
