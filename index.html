@@ -100,6 +100,42 @@
     </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#d4af37',
+                            500: '#c5a059',
+                            600: '#b08b43',
+                            700: '#8c6b2d',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0a0f1d',
+                            950: '#05070e',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Suppress Tailwind CDN production warning in browser console -->
+    <script>
+        const originalWarn = console.warn;
+        console.warn = function(...args) {
+            if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com should not be used in production')) {
+                return;
+            }
+            originalWarn.apply(console, args);
+        };
+    </script>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts - Cairo & Tajawal -->
@@ -700,7 +736,7 @@
                 نقدم استشارات قانونية وحلولاً قضائية متكاملة ومصممة خصيصاً للأفراد والشركات والكيانات التجارية بأعلى معايير الدقة المهنية أمام كافة الدوائر والمحاكم المصرية.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                <a id="hero-instant-consult-btn" href="https://wa.me/201558115954?text=السلام%20عليكم%20ورحمة%20الله%20وبركاته،%20أرغب%20في%20طلب%20استشارة%20قانونية%20فورية%20عاجلة%20(الحد%20الأدنى%20للأتعاب%203,500%20ج.م)." target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-navy-950 font-extrabold px-8 py-3.5 rounded-xl text-sm shadow-xl flex items-center justify-center gap-3 transform hover:-translate-y-1 transition-all">
+                <a id="hero-instant-consult-btn" href="https://wa.me/201558115954?text=السلام%20عليكم%20ورحمة%20الله%20وبركاته،%20أرغب%20في%20طلب%20استشارة%20قانونية%20فورية%20عاجلة%20(الأتعاب%20للمصري%203,500%20ج.م%20وللأجنبي%207,000%20ج.م)." target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-navy-950 font-extrabold px-8 py-3.5 rounded-xl text-sm shadow-xl flex items-center justify-center gap-3 transform hover:-translate-y-1 transition-all">
                     <i class="fa-solid fa-paper-plane"></i>
                     <span data-ar="طلب استشارة فورية" data-en="Request Immediate Consultation">طلب استشارة فورية</span>
                 </a>
@@ -860,15 +896,15 @@
 
             <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div data-title="قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات جنايات جنح محاكم نيابات criminal litigation defense felony misdemeanor prosecution" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('criminal');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات جنايات جنح محاكم نيابات محامي جنايات مصر criminal litigation defense felony misdemeanor prosecution best criminal lawyer cairo" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('criminal');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-scale-unbalanced-flip"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات" data-en="Criminal Litigation Department & Defense Before Misdemeanor and Felony Courts">قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="المثول الفوري ومباشرة التحقيقات والمواجهات برفقة المتهم أو المجني عليه أمام النيابة العامة وجهات الاستدلال، وصياغة وتقديم أوجه الدفع القانونية الموضوعية والشكليّة في كافة قضايا الجنح والجنايات أمام محاكم الدرجة الأولى والاستئناف ومحكمة النقض." data-en="Immediate appearance, conducting investigations, and confrontation alongside the accused or the victim before the Public Prosecution and investigative authorities, drafting and submitting substantive and procedural legal defenses across all misdemeanor and felony cases before courts of first instance, appeal, and the Court of Cassation.">
-                            المثول الفوري ومباشرة التحقيقات والمواجهات برفقة المتهم أو المجني عليه أمام النيابة العامة وجهات الاستدلال، وصياغة وتقديم أوجه الدفع القانونية الموضوعية والشكليّة في كافة قضايا الجنح والجنايات أمام محاكم الدرجة الأولى والاستئناف ومحكمة النقض.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات" data-en="Criminal Defense & Misdemeanor/Felony Litigation Law Firm">قطاع القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="أفضل محامي جنايات في مصر للدفاع في قضايا المخدرات، السلاح، النصب، إيصالات الأمانة، والجرائم الإلكترونية. حضور التحقيقات أمام النيابة العامة وتقديم أوجه الدفع القانونية بمحاكم النقض والاستئناف." data-en="Top criminal defense lawyers in Egypt for drug felonies, firearm offenses, fraud, trust receipt cases, and cybercrimes. Immediate prosecution attendance and robust trial defense before Cassation and Appeal courts.">
+                            أفضل محامي جنايات في مصر للدفاع في قضايا المخدرات، السلاح، النصب، إيصالات الأمانة، والجرائم الإلكترونية. حضور التحقيقات أمام النيابة العامة وتقديم أوجه الدفع القانونية بمحاكم النقض والاستئناف.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -877,15 +913,15 @@
                     </div>
                 </div>
 
-                <div data-title="المنازعات المدنية والعقارية عقارات ملكية إيجار صحة ونفاذ بيع civil property real estate disputes" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('civil');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="المنازعات المدنية والعقارية صحة ونفاذ عقارات إيجار ملكية بيع دعوى صحة ونفاذ محامي عقارات civil property real estate disputes lawyer cairo" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('civil');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-house-chimney-crack"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="المنازعات المدنية والعقارية" data-en="Civil & Real Estate Disputes">المنازعات المدنية والعقارية</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="إقامة ومباشرة دعاوى صحة ونفاذ التعاقدات العقارية وسلسلة الملكية، دعاوى الاستحقاق وثبوت الملكية، فض منازعات الحيازة والتعويضات المدنية الناشئة عن المسئولية العقدية والتقصيرية، وفرز وتجنيب وتصفية التركات." data-en="Filing and prosecuting real estate contract validity and enforceability suits, chain of title, property entitlement and ownership validation suits, resolving possession disputes and civil compensation arising from contractual and tort liability, as well as estate partition and liquidation.">
-                            إقامة ومباشرة دعاوى صحة ونفاذ التعاقدات العقارية وسلسلة الملكية، دعاوى الاستحقاق وثبوت الملكية، فض منازعات الحيازة والتعويضات المدنية الناشئة عن المسئولية العقدية والتقصيرية، وفرز وتجنيب وتصفية التركات.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="المنازعات المدنية وعقارات وتثبيت الملكية وصحة ونفاذ" data-en="Civil Litigation & Real Estate Disputes / Sale Enforceability">المنازعات المدنية وعقارات وتثبيت الملكية وصحة ونفاذ</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="محامي عقارات متخصص في دعاوى صحة ونفاذ عقود البيع، تسجيل العقارات بالشهر العقاري، قضايا نزاعات الملكية، فرز وتجنيب التركات، ومطالبات التعويضات العقارية والمالية." data-en="Specialized real estate lawyers for contract validity and enforceability suits, property registration, title disputes, estate partition, and real estate compensation claims in Egypt.">
+                            محامي عقارات متخصص في دعاوى صحة ونفاذ عقود البيع، تسجيل العقارات بالشهر العقاري، قضايا نزاعات الملكية، فرز وتجنيب التركات، ومطالبات التعويضات العقارية والمالية.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -894,15 +930,15 @@
                     </div>
                 </div>
 
-                <div data-title="القانون التجاري وحوكمة الشركات تأسيس شركات استثمار دمج عقد تجاري commercial corporate governance law" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('corporate');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="القانون التجاري وحوكمة الشركات تأسيس شركات استثمار دمج عقد تجاري محامي شركات في مصر commercial corporate law firm Egypt company formation" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('corporate');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-briefcase"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="القانون التجاري وحوكمة الشركات" data-en="Commercial Law & Corporate Governance">القانون التجاري وحوكمة الشركات</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="تأسيس وهيكلة الشركات الوطنية والأجنبية بشتى أشكالها القانونية أمام الهيئة العامة للاستثمار والمناطق الحرة، صياغة اتفاقيات الشراكة وعقود التوزيع التجاري، ومباشرة منازعات الدوائر الاقتصادية والإفلاس والتسوية." data-en="Incorporating and structuring national and foreign companies in all legal forms before the General Authority for Investment and Free Zones (GAFI), drafting partnership agreements and commercial distribution contracts, and prosecuting economic circuits, bankruptcy, and settlement disputes.">
-                            تأسيس وهيكلة الشركات الوطنية والأجنبية بشتى أشكالها القانونية أمام الهيئة العامة للاستثمار والمناطق الحرة، صياغة اتفاقيات الشراكة وعقود التوزيع التجاري، ومباشرة منازعات الدوائر الاقتصادية والإفلاس والتسوية.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="القانون التجاري وحوكمة وتأسيس الشركات" data-en="Commercial Law, Corporate Governance & Company Formation">القانون التجاري وحوكمة وتأسيس الشركات</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="تأسيس الشركات بجميع أشكالها (شخص واحد، ذات مسؤولية محدودة، مساهمة) أمام الهيئة العامة للاستثمار GAFI. صياغة اتفاقيات المساهمين ومباشرة منازعات الدوائر الاقتصادية والإفلاس." data-en="Corporate formation and structuring (LLC, Joint-Stock, Single Person) before GAFI (General Authority for Investment). Shareholder agreements drafting and Economic Courts dispute resolution.">
+                            تأسيس الشركات بجميع أشكالها (شخص واحد، ذات مسؤولية محدودة، مساهمة) أمام الهيئة العامة للاستثمار GAFI. صياغة اتفاقيات المساهمين ومباشرة منازعات الدوائر الاقتصادية والإفلاس.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -911,15 +947,15 @@
                     </div>
                 </div>
 
-                <div data-title="الأحوال الشخصية والولاية على المال طلاق خلع نفقة حضانة ميراث تركات family law personal status guardianship" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('personal');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="قضايا الأحوال الشخصية والولاية على المال طلاق خلع نفقة حضانة ميراث تركات محامي أسرة في مصر family law divorce alimony custody lawyer Egypt" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('personal');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-users-rays"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="قضايا الأحوال الشخصية والولاية على المال" data-en="Personal Status & Financial Guardianship Matters">قضايا الأحوال الشخصية والولاية على المال</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="رفع ومباشرة دعاوى التطليق، الخلع، الطلاق للغيبة والضرر، منازعات النفقات بأنواعها الشاملة (زوجية، صغار، أجور مسكن وحضانة)، دعاوى الرؤية والولاية التعليمية، وقسمة وتصفية التركات الشرعية." data-en="Filing and prosecuting divorce, khula, absence-based and harm-based divorce suits, comprehensive alimony disputes (spousal, children, housing, and custody allowances), visitation and educational guardianship suits, as well as Sharia estate partition and liquidation.">
-                            رفع ومباشرة دعاوى التطليق، الخلع، الطلاق للغيبة والضرر، منازعات النفقات بأنواعها الشاملة (زوجية، صغار، أجور مسكن وحضانة)، دعاوى الرؤية والولاية التعليمية، وقسمة وتصفية التركات الشرعية.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="قضايا الأحوال الشخصية والأسرة والولاية على المال" data-en="Family Law, Personal Status & Financial Guardianship">قضايا الأحوال الشخصية والأسرة والولاية على المال</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="أفضل محامي أحوال شخصية وأسرة لرفع قضايا الطلاق، الخلع، النفقات، أجور المسسكين والحضانة، الرؤية، الولاية التعليمية، وتصفية وقسمة التركات الشرعية أمام محاكم الأسرة." data-en="Expert family and personal status lawyers for divorce, khula, alimony, custody, visitation, educational guardianship, and Sharia estate distribution before Egyptian Family Courts.">
+                            أفضل محامي أحوال شخصية وأسرة لرفع قضايا الطلاق، الخلع، النفقات، أجور المسسكين والحضانة، الرؤية، الولاية التعليمية، وتصفية وقسمة التركات الشرعية أمام محاكم الأسرة.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -928,15 +964,15 @@
                     </div>
                 </div>
 
-                <div data-title="القانون الإداري وعقود مجلس الدولة طعون موظفين قرارات إدارية administrative law state council contracts" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('administrative');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="القانون الإداري وعقود مجلس الدولة طعون موظفين قرارات إدارية محامي مجلس الدولة administrative law lawyer Egypt State Council" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('administrative');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-landmark"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="القانون الإداري وعقود مجلس الدولة" data-en="Administrative Law & State Council Contracts">القانون الإداري وعقود مجلس الدولة</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="إقامة الطعون القضائية على القرارات الإدارية السلبية والإيجابية، دعاوى الإلغاء وطلب وقف التنفيذ، منازعات الوظيفة العامة والعاملين بالدولة، وفض منازعات عقود الإدارة والمقاولات الحكومية." data-en="Filing judicial appeals against negative and positive administrative decisions, annulment and stay of execution suits, public service and state employee disputes, and resolving administrative contract and government procurement disputes.">
-                            إقامة الطعون القضائية على القرارات الإدارية السلبية والإيجابية، دعاوى الإلغاء وطلب وقف التنفيذ، منازعات الوظيفة العامة والعاملين بالدولة، وفض منازعات عقود الإدارة والمقاولات الحكومية.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="القانون الإداري وطعون مجلس الدولة والوظيفة العامة" data-en="Administrative Law, State Council Appeals & Public Service">القانون الإداري وطعون مجلس الدولة والوظيفة العامة</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="طعون القرارات الإدارية، دعاوى الإلغاء ووقف التنفيذ، منازعات الوظيفة العامة والعاملين بالدولة، وفض منازعات عقود الإدارة والمقاولات الحكومية أمام محاكم مجلس الدولة." data-en="Challenging administrative decrees, annulments, stay of execution, civil service disputes, state employee grievances, and government procurement contract litigation before State Council courts.">
+                            طعون القرارات الإدارية، دعاوى الإلغاء ووقف التنفيذ، منازعات الوظيفة العامة والعاملين بالدولة، وفض منازعات عقود الإدارة والمقاولات الحكومية أمام محاكم مجلس الدولة.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -945,15 +981,15 @@
                     </div>
                 </div>
 
-                <div data-title="الملكية الفكرية والعلامات التجارية تجارية اختراع تقليد فرانشايز intellectual property trademarks patents" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('ip');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="الملكية الفكرية والعلامات التجارية تسجيل علامة تجارية براءة اختراع intellectual property lawyer trademarks patents Egypt" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('ip');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-registered"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="الملكية الفكرية والعلامات التجارية" data-en="Intellectual Property & Trademarks">الملكية الفكرية والعلامات التجارية</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="إجراءات إيداع وتسجيل العلامات التجارية، النماذج والرسوم الصناعية، وبراءات الاختراع، ومباشرة دعاوى منع التقليد وحماية الحقوق والصناعة أمام الدوائر الاستئنافية بالمحاكم الاقتصادية." data-en="Procedures for depositing and registering trademarks, industrial designs and models, and patents, alongside prosecuting anti-counterfeiting, rights protection, and industrial litigation before the appellate circuits of Economic Courts.">
-                            إجراءات إيداع وتسجيل العلامات التجارية، النماذج والرسوم الصناعية، وبراءات الاختراع، ومباشرة دعاوى منع التقليد وحماية الحقوق والصناعة أمام الدوائر الاستئنافية بالمحاكم الاقتصادية.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="الملكية الفكرية وتسجيل العلامات التجارية والبراءات" data-en="Intellectual Property, Trademarks Registration & Patents">الملكية الفكرية وتسجيل العلامات التجارية والبراءات</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="إجراءات إيداع وتسجيل العلامات التجارية، النماذج الصناعية، وبراءات الاختراع بمصر. دعاوى منع التقليد وحماية حقوق الملكية الفكرية أمام المحاكم الاقتصادية." data-en="Trademark deposit and registration, industrial designs, and patent protection in Egypt. Anti-counterfeiting and intellectual property litigation before Economic Courts.">
+                            إجراءات إيداع وتسجيل العلامات التجارية، النماذج الصناعية، وبراءات الاختراع بمصر. دعاوى منع التقليد وحماية حقوق الملكية الفكرية أمام المحاكم الاقتصادية.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -962,15 +998,15 @@
                     </div>
                 </div>
 
-                <div data-title="شئون الأجانب وتراخيص الاستثمار إقامة تصريح عمل استثمار أجانب زواج أجانب تجنس جنسية مصرية expatriate affairs investment licensing marriage nationality" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('foreigners');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس إقامة استثمار زواج أجانب تجنس جنسية مصرية lawyer for foreigners Egypt residency citizenship" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('foreigners');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-passport"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس" data-en="Expatriate Affairs, Investment Licensing, Foreign Marriage & Naturalization">شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-6 line-clamp-3 pointer-events-none" data-ar="استخراج وتجديد إقامات المستثمرين والوافدين والأجانب، توثيق عقود زواج الأجانب أمام وزارة العدل، وإجراءات طلبات التجنس واكتساب الجنسية المصرية وفقاً لقوانين الاستثمار والإقامة." data-en="Issuing and renewing investor and expatriate residencies, official legalization of foreign marriage contracts before the Ministry of Justice, and processing naturalization and Egyptian citizenship applications pursuant to investment and residency laws.">
-                            استخراج وتجديد إقامات المستثمرين والوافدين والأجانب، توثيق عقود زواج الأجانب أمام وزارة العدل، وإجراءات طلبات التجنس واكتساب الجنسية المصرية وفقاً لقوانين الاستثمار والإقامة.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="شئون الأجانب، الإقامات، زواج الأجانب والتجنس" data-en="Expatriate Affairs, Residency, Foreign Marriage & Citizenship">شئون الأجانب، الإقامات، زواج الأجانب والتجنس</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 line-clamp-3 pointer-events-none" data-ar="تراخيص إقامات المستثمرين والوافدين، توثيق زواج الأجانب بوزارة العدل، ومعاملات الحصول على الجنسية المصرية للمستثمرين والأجانب وفقاً لقوانين الاستثمار والجوازات." data-en="Investor and expatriate residency permits, official foreign marriage legalization at the Ministry of Justice, and Egyptian citizenship acquisition for foreign investors pursuant to investment laws.">
+                            تراخيص إقامات المستثمرين والوافدين، توثيق زواج الأجانب بوزارة العدل، ومعاملات الحصول على الجنسية المصرية للمستثمرين والأجانب وفقاً لقوانين الاستثمار والجوازات.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -979,15 +1015,15 @@
                     </div>
                 </div>
 
-                <div data-title="صياغة العقود والفحص النافي للجهالة مراجعة عقود ملكية شراء عقار contract drafting and due diligence auditing" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('contracts_review');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="صياغة العقود والفحص النافي للجهالة مراجعة عقود ملكية شراء عقار contract drafting due diligence lawyer Egypt" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('contracts_review');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-file-contract"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="صياغة العقود والفحص النافي للجهالة" data-en="Contract Drafting & Due Diligence Auditing">صياغة العقود والفحص النافي للجهالة</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="إعداد وصياغة العقود المدنية والتجارية والعقارية بأعلى معايير الإحكام القانوني، وإجراء الفحص النافي للجهالة (Due Diligence) لسندات الملكية والصفقات التجارية لدرء المخاطر." data-en="Preparing and drafting civil, commercial, and real estate contracts with the highest standards of legal rigor, and conducting due diligence audits on titles and commercial transactions to mitigate risks.">
-                            إعداد وصياغة العقود المدنية والتجارية والعقارية بأعلى معايير الإحكام القانوني، وإجراء الفحص النافي للجهالة (Due Diligence) لسندات الملكية والصفقات التجارية لدرء المخاطر.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="صياغة العقود والفحص النافي للجهالة العقارية والتجارية" data-en="Contract Drafting & Real Estate/Commercial Due Diligence">صياغة العقود والفحص النافي للجهالة العقارية والتجارية</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="إعداد وصياغة العقود المدنية والتجارية والعقارية بأعلى معايير الحماية القانونية، مع إجراء الفحص النافي للجهالة (Due Diligence) للتأكد من سندات الملكية لدرء المخاطر." data-en="Drafting robust civil, commercial, and real estate contracts with elite legal protection standards, alongside comprehensive due diligence title audits to mitigate risks.">
+                            إعداد وصياغة العقود المدنية والتجارية والعقارية بأعلى معايير الحماية القانونية، مع إجراء الفحص النافي للجهالة (Due Diligence) للتأكد من سندات الملكية لدرء المخاطر.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -996,15 +1032,15 @@
                     </div>
                 </div>
 
-                <div data-title="دراسة ومراجعة القضايا المتداولة قضايا ملفات مذكرات دفاع محكمة auditing and evaluation of pending litigations" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('ongoing_cases');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="دراسة ومراجعة القضايا المتداولة قضايا ملفات مذكرات دفاع محكمة pending litigation audit lawyer Egypt" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('ongoing_cases');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass-chart"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="دراسة ومراجعة القضايا المتداولة" data-en="Auditing & Evaluation of Pending Litigations">دراسة ومراجعة القضايا المتداولة</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="فحص ملفات الدعاوى المنظورة أمام المحاكم على اختلاف درجاتها، إعداد مذكرات الدفاع التكميلية، وتقديم الرأي الاستراتيجي لتصويب الموقف القانوني." data-en="Scrutinizing case files and lawsuits pending before courts across all instances, preparing supplemental defense memoranda, and providing strategic counsel to rectify the legal standing.">
-                            فحص ملفات الدعاوى المنظورة أمام المحاكم على اختلاف درجاتها، إعداد مذكرات الدفاع التكميلية، وتقديم الرأي الاستراتيجي لتصويب الموقف القانوني.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="دراسة ومراجعة وتدقيق القضايا المتداولة أمام المحاكم" data-en="Pending Litigation Audit & Case File Evaluation">دراسة ومراجعة وتدقيق القضايا المتداولة أمام المحاكم</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="فحص ملفات الدعاوى المنظورة أمام المحاكم على اختلاف درجاتها، إعداد مذكرات الدفاع الاحتياطية والتكميلية، وتقديم الرأي الاستراتيجي لتصويب الموقف القانوني." data-en="Scrutinizing case files and lawsuits pending before courts across all instances, preparing supplemental defense memoranda, and providing strategic counsel to rectify the legal standing.">
+                            فحص ملفات الدعاوى المنظورة أمام المحاكم على اختلاف درجاتها، إعداد مذكرات الدفاع الاحتياطية والتكميلية، وتقديم الرأي الاستراتيجي لتصويب الموقف القانوني.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -1013,15 +1049,15 @@
                     </div>
                 </div>
 
-                <div data-title="استشارات قانونية عامة ومتنوعة استفسار قانوني رأي general and diverse legal advisory" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('general_inquiry');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
+                <div data-title="استشارات قانونية عامة ومتنوعة استفسار قانوني رأي legal consultation Egypt advisory" onclick="event.preventDefault(); event.stopPropagation(); openServiceModal('general_inquiry');" class="service-card bg-navy-950/80 hover:bg-navy-900 rounded-2xl p-8 border border-gold-500/20 hover:border-gold-500 transition-all duration-300 cursor-pointer group flex flex-col justify-between shadow-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-gold-500 to-amber-700"></div>
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 flex items-center justify-center text-3xl mb-6 transition-all duration-300 shadow-inner pointer-events-none">
                             <i class="fa-solid fa-circle-question"></i>
                         </div>
-                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="استشارات قانونية عامة ومتنوعة" data-en="General & Diverse Legal Advisory">استشارات قانونية عامة ومتنوعة</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="خدمة مخصصة لتقييم النزاعات القانونية المركبة التي تستوجب فحساً أولياً لتصنيف النزاع وتوجيه الموكل إلى القسم المختص بدقة." data-en="A dedicated service for evaluating complex legal disputes requiring preliminary assessment to categorize the dispute and accurately direct the client to the competent department.">
-                            خدمة مخصصة لتقييم النزاعات القانونية المركبة التي تستوجب فحساً أولياً لتصنيف النزاع وتوجيه الموكل إلى القسم المختص بدقة.
+                        <h3 class="text-xl font-extrabold text-white mb-3 group-hover:text-gold-400 transition-colors pointer-events-none" data-ar="استشارات قانونية عامة ومتنوعة واستفسارات فورية" data-en="General & Diverse Legal Consultations">استشارات قانونية عامة ومتنوعة واستفسارات فورية</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-8 line-clamp-3 pointer-events-none" data-ar="خدمة مخصصة لتقييم النزاعات القانونية المركبة التي تستوجب فحساً أولياً وتصنيفاً دقيقاً لتوجيه الموكل إلى القسم المختص وتقديم الرأي السديد." data-en="Dedicated service for evaluating complex legal disputes requiring preliminary assessment and precise categorization to direct clients to the competent department.">
+                            خدمة مخصصة لتقييم النزاعات المركبة التي تستوجب فحساً أولياً وتصنيفاً دقيقاً لتوجيه الموكل إلى القسم المختص.
                         </p>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-gold-400 group-hover:text-gold-300 pointer-events-none">
@@ -1078,6 +1114,25 @@
             </div>
 
             <div class="bg-navy-900 border border-gold-500/40 rounded-3xl p-8 md:p-12 shadow-2xl space-y-8">
+                <!-- Client Type Selector (Egyptian / Foreigner) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-gold-500/25">
+                    <div>
+                        <label id="label-client-type" for="calc-client-type" class="block text-xs font-bold text-gray-300 mb-2" data-ar="صفة الموكل / جنسية العميل" data-en="Client Nationality / Status">صفة الموكل / جنسية العميل</label>
+                        <select id="calc-client-type" aria-labelledby="label-client-type" aria-label="صفة الموكل أو جنسية العميل" onchange="onClientTypeChange(); calculateFee();" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500">
+                            <option value="egyptian" data-ar="مواطن مصري / مقيم محلي" data-en="Egyptian Citizen / Local Resident">مواطن مصري / مقيم محلي</option>
+                            <option value="foreigner" data-ar="مستثمر أجنبي / وافد دولي (مضاعفة الأتعاب)" data-en="Foreign Investor / International Expatriate (Doubled Fees)">مستثمر أجنبي / وافد دولي (مضاعفة الأتعاب)</option>
+                        </select>
+                    </div>
+                    <!-- Currency Selector (Visible automatically or when foreigner selected) -->
+                    <div id="currency-toggle-wrapper">
+                        <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="عملة عرض الأتعاب (سعر الصرف الرسمي)" data-en="Fee Display Currency (Official Rate)">عملة عرض الأتعاب (سعر الصرف الرسمي)</label>
+                        <div class="inline-flex bg-navy-950 p-1 rounded-xl border border-gold-500/40 w-full h-[48px] items-center">
+                            <button type="button" id="currency-egp-btn" onclick="setCurrency('EGP')" class="flex-1 py-2 rounded-lg text-xs font-extrabold bg-gold-500 text-navy-950 transition-all shadow-sm">ج.م (EGP)</button>
+                            <button type="button" id="currency-usd-btn" onclick="setCurrency('USD')" class="flex-1 py-2 rounded-lg text-xs font-extrabold text-gray-300 hover:text-white transition-all">دولار (USD)</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label id="label-calc-service-type" for="calc-service-type" class="block text-xs font-bold text-gray-300 mb-2" data-ar="اختر الخدمة القانونية" data-en="Select Legal Service">اختر الخدمة القانونية</label>
@@ -1098,8 +1153,8 @@
                 <div class="bg-navy-950 border border-gold-500/30 rounded-2xl p-6 text-center space-y-3">
                     <span class="text-xs text-gold-400 font-bold uppercase tracking-wider block" data-ar="الحد الأدنى للأتعاب" data-en="Minimum Professional Fee">الحد الأدنى للأتعاب</span>
                     <div id="calc-result" class="text-3xl md:text-5xl font-black text-gold-400 font-mono">1,000 ج.م</div>
-                    <p class="text-xs text-gray-400 mt-2 leading-relaxed" data-ar="ملاحظة: التقدير النهائي لأي أتعاب يكون بعد الإلمام الكامل بوقائع ومستندات كل حالة ومدى تعقيدها وإجراءاتها." data-en="Note: Final fee estimation is determined after full comprehension of each case's facts, documentation, complexity, and required procedures.">
-                        ملاحظة: التقدير النهائي لأي أتعاب يكون بعد الإلمام الكامل بوقائع ومستندات كل حالة ومدى تعقيدها وإجراءاتها.
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed" data-ar="ملاحظة: التقدير النهائي لأي أتعاب يكون بعد الإلمام الكامل بوقائع ومستندات كل حالة ومدى تعقيدها وإجراءاتها (أتعاب العميل الأجنبي مضاعفة مقارنة بالمواطن المصري وفقاً للجدول المعياري)." data-en="Note: Final fee estimation is determined after full comprehension of each case's facts and documentation (Foreign client fees are doubled compared to Egyptian clients).">
+                        ملاحظة: التقدير النهائي لأي أتعاب يكون بعد الإلمام الكامل بوقائع ومستندات كل حالة ومدى تعقيدها وإجراءاتها (أتعاب العميل الأجنبي مضاعفة مقارنة بالمواطن المصري وفقاً للجدول المعياري).
                     </p>
                 </div>
 
@@ -1715,7 +1770,7 @@
                         <p class="text-xs text-gray-300 mb-8 leading-relaxed font-medium" data-ar="(يستثنى منها جزئياً أو كلياً غير المقتدرين دائماً)" data-en="(Partially or fully waived for those in financial need)">(يستثنى منها جزئياً أو كلياً غير المقتدرين دائماً)</p>
                     </div>
                     <div>
-                        <a id="fee-meeting-whatsapp-btn" href="https://wa.me/201558115954?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%82%D8%A7%D8%A8%D9%84%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9%20%D8%A8%D8%A7%D9%84%D9%85%D9%82%D8%B1%20(%D8%A7%D9%84%D8%AD%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AF%D9%86%D9%89%20%D9%84%D9%84%D8%A3%D8%AA%D8%B9%D8%A7%D8%A8%202,000%20%D8%AC.%D9%85)%20-%20(%D8%AE%D9%84%D8%A7%D9%84%20%D9%A7%D9%A2%20%D8%B3%D8%A7%D8%B9%D8%A9)." target="_blank" class="inline-block w-full bg-gold-500 hover:bg-gold-600 text-navy-950 font-extrabold py-4 rounded-2xl transition-all text-base shadow-md" data-ar="احجز المقابلة" data-en="Book In-Person Meeting">احجز المقابلة</a>
+                        <a id="fee-meeting-whatsapp-btn" href="https://wa.me/201558115954?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%82%D8%A7%D8%A8%D9%84%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9%20%D8%A8%D8%A7%D9%84%D9%85%D9%82%D8%B1%20(%D8%A3%D8%AA%D8%B9%D8%A7%D8%A8%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%B7%D9%86%20%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%202,000%20%D8%AC.%D9%85%20-%20%D8%A3%D8%AA%D8%B9%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%8A%D9%84%20%D8%A7%D9%84%D8%A3%D8%AC%D9%86%D8%A8%D9%8A%204,000%20%D8%AC.%D9%85)%20-%20(%D8%AE%D9%84%D8%A7%D9%84%20%D9%A7%D9%A2%20%D8%B3%D8%A7%D8%B9%D8%A9)." target="_blank" class="inline-block w-full bg-gold-500 hover:bg-gold-600 text-navy-950 font-extrabold py-4 rounded-2xl transition-all text-base shadow-md" data-ar="احجز المقابلة" data-en="Book In-Person Meeting">احجز المقابلة</a>
                     </div>
                 </div>
 
@@ -1730,7 +1785,7 @@
                         <p class="text-xs text-gray-300 mb-8 leading-relaxed font-medium" data-ar="(ويخصم 50% لأعضاء المجموعات الرسمية للمؤسسة)" data-en="(50% discount for official community group members)">(ويخصم 50% لأعضاء المجموعات الرسمية للمؤسسة)</p>
                     </div>
                     <div>
-                        <a id="fee-phone-whatsapp-btn" href="https://wa.me/201558115954?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%87%D8%A7%D8%A8%D9%81%D9%8A%D8%A9%20(%D8%A7%D9%84%D8%AD%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AF%D9%86%D9%89%20%D9%84%D9%84%D8%A3%D8%AA%D8%B9%D8%A7%D8%A8%201,000%20%D8%AC.%D9%85)%20-%20(%D8%AE%D9%84%D8%A7%D9%84%20%D9%A7%D9%A2%20%D8%B3%D8%A7%D8%B9%D8%A9)." target="_blank" class="inline-block w-full bg-gold-500 hover:bg-gold-600 text-navy-950 font-extrabold py-4 rounded-2xl transition-all text-base shadow-md" data-ar="احجز استشارتك الهاتفية" data-en="Book Phone Consultation">احجز استشارتك الهاتفية</a>
+                        <a id="fee-phone-whatsapp-btn" href="https://wa.me/201558115954?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%87%D8%A7%D8%AA%D9%81%D9%8A%D8%A9%20(%D8%A3%D8%AA%D8%B9%D8%A7%D8%A8%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%B7%D9%86%20%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%201,000%20%D8%AC.%D9%85%20-%20%D8%A3%D8%AA%D8%B9%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%8A%D9%84%20%D8%A7%D9%84%D8%A3%D8%AC%D9%86%D8%A8%D9%8A%202,000%20%D8%AC.%D9%85)%20-%20(%D8%AE%D9%84%D8%A7%D9%84%20%D9%A7%D9%A2%20%D8%B3%D8%A7%D8%B9%D8%A9)." target="_blank" class="inline-block w-full bg-gold-500 hover:bg-gold-600 text-navy-950 font-extrabold py-4 rounded-2xl transition-all text-base shadow-md" data-ar="احجز استشارتك الهاتفية" data-en="Book Phone Consultation">احجز استشارتك الهاتفية</a>
                     </div>
                 </div>
             </div>
@@ -1867,6 +1922,32 @@
 
     <!-- Scripts -->
     <script>
+        let currentCurrency = 'EGP'; // Default currency
+        const OFFICIAL_USD_EGP_RATE = 50.5; // سعر الصرف الرسمي التقريبي الحالي للدولار مقابل الجنيه المصري
+
+        function onClientTypeChange() {
+            const clientType = document.getElementById('calc-client-type').value;
+            if (clientType === 'foreigner') {
+                setCurrency('USD');
+            } else {
+                setCurrency('EGP');
+            }
+        }
+
+        function setCurrency(curr) {
+            currentCurrency = curr;
+            const egpBtn = document.getElementById('currency-egp-btn');
+            const usdBtn = document.getElementById('currency-usd-btn');
+            if (curr === 'EGP') {
+                egpBtn.className = "flex-1 py-2 rounded-lg text-xs font-extrabold bg-gold-500 text-navy-950 transition-all shadow-sm";
+                usdBtn.className = "flex-1 py-2 rounded-lg text-xs font-extrabold text-gray-300 hover:text-white transition-all";
+            } else {
+                usdBtn.className = "flex-1 py-2 rounded-lg text-xs font-extrabold bg-gold-500 text-navy-950 transition-all shadow-sm";
+                egpBtn.className = "flex-1 py-2 rounded-lg text-xs font-extrabold text-gray-300 hover:text-white transition-all";
+            }
+            calculateFee();
+        }
+
         const precedentData = {
             'foreign_investor_nationality': {
                 ar: {
@@ -2243,45 +2324,60 @@
         function calculateFee() {
             const serviceType = document.getElementById('calc-service-type').value;
             const subOpt = document.getElementById('calc-sub-option').value;
+            const clientType = document.getElementById('calc-client-type').value;
             const resultDiv = document.getElementById('calc-result');
             
-            let minFee = 1000;
+            let minFeeEGP = 1000;
 
             if (serviceType === 'consultation') {
-                if (subOpt === 'phone') minFee = 1000;
-                else if (subOpt === 'office') minFee = 2000;
-                else if (subOpt === 'urgent') minFee = 3500;
-                else minFee = 1000;
+                if (subOpt === 'phone') minFeeEGP = 1000;
+                else if (subOpt === 'office') minFeeEGP = 2000;
+                else if (subOpt === 'urgent') minFeeEGP = 3500;
+                else minFeeEGP = 1000;
             } else if (serviceType === 'drafting_review') {
-                if (subOpt === 'civil_commercial_contract') minFee = 5000;
-                else if (subOpt === 'real_estate_contract') minFee = 7500;
-                else if (subOpt === 'corporate_due_diligence') minFee = 12000;
-                else minFee = 5000;
+                if (subOpt === 'civil_commercial_contract') minFeeEGP = 5000;
+                else if (subOpt === 'real_estate_contract') minFeeEGP = 7500;
+                else if (subOpt === 'corporate_due_diligence') minFeeEGP = 12000;
+                else minFeeEGP = 5000;
             } else if (serviceType === 'lawsuit') {
-                if (subOpt === 'misdemeanor_family') minFee = 8000;
-                else if (subOpt === 'civil_commercial_dispute') minFee = 15000;
-                else if (subOpt === 'felony_economic_administrative') minFee = 25000;
-                else minFee = 10000;
+                if (subOpt === 'misdemeanor_family') minFeeEGP = 8000;
+                else if (subOpt === 'civil_commercial_dispute') minFeeEGP = 15000;
+                else if (subOpt === 'felony_economic_administrative') minFeeEGP = 25000;
+                else minFeeEGP = 10000;
             }
 
-            const formattedMin = minFee.toLocaleString('en-US');
-            const currencyLabel = currentLang === 'en' ? 'EGP' : 'ج.م';
-            resultDiv.textContent = `${formattedMin} ${currencyLabel}`;
+            // إذا كان الموكل أجنبياً، تصبح الأتعاب ضعف أتعاب المواطن المصري
+            if (clientType === 'foreigner') {
+                minFeeEGP = minFeeEGP * 2;
+            }
+
+            if (currentCurrency === 'USD') {
+                // تحويل الأتعاب (المتضاعفة للأجنبي أو الأساسية للمصري) بسعر الصرف الرسمي المعلن في مصر
+                let minFeeUSD = Math.round(minFeeEGP / OFFICIAL_USD_EGP_RATE);
+                if (minFeeUSD < 20) minFeeUSD = 20;
+                resultDiv.textContent = `$${minFeeUSD.toLocaleString('en-US')} USD`;
+            } else {
+                const formattedMin = minFeeEGP.toLocaleString('en-US');
+                const currencyLabel = currentLang === 'en' ? 'EGP' : 'ج.م';
+                resultDiv.textContent = `${formattedMin} ${currencyLabel}`;
+            }
         }
 
         function sendCalculatorWhatsApp(e) {
             e.preventDefault();
+            const clientTypeEl = document.getElementById('calc-client-type');
             const serviceTypeEl = document.getElementById('calc-service-type');
             const subOptEl = document.getElementById('calc-sub-option');
             const resultDiv = document.getElementById('calc-result');
 
+            const clientTypeText = clientTypeEl.options[clientTypeEl.selectedIndex].text;
             const serviceText = serviceTypeEl.options[serviceTypeEl.selectedIndex].text;
             const subText = subOptEl.options[subOptEl.selectedIndex].text;
             const feeText = resultDiv.textContent;
 
             const text = currentLang === 'en'
-                ? `Hello, I used the Fee Calculator on the website and would like to request this service:\n- Service Category: ${serviceText}\n- Specific Scope: ${subText}\n- Estimated Fee: ${feeText}`
-                : `السلام عليكم ورحمة الله وبركاته، لقد قمت باستخدام حاسبة الأتعاب بالموقع وأرغب في طلب هذه الخدمة:\n- تصنيف الخدمة: ${serviceText}\n- نطاق الاختيار: ${subText}\n- التقدير الظاهر للأتعاب: ${feeText}`;
+                ? `Hello, I used the Fee Calculator on the website and would like to request this service:\n- Client Type: ${clientTypeText}\n- Service Category: ${serviceText}\n- Specific Scope: ${subText}\n- Estimated Fee: ${feeText}`
+                : `السلام عليكم ورحمة الله وبركاته، لقد قمت باستخدام حاسبة الأتعاب بالموقع وأرغب في طلب هذه الخدمة:\n- صفة الموكل: ${clientTypeText}\n- تصنيف الخدمة: ${serviceText}\n- نطاق الاختيار: ${subText}\n- التقدير الظاهر للأتعاب: ${feeText}`;
 
             window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank');
         }
@@ -2917,6 +3013,7 @@
                 htmlTag.setAttribute('lang', 'en');
                 htmlTag.setAttribute('dir', 'ltr');
                 document.getElementById('lang-btn-text').textContent = 'العربية';
+
                 if (apptDateDisplay) {
                     apptDateDisplay.style.textAlign = 'left';
                     apptDateDisplay.style.direction = 'ltr';
@@ -2927,18 +3024,19 @@
                 }
 
                 if (heroInstantBtn) {
-                    heroInstantBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('Hello, I would like to request an urgent legal consultation (Minimum fee: 3,500 EGP).');
+                    heroInstantBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('Hello, I would like to request an urgent legal consultation (Egyptian: 3,500 EGP / Foreigner: 7,000 EGP).');
                 }
                 if (feeMeetingBtn) {
-                    feeMeetingBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('Hello, I would like to book an in-person legal consultation at the office (Minimum fee: 2,000 EGP) - (within 72 hours).');
+                    feeMeetingBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('Hello, I would like to book an in-person legal consultation at the office (Egyptian Citizen Fee: 2,000 EGP / Foreign Client Fee: 4,000 EGP) - (within 72 hours).');
                 }
                 if (feePhoneBtn) {
-                    feePhoneBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('Hello, I would like to book a phone legal consultation (Minimum fee: 1,000 EGP) - (within 72 hours).');
+                    feePhoneBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('Hello, I would like to book a phone legal consultation (Egyptian Citizen Fee: 1,000 EGP / Foreign Client Fee: 2,000 EGP) - (within 72 hours).');
                 }
             } else {
                 htmlTag.setAttribute('lang', 'ar');
                 htmlTag.setAttribute('dir', 'rtl');
                 document.getElementById('lang-btn-text').textContent = 'English';
+
                 if (apptDateDisplay) {
                     apptDateDisplay.style.textAlign = 'right';
                     apptDateDisplay.style.direction = 'rtl';
@@ -2949,13 +3047,13 @@
                 }
 
                 if (heroInstantBtn) {
-                    heroInstantBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('السلام عليكم ورحمة الله وبركاته، أرغب في طلب استشارة قانونية فورية عاجلة (الحد الأدنى للأتعاب 3,500 ج.م).');
+                    heroInstantBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('السلام عليكم ورحمة الله وبركاته، أرغب في طلب استشارة قانونية فورية عاجلة (للمصري 3,500 ج.م وللأجنبي 7,000 ج.م).');
                 }
                 if (feeMeetingBtn) {
-                    feeMeetingBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('السلام عليكم ورحمة الله وبركاته، أرغب في حجز مقابلة قانونية بالمقر (الحد الأدنى للأتعاب 2,000 ج.م) - (خلال ٧٢ ساعة).');
+                    feeMeetingBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('السلام عليكم ورحمة الله وبركاته، أرغب في حجز مقابلة قانونية بالمقر (أتعاب المواطن المصري 2,000 ج.م - أتعاب العميل الأجنبي 4,000 ج.م) - (خلال ٧٢ ساعة).');
                 }
                 if (feePhoneBtn) {
-                    feePhoneBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('السلام عليكم ورحمة الله وبركاته، أرغب في حجز استشارة هاتفية (الحد الأدنى للأتعاب 1,000 ج.م) - (خلال ٧٢ ساعة).');
+                    feePhoneBtn.href = 'https://wa.me/201558115954?text=' + encodeURIComponent('السلام عليكم ورحمة الله وبركاته، أرغب في حجز استشارة هاتفية (أتعاب المواطن المصري 1,000 ج.م - أتعاب العميل الأجنبي 2,000 ج.م) - (خلال ٧٢ ساعة).');
                 }
             }
 
