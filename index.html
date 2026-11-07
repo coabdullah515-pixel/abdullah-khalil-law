@@ -111,7 +111,7 @@
     }
     </script>
 <!-- Tailwind CSS CDN -->
-<script defer src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script>
         tailwind.config = {
             darkMode: 'class',
@@ -591,41 +591,6 @@
         body.light-mode .text-gold-400 {
             color: #8c6b2d !important;
         }
-        /* Critical above-the-fold styles: keep the hero paintable before the Tailwind CDN runtime executes. */
-        #home.hero-bg {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 70vh;
-            padding: 7rem 1rem 4rem;
-            text-align: center;
-            color: #fff;
-            background-color: #0a0f1d;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            contain: paint;
-        }
-        #home.hero-bg > div {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 56rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #home.hero-bg h1 {
-            margin: 0;
-            font-size: clamp(1.85rem, 5vw, 3.75rem);
-            font-weight: 900;
-            line-height: 1.25;
-            letter-spacing: -0.025em;
-        }
-        #home.hero-bg p { margin-left: auto; margin-right: auto; }
-        @media (min-width: 768px) {
-            #home.hero-bg { min-height: 600px; padding-top: 5rem; padding-bottom: 5rem; }
-        }
-
         .hero-bg {
             background-image: linear-gradient(to bottom, rgba(5, 7, 14, 0.88), rgba(10, 15, 29, 0.96)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=70');
             background-position: center;
