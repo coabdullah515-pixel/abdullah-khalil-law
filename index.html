@@ -24,91 +24,173 @@
 <meta content="https://abdullahkhalillaw.vercel.app/IMG-20261105-WA0004.jpg" name="twitter:image"/>
 <!-- Structured Data JSON-LD for Bilingual Legal Services (Enriched & Comprehensive) -->
 <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "@id": "https://abdullahkhalillaw.vercel.app/#legalservice",
+  "name": "مؤسسة المستشار عبدالله محمد خليل والمستشارة أميرة محمد العرابي للمحاماة والاستشارات القانونية",
+  "alternateName": "The Law Firm of Counselor Abdullah M. Khalil & Counselor Amira M. El-Oraby",
+  "url": "https://abdullahkhalillaw.vercel.app/",
+  "image": "https://abdullahkhalillaw.vercel.app/IMG-20261105-WA0004.jpg",
+  "telephone": "+201558115954",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/share/19df1t5VHE/"
+  ],
+  "hasMap": "https://maps.app.goo.gl/XZei19urwW8VASeh9?g_st=ac",
+  "address": [
     {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "مؤسسة المستشار عبدالله محمد خليل والمستشارة أميرة محمد العرابي للمحاماة والاستشارات القانونية",
-      "alternateName": "The Law Firm of Counselor Abdullah M. Khalil & Counselor Amira M. El-Oraby",
-      "url": "https://abdullahkhalillaw.vercel.app/",
-      "image": "https://abdullahkhalillaw.vercel.app/IMG-20261105-WA0004.jpg",
-      "telephone": "+201558115954",
-      "priceRange": "$$",
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "النزهة 2",
-          "addressLocality": "مدينة نصر",
-          "addressRegion": "القاهرة",
-          "addressCountry": "EG"
-        }
-      ],
-      "founder": [
-        {
-          "@type": "Person",
-          "name": "عبدالله محمد خليل",
-          "jobTitle": "مؤسس ورئيس المؤسسة - محام بالاستئناف العالي ومجلس الدولة"
-        },
-        {
-          "@type": "Person",
-          "name": "أميرة محمد العرابي",
-          "jobTitle": "مؤسس مشارك ورئيس المؤسسة - محامية بالاستئناف العالي ومجلس الدولة"
-        }
-      ],
-      "areaServed": {
-        "@type": "Country",
-        "name": "Egypt"
-      },
-      "availableLanguage": ["Arabic", "English"],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"],
-          "opens": "12:00",
-          "closes": "23:00"
-        }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "الخدمات القانونية والاستشارية",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "القضايا الجنائية والدفاع أمام محاكم الجنح والجنايات"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "المنازعات المدنية والعقارية وصحة ونفاذ العقود"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "القانون التجاري وحوكمة الشركات وتأسيسها أمام هيئة الاستثمار"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "قضايا الأحوال الشخصية والولاية على المال"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "شئون الأجانب وتراخيص الاستثمار وزواج الأجانب والتجنس"
-            }
-          }
-        ]
+      "@type": "PostalAddress",
+      "streetAddress": "النزهة 2",
+      "addressLocality": "مدينة نصر",
+      "addressRegion": "القاهرة",
+      "addressCountry": "EG"
+    }
+  ],
+  "founder": [
+    {
+      "@type": "Person",
+      "@id": "https://abdullahkhalillaw.vercel.app/#abdullah-m-khalil",
+      "name": "عبدالله محمد خليل",
+      "jobTitle": "مؤسس ورئيس المؤسسة - محام بالاستئناف العالي ومجلس الدولة",
+      "worksFor": {
+        "@id": "https://abdullahkhalillaw.vercel.app/#legalservice"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://abdullahkhalillaw.vercel.app/#amira-m-el-oraby",
+      "name": "أميرة محمد العرابي",
+      "jobTitle": "مؤسس مشارك ورئيس المؤسسة - محامية بالاستئناف العالي ومجلس الدولة",
+      "worksFor": {
+        "@id": "https://abdullahkhalillaw.vercel.app/#legalservice"
       }
     }
+  ],
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Egypt"
+    },
+    {
+      "@type": "City",
+      "name": "Cairo"
+    }
+  ],
+  "availableLanguage": [
+    "Arabic",
+    "English"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+201558115954",
+      "contactType": "legal inquiries and appointments",
+      "availableLanguage": [
+        "Arabic",
+        "English"
+      ],
+      "url": "https://wa.me/201558115954"
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+      ],
+      "opens": "12:00",
+      "closes": "23:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "الخدمات القانونية والاستشارية",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "القضايا الجنائية والدفاع والتمثيل أمام جهات التحقيق والمحاكم"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "القضايا المدنية والتجارية والمطالبات المالية"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "الملكية العقارية والشهر العقاري والتسجيل"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "تأسيس الشركات والاستثمار المحلي والأجنبي"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "تسجيل وحماية الملكية الفكرية والعلامات التجارية"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "التحكيم التجاري وتسوية المنازعات بالوسائل البديلة"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "شؤون الأجانب والإقامة وزواج الأجانب واكتساب الجنسية"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "قضايا القضاء الإداري ومجلس الدولة"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "قضايا محاكم الأسرة والأحوال الشخصية والولاية على المال"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "صياغة ومراجعة العقود التجارية والمدنية"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "الاستشارات القانونية المؤسسية والفردية"
+        }
+      }
+    ]
+  }
+}
     </script>
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
