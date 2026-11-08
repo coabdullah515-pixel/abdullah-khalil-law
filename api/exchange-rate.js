@@ -1,6 +1,10 @@
+
 module.exports = async (req, res) => {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
-  res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=3600');
+  res.setHeader(
+    'Cache-Control',
+    's-maxage=1800, stale-while-revalidate=3600'
+  );
 
   if (req.method !== 'GET') {
     res.setHeader('Allow', 'GET');
@@ -13,44 +17,50 @@ module.exports = async (req, res) => {
       {
         headers: {
           'User-Agent': 'Mozilla/5.0',
-          'Accept': 'text/html'
+          'Accept': 'text/html,application/xhtml+xml'
         }
       }
     );
 
     if (!response.ok) {
-      throw new Error('CBE source unavailable');
+      throw new Error(`CBE HTTP error: ${response.status}`);
     }
 
     const html = await response.text();
 
-    const row = html.match(
-      /<tr\b[^>]*>[\s\S]*?US\s*Dollar[\s\S]*?<\/tr>/i
-    );
-
-    if (!row) {
-      throw new Error('USD rate row not found');
-    }
-
-    const values = row[0]
-      .replace(/<[^>]*>/g, ' ')
+    // Convert HTML into readable text
+    const text = html
+      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
       .replace(/&nbsp;|&#160;/gi, ' ')
       .replace(/&amp;/gi, '&')
-      .match(/\d+(?:\.\d+)?/g);
+      .replace(/&#(\d+);/g, (_, n) =>
+        String.fromCharCode(Number(n))
+      )
+      .replace(/&[a-z]+;/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
 
-    if (!values || values.length < 2) {
-      throw new Error('Invalid USD rate data');
+    // Find USD buy and sell values
+    const usdMatch = text.match(
+      /US\s*Dollar\s*([\d,]+(?:\.\d+)?)\s*([\d,]+(?:\.\d+)?)/i
+    );
+
+    if (!usdMatch) {
+      throw new Error('USD rate not found in CBE page text');
     }
 
-    const buy = Number(values[0]);
-    const sell = Number(values[1]);
+    const buy = Number(usdMatch[1].replace(/,/g, ''));
+    const sell = Number(usdMatch[2].replace(/,/g, ''));
 
-    const dateMatch = html.match(
-      /Rates\s+for\s+Date\s*:\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/i
+    // Find publication date
+    const dateMatch = text.match(
+      /Rates\s+for\s+Date\s*:?\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/i
     );
 
     if (!dateMatch) {
-      throw new Error('Publication date not found');
+      throw new Error('CBE publication date not found');
     }
 
     const rateDate =
@@ -59,29 +69,29 @@ module.exports = async (req, res) => {
     if (
       !Number.isFinite(buy) ||
       !Number.isFinite(sell) ||
-      buy <= 1 ||
+      buy <= 0 ||
       sell < buy
     ) {
-      throw new Error('Invalid exchange rate');
+      throw new Error('Invalid CBE USD rate values');
     }
-
-    const mid = (buy + sell) / 2;
 
     return res.status(200).json({
       buy,
       sell,
-      mid: Number(mid.toFixed(6)),
+      mid: Number(((buy + sell) / 2).toFixed(6)),
       rateDate,
       fetchedAt: new Date().toISOString(),
       source: 'Central Bank of Egypt',
-      sourceUrl: 'https://www.cbe.org.eg/en/economic-research/statistics/cbe-exchange-rates'
+      sourceUrl:
+        'https://www.cbe.org.eg/en/economic-research/statistics/cbe-exchange-rates'
     });
 
   } catch (error) {
     console.error('Exchange rate API error:', error);
 
     return res.status(502).json({
-      error: 'Exchange rate temporarily unavailable'
+      error: 'Exchange rate temporarily unavailable',
+      details: error.message
     });
   }
 };
