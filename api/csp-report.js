@@ -1,11 +1,11 @@
+
 'use strict';
 
-// Vercel Node.js Function: receives CSP violation reports and writes only
-// normalized, privacy-minimized fields to the Vercel Function runtime logs.
-// It intentionally does not persist report bodies or reflect submitted data.
+// CSP report receiver for Vercel
+// Privacy-minimized logging only.
 
 const MAX_BODY_BYTES = 48 * 1024;
-const MAX_REPORTS_PER_REQUEST = 20;
+const MAX_REPORTS = 20;
 
 function clip(value, max = 300) {
   if (typeof value !== 'string') return undefined;
@@ -15,51 +15,150 @@ function clip(value, max = 300) {
 
 function safeUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return undefined;
+
   const raw = value.trim();
-  if (/^(inline|eval|wasm-eval|data):?$/i.test(raw)) return raw.slice(0, 80);
+
+  if (/^(inline|eval|wasm-eval|data):?$/i.test(raw)) {
+    return raw.slice(0, 80);
+  }
+
   try {
     const u = new URL(raw, 'https://invalid.local');
-    // Remove query strings and fragments: they can contain tokens or personal data.
-    return (u.origin === 'https://invalid.local' ? u.pathname : u.origin + u.pathname).slice(0, 500);
+    return (
+      u.origin === 'https://invalid.local'
+        ? u.pathname
+        : u.origin + u.pathname
+    ).slice(0, 500);
   } catch (_) {
     return raw.split(/[?#]/, 1)[0].slice(0, 500);
   }
 }
 
-function pick(report) {
+function normalize(report) {
   const r = report && typeof report === 'object' ? report : {};
-  const body = r.body && typeof r.body === 'object' ? r.body :
-    (r['csp-report'] && typeof r['csp-report'] === 'object' ? r['csp-report'] : r);
-  const out = {
+
+  const body =
+    r.body && typeof r.body === 'object'
+      ? r.body
+      : r['csp-report'] && typeof r['csp-report'] === 'object'
+        ? r['csp-report']
+        : r;
+
+  const line = body.lineNumber ?? body['line-number'];
+  const column = body.columnNumber ?? body['column-number'];
+  const status = body.statusCode ?? body['status-code'];
+
+  const result = {
+    type: clip(r.type, 80),
     disposition: clip(body.disposition || r.disposition, 40),
-    documentUri: safeUrl(body.documentURL || body['document-uri'] || r.url),
-    blockedUri: safeUrl(body.blockedURL || body['blocked-uri']),
-    effectiveDirective: clip(body.effectiveDirective || body['effective-directive'], 120),
-    violatedDirective: clip(body['violated-directive'], 120),
-    sourceFile: safeUrl(body.sourceFile || body['source-file']),
-    lineNumber: Number.isFinite(Number(body.lineNumber || body['line-number'])) ? Number(body.lineNumber || body['line-number']) : undefined,
-    columnNumber: Number.isFinite(Number(body.columnNumber || body['column-number'])) ? Number(body.columnNumber || body['column-number']) : undefined,
-    statusCode: Number.isFinite(Number(body.statusCode || body['status-code'])) ? Number(body.statusCode || body['status-code']) : undefined
+    documentUri: safeUrl(
+      body.documentURL || body['document-uri'] || r.url
+    ),
+    blockedUri: safeUrl(
+      body.blockedURL || body['blocked-uri']
+    ),
+    effectiveDirective: clip(
+      body.effectiveDirective || body['effective-directive'],
+      120
+    ),
+    violatedDirective: clip(
+      body['violated-directive'] || body.violatedDirective,
+      120
+    ),
+    sourceFile: safeUrl(
+      body.sourceFile || body['source-file']
+    ),
+    lineNumber:
+      line !== undefined && Number.isFinite(Number(line))
+        ? Number(line)
+        : undefined,
+    columnNumber:
+      column !== undefined && Number.isFinite(Number(column))
+        ? Number(column)
+        : undefined,
+    statusCode:
+      status !== undefined && Number.isFinite(Number(status))
+        ? Number(status)
+        : undefined
   };
-  Object.keys(out).forEach(k => out[k] === undefined && delete out[k]);
-  return out;
+
+  Object.keys(result).forEach((key) => {
+    if (result[key] === undefined) delete result[key];
+  });
+
+  return result;
 }
 
-function parseReports(body) {
-  if (Array.isArray(body)) return body.slice(0, MAX_REPORTS_PER_REQUEST);
-  if (body && typeof body === 'object') {
-    if (Array.isArray(body.reports)) return body.reports.slice(0, MAX_REPORTS_PER_REQUEST);
-    return [body];
+async function readRawBody(req) {
+  const chunks = [];
+  let total = 0;
+
+  for await (const chunk of req) {
+    const buffer = Buffer.isBuffer(chunk)
+      ? chunk
+      : Buffer.from(chunk);
+
+    total += buffer.length;
+
+    if (total > MAX_BODY_BYTES) {
+      const error = new Error('Payload too large');
+      error.statusCode = 413;
+      throw error;
+    }
+
+    chunks.push(buffer);
   }
-  if (typeof body === 'string') {
-    if (Buffer.byteLength(body, 'utf8') > MAX_BODY_BYTES) return null;
-    try { return parseReports(JSON.parse(body)); } catch (_) { return null; }
+
+  return Buffer.concat(chunks, total);
+}
+
+function parseReports(value) {
+  if (Buffer.isBuffer(value)) {
+    value = value.toString('utf8');
   }
+
+  if (typeof value === 'string') {
+    if (Buffer.byteLength(value, 'utf8') > MAX_BODY_BYTES) {
+      return null;
+    }
+
+    try {
+      value = JSON.parse(value);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  if (Array.isArray(value)) {
+    return value.slice(0, MAX_REPORTS);
+  }
+
+  if (value && typeof value === 'object') {
+    if (Array.isArray(value.reports)) {
+      return value.reports.slice(0, MAX_REPORTS);
+    }
+
+    if (
+      value['csp-report'] &&
+      typeof value['csp-report'] === 'object'
+    ) {
+      return [value];
+    }
+
+    if (
+      value['violated-directive'] ||
+      value.violatedDirective ||
+      value.effectiveDirective ||
+      value.body
+    ) {
+      return [value];
+    }
+  }
+
   return null;
 }
 
-module.exports = function handler(req, res) {
-  // Reports are same-origin POSTs; no permissive CORS header is added.
+module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('X-Content-Type-Options', 'nosniff');
 
@@ -68,24 +167,90 @@ module.exports = function handler(req, res) {
     return res.status(405).end();
   }
 
-  const contentType = String(req.headers['content-type'] || '').toLowerCase();
-  const accepted = contentType.includes('application/csp-report') ||
+  const contentType = String(
+    req.headers['content-type'] || ''
+  ).toLowerCase();
+
+  const accepted =
+    contentType.includes('application/csp-report') ||
     contentType.includes('application/reports+json') ||
     contentType.includes('application/json');
-  if (!accepted) return res.status(415).end();
 
-  let body = req.body;
-  if (body === undefined || body === null) body = '';
+  if (!accepted) {
+    return res.status(415).end();
+  }
+
+  const contentLength = Number(
+    req.headers['content-length']
+  );
+
+  if (
+    Number.isFinite(contentLength) &&
+    contentLength > MAX_BODY_BYTES
+  ) {
+    return res.status(413).end();
+  }
+
+  let body;
+
+  try {
+    body = req.body;
+
+    // If the platform did not parse the request,
+    // read the raw request stream.
+    if (
+      body === undefined ||
+      body === null ||
+      (typeof body === 'object' &&
+        !Buffer.isBuffer(body) &&
+        Object.keys(body).length === 0)
+    ) {
+      body = await readRawBody(req);
+    }
+  } catch (error) {
+    if (error && error.statusCode === 413) {
+      return res.status(413).end();
+    }
+
+    console.warn(JSON.stringify({
+      event: 'csp_report_read_error'
+    }));
+
+    return res.status(400).end();
+  }
+
   let bytes;
-  try { bytes = Buffer.byteLength(typeof body === 'string' ? body : JSON.stringify(body), 'utf8'); }
-  catch (_) { return res.status(400).end(); }
-  if (bytes > MAX_BODY_BYTES) return res.status(413).end();
+
+  try {
+    bytes = Buffer.isBuffer(body)
+      ? body.length
+      : Buffer.byteLength(
+          typeof body === 'string'
+            ? body
+            : JSON.stringify(body),
+          'utf8'
+        );
+  } catch (_) {
+    return res.status(400).end();
+  }
+
+  if (bytes > MAX_BODY_BYTES) {
+    return res.status(413).end();
+  }
 
   const reports = parseReports(body);
-  if (!reports || reports.length === 0) return res.status(400).end();
 
-  const normalized = reports.map(pick);
-  // Avoid logging raw payloads, query strings, cookies, headers, or script samples.
+  if (!reports || reports.length === 0) {
+    console.warn(JSON.stringify({
+      event: 'csp_report_rejected',
+      reason: 'invalid_or_empty_payload'
+    }));
+
+    return res.status(400).end();
+  }
+
+  const normalized = reports.map(normalize);
+
   console.log(JSON.stringify({
     event: 'csp_violation_reports',
     count: normalized.length,
