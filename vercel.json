@@ -1,0 +1,42 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "X-Permitted-Cross-Domain-Policies",
+          "value": "none"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://wa.me; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://images.unsplash.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com; frame-src 'self' https://www.googletagmanager.com; upgrade-insecure-requests"
+        },
+        {
+          "key": "Content-Security-Policy-Report-Only",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://wa.me; script-src 'self' 'unsafe-hashes' 'sha256-p/jsQjuwJYM5IyB7f421IbmJwADRwqkVsnz/uVrjB9M=' 'sha256-LmbbdMK9L/kUgX7alDC/zO9iEzoacauxFm3NsyR4zZY=' 'sha256-tSzqzW2yv4Uvcd1kTxf0U/oSdev2pOzn0t6Pms75vAI=' 'sha256-uK1vBYbAxPIYMrzk3kU04RuLCcOAUyyJa7m9FKXP2pY=' 'sha256-x04bfU7RosIVNFuAeoTTAvShqqdNyHRArvhmkkFBGbA=' 'sha256-T1oVSvvmrFu06XANyzaYxXMgA6k6efzfaQ2c4NnLL1k=' 'sha256-oaX7yFTSNjFMzDx033ljh7AgPTJmQvnRniao+JzD6bI=' 'sha256-Zte8CFh9GQ7MFWiSQnuhlBruVoZKHG8eAbGAkSNMNxs=' 'sha256-+j8XTqS5V2IxBdTPYlNWXKr0ceNUkgDKMlf+diGaCX4=' 'sha256-gfzVJ7zbymXwTbEmX6qHtioZ5OdQ+z2cwf8/B4Pt9Oo=' 'sha256-l/sVMuWfV5jRl+yij6JNyOuC1tj67S0VZtblPnmonAE=' 'sha256-CA2cUErJboTYFkr2ozDZKxGpORjpZSyEpS+NbfZ/jQ4=' 'sha256-PIdJONJ4JwQdmF7wB/nh0QPRWOFdcwKmJ6sdSpO2hEM=' 'sha256-sGvmug0jUdbpEcrL4MmGvealcBRqbvT46NkYm7b51Lo=' 'sha256-BBJPmP65pQ0nekhyctXAkZXhPBufVDMv3PLsLHTKZS8=' 'sha256-O5/3bOi91PG7G3ELiFlECr38RMjBgUpynZzaRRpZUHE=' 'sha256-hVr+17XCta8J5oAgcVfvPqlaoMGmCv+jsU1DWTKKAJQ=' 'sha256-u8Wt4TlkBD17BN4+4t3eigTuFtYuCHbYAcsaP5zzGA8=' 'sha256-2/Ycy48K0CO6Fn1TpAV7126ik7Ei8yzKLJ87nl0MBCQ=' 'sha256-DOE3gh03+iJWcxBawMks9sp4VygwxaK+lmfnHf3+3+I=' 'sha256-2tKlY/MlKozyME0jZx7nCZgSup9z+EkrhpSTeUhvDOQ=' 'sha256-fRtsmyGs3OOLOBbPvtp/LYvORvgoJQkJUrwcs7T3KxA=' 'sha256-WiotkELJPCd70vgjKED4YbtruBEnKfxAfD0kMa3xKqk=' 'sha256-pLNC2dCdpfQB61nypshRB8he47YDXAI6QGEiu8saakI=' 'sha256-tfdbDgk043nYR3OZcMiVUjD5IjHuOt18yoB1twuxwsk=' 'sha256-M2Rk1qWyZSuRRlsbjwLYjWWOB0we5MuLUgQp0+1OUTY=' 'sha256-SC/+bCl4ELKJ0GtZiun9mgVOqF5UnN0j+mpHdixpbaQ=' 'sha256-hz1fzM3bocIpOZx6TrvA4j2/t5EGRIRfjtpeT0dFkY8=' 'sha256-RGQlM/QpUdyX9zG2iuHtqEbQt+spgMpv0MoQNZKjkfc=' 'sha256-kGNYCQtn2iHT+iD7ztKvYS7RDXoH2QC89MpXtPUyAEU=' 'sha256-GmHZlBblsyhHOpx3z7MPmMZrPI6BQu844o4qFI30Oa8=' 'sha256-75xLVfBCzOV7CUT9AApjUGmV0gTQOHTp/eJrThTKPaI=' 'sha256-lnfAyu8Jt8xZ+MmmCii+TcEtnEihkbnOgm9pETq9efQ=' 'sha256-ljUyOQcNl+wg73uAE37clX1FeXoYj2q9PEPrliDxXZs=' 'sha256-5eImHjRM9PCEM2Lk3eN/OsOzKZ9cvghUHRXn6xbllqI=' 'sha256-XcTGnPltL8PR+7Pr5XBui8U0tiAPwLm8g4i8l1cMQds=' 'sha256-Wz+rLkjX9W9bAEnujvnfxDCbmuYNL5zI5fZkykwJdO8=' 'sha256-AYKVg0IH/7MKwZD5vdD6GqOIqUPkFnDTeUyWKXlIcvU=' 'sha256-jOVHsTZq5TBp4qjPcY471Yzjx72Y5sG20wTIfJUnbH4=' 'sha256-m9UilUEFWW+2Y4uKLbWNyPH9wlZ0ra2h0k6BXZDmsRs=' 'sha256-SCBWNyoXOS+bR8buTL4DJ0oc4IoS5B2awowEPMsR0KQ=' 'sha256-T336wTWxHA9KMQh+PuIPMH5pxGoEapcctXMVkX4IcvU=' 'sha256-MU1s0XtvQzBQI/D9MdtuYKNOzBH4UYMhVCqZc+2iqBg=' 'sha256-m3B60w99bI9CsQoqVQh9sO36HBP5IDBUEMv1Bwlxjp8=' 'sha256-pqlHsmJUOoPjgh7QflU/m+gWnuhtXe8XQxuIT4nXVQI=' 'sha256-y+s3svEAjYl/LFZRJT23PChinfxi1IbJnaQWausFFAw=' 'sha256-L6A1npZy8WGEog7qUj13w3YV9J/unnmkmAGlFNnfan8=' 'sha256-cvF21aESdr8XY/WYxXN4iZXybdtXMJy+59SYqnVSJWw=' 'sha256-zm3PDZxptbAvwXv8Jdw53DojJ59qXkLwhxWEUc3e+UM=' 'sha256-Smv5QCNu/Psw6F1AGhTGF/2D1BUaOWex5xLT3nCihyU=' 'sha256-NufFQhqVlLFy16nQdnIp/EzDqGNjGvDj4gPRnUjCdbw=' 'sha256-9ZOAjvEc7oZvBUl11P9ukNeHLlnt0Wkun6ORET8MOWI=' 'sha256-BvonJ/fb0Tyusf7hP3lQTkjtCPcI54o63Bd9Uh9Lzx0=' 'sha256-P/imDvh/0V0laEPEWgA01MurbHdjar2GfLON56K/hCI=' 'sha256-muU8X2PhX9FH8B7/IbT6UZg34Niw7RZQlGxznA1lobM=' 'sha256-0dJQMVlx+T6WdLGv59bCHsFLjqseG2Xtqz4yYYzl/Kk=' 'sha256-V8PzQjE8u+ye/LfnvB2QQTi73YRMFlq3Jb3O3sQBlhc=' 'sha256-pdxFdUaAO0jB7TkT6X44PJ/FdxyJR9vcBAEOJDh92tQ=' 'sha256-fJtNyLsOkX14CAi32TM5/uas4PLvuuGLuEiTrIEs2ZQ=' 'sha256-y/Pu1fqJEJ/VST+6nQ+rlimQxLLvFvD7f4V8nsPr7Rc=' 'sha256-12oSxaIUORds0qY02zLh3zTMxh8NxnUgIZyt0JNPXgw=' 'sha256-yJ9R2Sz8645ozrBHvsxyfC+LiIZgWU4qKwtXn+FPbfg=' 'sha256-2QOV4BzYqiVzTKOefDp/u41w5yQZnqvgdNNK3I9FQQI=' 'sha256-4+lBH8A0zbwCz6gkDvSzHl1fjcDbmni27BS4cziOIkI=' 'sha256-acKYVSvNcgPmVCi+PpClI5pHzkRvFNYRkbshq0e0x6U=' 'sha256-lwOAsT0mbxH2kfYfe/OEyncagA3cj0B1zcNP8vyR+Pk=' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.tailwindcss.com; style-src 'self' 'unsafe-hashes' 'sha256-+JZpm0nADZGRL+Ea4MWKPJ9I09ltIv6VZfVagasJPp4=' 'sha256-kELgoK46JmGjLd8UHfzN0qJToDgIB+yMtRHG8PtGL7s=' 'sha256-OMhdAlWSqZqrg1NO4hrByhRlsbv5DuzmaSEEvfxoFP4=' 'sha256-a2N3EKnaoydO1yYpvrcY9QE0H+EDL5m49VZ2bOekdUI=' 'sha256-mCz1r7vFAS9Us70ffJ38fJetOuq1QBd9NoQuD/mcLrc=' 'sha256-ReJtRAi+mCe+csc0tebMmmUpBJxGSNf8X/DmKQLoP+c=' 'sha256-pquq5PLbf7sTU2bOkeQMb8WaUX0HYWEEZhsnmhluebo=' 'sha256-SjNRBgz9hDBYZ7TTHkinoihTeiHFxb7tT3pkx21Fl1I=' 'sha256-8bRWaB16VTcWzpMjEVf0oY9mZHNatsNVK73st5xRTHo=' 'sha256-tDyLQ//FH5ZozAPTz9d3UCbXVWGV5vBm6yabwpd1AHg=' 'sha256-2/fK8ZEU5BFq+juC7fL1pVRrrjI6TVmt/GxRN+AvzyE=' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://images.unsplash.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com; frame-src 'self' https://www.googletagmanager.com; upgrade-insecure-requests"
+        }
+      ]
+    }
+  ]
+}
