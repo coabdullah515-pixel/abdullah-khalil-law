@@ -11,6 +11,7 @@
   gtag('config', 'G-QMTN9HW82B');
 </script>
 <meta charset="utf-8"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
 <title>مؤسسة المستشار عبدالله محمد خليل والمستشارة أميرة محمد العرابي للمحاماة | Egyptian Law Firm in Cairo</title>
 <!-- وصف تعريفي تحفيزي ومزدوج اللغة لمحركات البحث (SEO Meta Description & Keywords) -->
@@ -281,7 +282,7 @@
             -webkit-text-size-adjust: 100%;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: auto !important;
+            overflow-x: clip !important;
             overflow-y: auto !important;
             width: 100%;
             min-width: 320px;
@@ -290,7 +291,7 @@
         }
 
         html {
-            overflow-x: auto !important;
+            overflow-x: clip !important;
             overflow-y: auto !important;
             scroll-behavior: smooth;
             min-width: 320px;
@@ -303,14 +304,7 @@
             -webkit-overflow-scrolling: touch !important;
         }
 
-        body:not(.light-mode) h1, 
-        body:not(.light-mode) h2, 
-        body:not(.light-mode) h3, 
-        body:not(.light-mode) h4, 
-        body:not(.light-mode) span,
-        body:not(.light-mode) p {
-            color: #ffffff;
-        }
+        /* Preserve component-level Tailwind colors in dark mode; avoid global span/p overrides. */
 
         h1, h2, h3, h4 {
             letter-spacing: -0.025em;
@@ -770,7 +764,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 <div class="flex items-center justify-between h-20 gap-3 sm:gap-4 w-full">
 <div class="flex items-center gap-2 sm:gap-3 order-1 shrink-0">
-<button aria-label="القائمة والخدمات" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-4 py-2.5 h-10 lg:h-11 rounded-xl text-xs sm:text-sm focus:outline-none transition-all flex items-center gap-2 shrink-0 cursor-pointer shadow-md" id="mobile-menu-btn">
+<button aria-label="القائمة والخدمات" class="bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/60 text-gold-400 font-bold px-4 py-2.5 h-10 lg:h-11 rounded-xl text-xs sm:text-sm focus:outline-none transition-all flex items-center gap-2 shrink-0 cursor-pointer shadow-md" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false">
 <i class="fa-solid fa-bars text-sm sm:text-base text-gold-400"></i>
 <span class="text-xs sm:text-sm font-extrabold hidden sm:inline-block text-gold-400" data-ar="القائمة والخدمات" data-en="Menu">القائمة والخدمات</span>
 </button>
@@ -1683,7 +1677,7 @@
 </div>
 <div>
 <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="رقم الهاتف للتواصل" data-en="Contact Telephone Number" for="appt-phone" id="label-appt-phone">رقم الواتساب للتواصل</label>
-<input aria-label="رقم الواتساب للتواصل" aria-labelledby="label-appt-phone" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500" id="appt-phone" oninput="this.setCustomValidity('')" oninvalid="checkInputValidity(this)" placeholder="01xxxxxxxx" required="" type="tel"/>
+<input aria-label="رقم الواتساب للتواصل" aria-labelledby="label-appt-phone" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500" id="appt-phone" name="appt-phone" autocomplete="tel" inputmode="tel" oninput="this.setCustomValidity('')" oninvalid="checkInputValidity(this)" placeholder="01xxxxxxxx" required="" type="tel"/>
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -1821,7 +1815,7 @@
 </div>
 <div>
 <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="رقم الهاتف المحمول" data-en="Mobile Phone Number" for="phone" id="label-phone">رقم الهاتف المحمول</label>
-<input aria-label="رقم الهاتف المحمول" aria-labelledby="label-phone" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500" id="phone" oninput="this.setCustomValidity('')" oninvalid="checkInputValidity(this)" placeholder="01xxxxxxxx" required="" type="tel"/>
+<input aria-label="رقم الهاتف المحمول" aria-labelledby="label-phone" class="w-full bg-navy-950 border border-gold-500/40 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500" id="phone" name="phone" autocomplete="tel" inputmode="tel" oninput="this.setCustomValidity('')" oninvalid="checkInputValidity(this)" placeholder="01xxxxxxxx" required="" type="tel"/>
 </div>
 </div>
 <div>
@@ -2328,7 +2322,7 @@ document.addEventListener('keydown', function(event) {
             // Preserve the user's selected scope when rebuilding localized options.
             // Language switching calls this function too; it must not reset the calculator.
             const previousValue = subSelect.value;
-            subSelect.innerHTML = '';
+            subSelect.replaceChildren();
 
             let options = [];
             if (serviceType === 'consultation') {
@@ -2467,7 +2461,11 @@ document.addEventListener('keydown', function(event) {
                     source: 'Central Bank of Egypt',
                     sourceUrl: data.sourceUrl || 'https://www.cbe.org.eg/en/economic-research/statistics/cbe-exchange-rates'
                 };
-                localStorage.setItem(EXCHANGE_RATE_STORAGE_KEY, JSON.stringify(exchangeRateData));
+                try {
+                    localStorage.setItem(EXCHANGE_RATE_STORAGE_KEY, JSON.stringify(exchangeRateData));
+                } catch (storageError) {
+                    console.warn('Could not cache the exchange rate in this browser:', storageError);
+                }
                 renderExchangeRateStatus(false);
                 calculateFee();
             } catch (error) {
@@ -2545,7 +2543,7 @@ document.addEventListener('keydown', function(event) {
                 ? `Hello, I used the Fee Calculator on the website and would like to request this service:\n- Client Type: ${clientTypeText}\n- Service Category: ${serviceText}\n- Specific Scope: ${subText}\n- Estimated Fee: ${feeText}${rateNote}`
                 : `السلام عليكم ورحمة الله وبركاته، لقد قمت باستخدام حاسبة الأتعاب بالموقع وأرغب في طلب هذه الخدمة:\n- صفة الموكل: ${clientTypeText}\n- تصنيف الخدمة: ${serviceText}\n- نطاق الاختيار: ${subText}\n- التقدير الظاهر للأتعاب: ${feeText}${rateNote}`;
 
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank');
+            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         }
 
         let currentLang = 'ar';
@@ -2604,7 +2602,7 @@ document.addEventListener('keydown', function(event) {
                 ? `Hello, I would like to submit a legal enquiry.\n- Client status / nationality: ${clientType}\n- Practice Area: ${specialty}\n- Mobile: ${phone}\n- Dispute description: ${message || 'Not provided'}`
                 : `السلام عليكم ورحمة الله وبركاته، أرغب في إرسال استفسار قانوني.\n- صفة العميل / الجنسية: ${clientType}\n- التخصص المطلوب: ${specialty}\n- رقم الهاتف: ${phone}\n- وصف النزاع: ${message || 'لم يتم تقديم وصف'}`;
 
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank');
+            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         }
 
         function submitAppointmentBooking(e) {
@@ -2644,7 +2642,7 @@ document.addEventListener('keydown', function(event) {
                 ? `Hello, I would like to submit a consultation appointment request (within ${leadTimeEnglish}, subject to confirmation):\n- Client status / nationality: ${clientType}\n- Name: ${name}\n- Phone: ${phone}\n- Type: ${type}\n- Minimum consultation fee: ${appointmentFee} EGP\n- Branch: ${branch}\n- Proposed date (Cairo): ${date}\n- Appointment window (Cairo official time): ${cairoWindow}\n- Equivalent local time (${visitorZone}): ${localWindow}\n- Notes: ${notes || 'None'}\n${timeframeNoteEnglish}\nPlease use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming this appointment.`
                 : `السلام عليكم ورحمة الله وبركاته، أرغب في إرسال طلب حجز موعد استشارة (خلال ${leadTimeArabic} مع خضوع الموعد لتأكيد المؤسسة):\n- صفة طالب الموعد / الجنسية: ${clientType}\n- اسم الموكل: ${name}\n- رقم الهاتف: ${phone}\n- نوع الاستشارة: ${type}\n- الحد الأدنى لأتعاب الاستشارة: ${appointmentFee} ج.م\n- الفرع المطلوب: ${branch}\n- التاريخ المقترح بتوقيت القاهرة: ${date}\n- فترة المقابلات بتوقيت القاهرة المعتمد: ${cairoWindow}\n- ما يقابلها في توقيت العميل المحلي (${visitorZone}): ${localWindow}\n- ملاحظات: ${notes || 'لا توجد'}\n${timeframeNoteArabic}\nيرجى اعتماد توقيت القاهرة (${FIRM_TIME_ZONE}) مرجعاً وحيداً لتأكيد الموعد.`;
 
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank');
+            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         }
 
         function sendReviewWhatsApp(e) {
@@ -2657,7 +2655,7 @@ document.addEventListener('keydown', function(event) {
                 ? `Hello, I would like to submit my review for the firm:\n- Name: ${name}\n- Rating: ${rating}\n- Review: ${comment}`
                 : `السلام عليكم ورحمة الله وبركاته، أود إرسال تقييمي للمؤسسة:\n- الاسم: ${name}\n- التقييم: ${rating}\n- الرأي: ${comment}`;
 
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank');
+            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         }
 
         const serviceData = {
@@ -2918,18 +2916,29 @@ document.addEventListener('keydown', function(event) {
             document.getElementById('modal-features-heading').textContent = currentLang === 'en' ? 'Service Procedural Scope & Terms:' : 'البنود والنطاق الإجرائي للخدمة:';
 
             const featuresList = document.getElementById('modal-features');
-            featuresList.innerHTML = '';
+            featuresList.replaceChildren();
             localized.features.forEach(feat => {
                 const li = document.createElement('li');
                 li.className = 'flex items-start gap-2';
-                li.innerHTML = `<i class="fa-solid fa-check text-gold-400 mt-1 shrink-0"></i><span>${feat}</span>`;
+                const icon = document.createElement('i');
+                icon.className = 'fa-solid fa-check text-gold-400 mt-1 shrink-0';
+                const text = document.createElement('span');
+                text.textContent = feat;
+                li.append(icon, text);
                 featuresList.appendChild(li);
             });
 
             const actionBtn = document.getElementById('modal-action-btn');
             actionBtn.style.display = 'flex';
             actionBtn.setAttribute('onclick', 'requestServiceDirectWhatsApp(event)');
-            actionBtn.innerHTML = `<i class="fa-brands fa-whatsapp text-xl"></i><span data-ar="طلب موعد" data-en="Request Appointment">${currentLang === 'en' ? 'Request Appointment' : 'طلب موعد'}</span>`;
+            actionBtn.replaceChildren();
+            const actionIcon = document.createElement('i');
+            actionIcon.className = 'fa-brands fa-whatsapp text-xl';
+            const actionLabel = document.createElement('span');
+            actionLabel.setAttribute('data-ar', 'طلب موعد');
+            actionLabel.setAttribute('data-en', 'Request Appointment');
+            actionLabel.textContent = currentLang === 'en' ? 'Request Appointment' : 'طلب موعد';
+            actionBtn.append(actionIcon, actionLabel);
 
             const modal = document.getElementById('service-modal');
             if (modal) {
@@ -2951,7 +2960,7 @@ document.addEventListener('keydown', function(event) {
             document.getElementById('modal-features-heading').textContent = currentLang === 'en' ? 'Procedural Details and Outcome:' : 'تفاصيل الإجراءات والنتيجة:';
 
             const featuresList = document.getElementById('modal-features');
-            featuresList.innerHTML = '';
+            featuresList.replaceChildren();
             localized.features.forEach((feat, index) => {
                 const li = document.createElement('li');
                 if (index === 0) {
@@ -2959,7 +2968,11 @@ document.addEventListener('keydown', function(event) {
                     li.textContent = feat;
                 } else {
                     li.className = 'flex items-start gap-2 pr-2';
-                    li.innerHTML = `<i class="fa-solid fa-arrow-left text-gold-400 mt-1.5 shrink-0 rtl:rotate-0 ltr:rotate-180 text-xs"></i><span>${feat}</span>`;
+                    const icon = document.createElement('i');
+                    icon.className = 'fa-solid fa-arrow-left text-gold-400 mt-1.5 shrink-0 rtl:rotate-0 ltr:rotate-180 text-xs';
+                    const text = document.createElement('span');
+                    text.textContent = feat;
+                    li.append(icon, text);
                 }
                 featuresList.appendChild(li);
             });
@@ -2967,7 +2980,14 @@ document.addEventListener('keydown', function(event) {
             const actionBtn = document.getElementById('modal-action-btn');
             actionBtn.style.display = 'flex';
             actionBtn.setAttribute('onclick', 'requestPrecedentWhatsApp(event)');
-            actionBtn.innerHTML = `<i class="fa-brands fa-whatsapp text-xl"></i><span data-ar="طلب استشارة بخصوص هذه القضية" data-en="Request Consultation Regarding This Case">${currentLang === 'en' ? 'Request Consultation Regarding This Case' : 'طلب استشارة بخصوص هذه القضية'}</span>`;
+            actionBtn.replaceChildren();
+            const actionIcon = document.createElement('i');
+            actionIcon.className = 'fa-brands fa-whatsapp text-xl';
+            const actionLabel = document.createElement('span');
+            actionLabel.setAttribute('data-ar', 'طلب استشارة بخصوص هذه القضية');
+            actionLabel.setAttribute('data-en', 'Request Consultation Regarding This Case');
+            actionLabel.textContent = currentLang === 'en' ? 'Request Consultation Regarding This Case' : 'طلب استشارة بخصوص هذه القضية';
+            actionBtn.append(actionIcon, actionLabel);
 
             const modal = document.getElementById('service-modal');
             if (modal) {
@@ -2991,7 +3011,7 @@ document.addEventListener('keydown', function(event) {
             const msg = currentLang === 'en' 
                 ? `Hello, I would like to request an appointment (within 72 hours) regarding: ${title}`
                 : `السلام عليكم ورحمة الله وبركاته، أرغب في طلب موعد (خلال ٧٢ ساعة) بخصوص خدمة: ${title}`;
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
         }
 
         function requestPrecedentWhatsApp(e) {
@@ -3001,7 +3021,7 @@ document.addEventListener('keydown', function(event) {
             const msg = currentLang === 'en'
                 ? `Hello, I would like to request a legal consultation regarding this precedent/case: ${title}`
                 : `السلام عليكم ورحمة الله وبركاته، أرغب في طلب استشارة قانونية بخصوص السابقة / القضية التالية: ${title}`;
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
         }
 
         // تقويم المؤسسة المركزي — التوقيت المرجعي وجميع تواريخ الإغلاق بتوقيت القاهرة.
@@ -3299,10 +3319,12 @@ document.addEventListener('keydown', function(event) {
             mobileMenuBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
             });
             document.addEventListener('click', function(e) {
                 if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                     mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 }
             });
         }
@@ -3312,6 +3334,8 @@ document.addEventListener('keydown', function(event) {
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenu) {
                 mobileMenu.classList.add('hidden');
+                const menuButton = document.getElementById('mobile-menu-btn');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
             }
 
             const isEnglish = currentLang === 'en';
@@ -3416,9 +3440,16 @@ document.addEventListener('keydown', function(event) {
                 const targetText = currentLang === 'en'
                     ? el.getAttribute('data-en')
                     : el.getAttribute('data-ar');
-                if (el.id === 'about-paragraph-text' || el.id === 'principal-address-text') {
-                    el.innerHTML = targetText;
+                if (el.id === 'principal-address-text') {
+                    // Preserve the approved two-line address without interpreting attribute data as HTML.
+                    const parts = targetText.split(/<br\s*\/?\s*>/i);
+                    el.replaceChildren();
+                    parts.forEach((part, index) => {
+                        if (index > 0) el.appendChild(document.createElement('br'));
+                        el.appendChild(document.createTextNode(part));
+                    });
                 } else {
+                    // Translation strings are text, never executable markup.
                     el.textContent = targetText;
                 }
             });
