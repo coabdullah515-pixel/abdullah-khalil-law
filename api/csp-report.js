@@ -1,4 +1,3 @@
-
 'use strict';
 
 // CSP report receiver for Vercel
