@@ -5,6 +5,9 @@
 <lastmod>2026-11-13</lastmod>
 <changefreq>monthly</changefreq>
 <priority>1.0</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/en/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/en/" hreflang="x-default" rel="alternate"/>
 </url>
 <url>
 <loc>https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/</loc>
@@ -204,5 +207,13 @@
 <xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" hreflang="en" rel="alternate"/>
 <xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" hreflang="x-default" rel="alternate"/>
 </url>
-<url><loc>https://abdullahkhalillaw.vercel.app/en/</loc></url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/en/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/en/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/en/" hreflang="x-default" rel="alternate"/>
+</url>
 </urlset>
