@@ -1,208 +1,208 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/civil-commercial-litigation/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/civil-commercial-litigation/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/civil-commercial-litigation/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/real-estate-property-law/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/real-estate-property-law/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/real-estate-property-law/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/corporate-investment-law/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/corporate-investment-law/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/corporate-investment-law/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/intellectual-property-trademarks/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/intellectual-property-trademarks/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/intellectual-property-trademarks/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/commercial-arbitration-adr/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/commercial-arbitration-adr/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/commercial-arbitration-adr/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/foreigners-residency-marriage-citizenship/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/foreigners-residency-marriage-citizenship/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/foreigners-residency-marriage-citizenship/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/administrative-litigation-state-council/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/administrative-litigation-state-council/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/administrative-litigation-state-council/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/family-personal-status-litigation/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/family-personal-status-litigation/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/family-personal-status-litigation/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/contract-drafting-review/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/contract-drafting-review/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/contract-drafting-review/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/ar/legal-consultations-advisory/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/legal-consultations-advisory/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" />
-  </url>
-  <url>
-    <loc>https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://abdullahkhalillaw.vercel.app/services/ar/legal-consultations-advisory/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" />
-  </url>
-  <url><loc>https://abdullahkhalillaw.vercel.app/en/</loc></url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/criminal-defence/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/criminal-defence/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/civil-commercial-litigation/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/civil-commercial-litigation/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/civil-commercial-litigation/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/civil-commercial-litigation/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/real-estate-property-law/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/real-estate-property-law/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/real-estate-property-law/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/real-estate-property-law/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/corporate-investment-law/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/corporate-investment-law/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/corporate-investment-law/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/corporate-investment-law/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/intellectual-property-trademarks/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/intellectual-property-trademarks/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/intellectual-property-trademarks/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/intellectual-property-trademarks/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/commercial-arbitration-adr/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/commercial-arbitration-adr/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/commercial-arbitration-adr/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/commercial-arbitration-adr/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/foreigners-residency-marriage-citizenship/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/foreigners-residency-marriage-citizenship/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/foreigners-residency-marriage-citizenship/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/foreigners-residency-marriage-citizenship/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/administrative-litigation-state-council/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/administrative-litigation-state-council/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/administrative-litigation-state-council/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/administrative-litigation-state-council/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/family-personal-status-litigation/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/family-personal-status-litigation/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/family-personal-status-litigation/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/family-personal-status-litigation/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/contract-drafting-review/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/contract-drafting-review/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/contract-drafting-review/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/contract-drafting-review/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/ar/legal-consultations-advisory/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/legal-consultations-advisory/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" hreflang="x-default" rel="alternate"/>
+</url>
+<url>
+<loc>https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/</loc>
+<lastmod>2026-11-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/ar/legal-consultations-advisory/" hreflang="ar-EG" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" hreflang="en" rel="alternate"/>
+<xhtml:link href="https://abdullahkhalillaw.vercel.app/services/en/legal-consultations-advisory/" hreflang="x-default" rel="alternate"/>
+</url>
+<url><loc>https://abdullahkhalillaw.vercel.app/en/</loc></url>
 </urlset>

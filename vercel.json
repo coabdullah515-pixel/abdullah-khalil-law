@@ -38,5 +38,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/services/:lang/:slug/:file.html",
+      "destination": "/services/:lang/:slug/",
+      "permanent": true
+    }
   ]
 }
