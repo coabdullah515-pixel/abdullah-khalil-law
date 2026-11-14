@@ -1,0 +1,20 @@
+{
+  "name": "مؤسسة المستشار عبدالله محمد خليل للمحاماة والاستشارات القانونية",
+  "short_name": "مؤسسة عبدالله خليل",
+  "description": "الموقع الرسمي لمؤسسة المستشار عبدالله محمد خليل للمحاماة والاستشارات القانونية في مصر.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07152d",
+  "theme_color": "#07152d",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
