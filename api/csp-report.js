@@ -241,8 +241,7 @@ module.exports = async function handler(req, res) {
 
   if (!reports || reports.length === 0) {
     console.warn(JSON.stringify({
-      event: 'csp_report_rejected',
-      reason: 'invalid_or_empty_payload'
+      event: 'csp_report_rejected'
     }));
 
     return res.status(400).end();
@@ -250,10 +249,17 @@ module.exports = async function handler(req, res) {
 
   const normalized = reports.map(normalize);
 
+  const directiveCounts = {};
+  normalized.forEach((report) => {
+    const directive = report.effectiveDirective || report.violatedDirective || 'unknown';
+    directiveCounts[directive] = (directiveCounts[directive] || 0) + 1;
+  });
+
+  // Log aggregate security telemetry only; omit visitor URLs and request details.
   console.log(JSON.stringify({
     event: 'csp_violation_reports',
     count: normalized.length,
-    reports: normalized,
+    directiveCounts,
     receivedAt: new Date().toISOString()
   }));
 

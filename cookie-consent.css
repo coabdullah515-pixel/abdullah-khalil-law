@@ -1,0 +1,197 @@
+/* Consent notice: deliberately scoped to avoid global light-mode text selectors. */
+.cookie-consent-banner {
+  position: fixed;
+  z-index: 10050;
+  inset-inline: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  width: min(680px, calc(100% - 24px));
+  max-height: min(62vh, 360px);
+  overflow-y: auto;
+  margin-inline: auto;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  background: #101827;
+  color: #f8fafc;
+  border: 1px solid #c5a45b;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .34);
+  text-align: start;
+  direction: inherit;
+  font-family: inherit;
+}
+.cookie-consent-banner[hidden] { display: none !important; }
+#cookie-consent-banner .cookie-consent-title {
+  margin: 0 0 7px !important;
+  color: #e6c477 !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  font-weight: 800 !important;
+}
+#cookie-consent-banner .cookie-consent-description {
+  margin: 0 0 13px !important;
+  color: #e2e8f0 !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 9px;
+  align-items: stretch;
+}
+#cookie-consent-banner .cookie-consent-button {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 800 !important;
+  cursor: pointer;
+  opacity: 1 !important;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+#cookie-consent-banner .cookie-consent-button:focus-visible {
+  outline: 3px solid #d6b76b;
+  outline-offset: 2px;
+}
+#cookie-consent-banner .cookie-consent-accept {
+  background: #c5a45b !important;
+  border-color: #c5a45b !important;
+  color: #101827 !important;
+}
+#cookie-consent-banner .cookie-consent-reject {
+  background: transparent !important;
+  border-color: #cbd5e1 !important;
+  color: #f8fafc !important;
+}
+#cookie-consent-banner .cookie-consent-button:hover { transform: translateY(-1px); }
+
+/* The light palette overrides the site's broad body.light-mode element rules. */
+body.light-mode #cookie-consent-banner {
+  background: #fffefa !important;
+  color: #102039 !important;
+  border-color: #c5a45b !important;
+  box-shadow: 0 12px 34px rgba(15, 23, 42, .18) !important;
+}
+body.light-mode #cookie-consent-banner .cookie-consent-title {
+  color: #8c6b2d !important;
+}
+body.light-mode #cookie-consent-banner .cookie-consent-description {
+  color: #334155 !important;
+}
+body.light-mode #cookie-consent-banner .cookie-consent-accept {
+  background: #c5a45b !important;
+  border-color: #ad8b45 !important;
+  color: #102039 !important;
+}
+body.light-mode #cookie-consent-banner .cookie-consent-reject {
+  background: #fffefa !important;
+  border-color: #102039 !important;
+  color: #102039 !important;
+}
+
+/* Keep floating contact controls clear of the consent notice while it is visible. */
+body.cookie-consent-visible .fixed.bottom-6.left-6 {
+  bottom: calc(var(--cookie-consent-height, 150px) + 30px) !important;
+  transition: bottom .2s ease;
+}
+
+/* Appointment request stages and fee disclosure. */
+.appointment-status-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+.appointment-status-flow li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  padding: 11px 10px;
+  border: 1px solid rgba(197, 164, 91, .32);
+  border-radius: 12px;
+  background: rgba(16, 24, 39, .74);
+}
+.appointment-stage-number {
+  display: inline-flex;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(197, 164, 91, .16);
+  color: #e6c477;
+  font-size: 11px;
+  font-weight: 900;
+}
+.appointment-status-flow li div { min-width: 0; }
+.appointment-status-flow strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+.appointment-status-flow small {
+  display: block;
+  margin-top: 3px;
+  color: #cbd5e1;
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.appointment-fee-preview {
+  display: block;
+  margin-top: 7px;
+  color: #e6c477;
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+.appointment-submission-note {
+  margin: -7px 0 0;
+  color: #cbd5e1;
+  font-size: 11px;
+  line-height: 1.75;
+  text-align: center;
+}
+body.light-mode .appointment-status-flow li {
+  background: #fffefa !important;
+  border-color: rgba(173, 139, 69, .45) !important;
+}
+body.light-mode .appointment-status-flow strong { color: #102039 !important; }
+body.light-mode .appointment-status-flow small { color: #475569 !important; }
+body.light-mode .appointment-fee-preview { color: #8c6b2d !important; }
+body.light-mode .appointment-submission-note { color: #475569 !important; }
+@media (max-width: 700px) {
+  .cookie-consent-banner {
+    inset-inline: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    width: calc(100% - 20px);
+    max-height: min(62vh, 350px);
+    padding: 12px 13px;
+    border-radius: 14px;
+  }
+  #cookie-consent-banner .cookie-consent-title { font-size: 14px !important; }
+  #cookie-consent-banner .cookie-consent-description { font-size: 12px !important; line-height: 1.6 !important; margin-bottom: 10px !important; }
+  .cookie-consent-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  #cookie-consent-banner .cookie-consent-button { padding: 9px 7px; font-size: 11px; min-height: 44px; }
+  body.cookie-consent-visible .fixed.bottom-6.left-6 {
+    bottom: calc(var(--cookie-consent-height, 170px) + 26px) !important;
+  }
+  .appointment-status-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+@media (max-width: 360px) {
+  .appointment-status-flow li { padding: 9px 7px; gap: 6px; }
+  .appointment-status-flow strong { font-size: 10px; }
+  .appointment-status-flow small { font-size: 9px; }
+}
