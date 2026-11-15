@@ -533,8 +533,14 @@
 <meta name="theme-color" content="#07152d">
 <link rel="stylesheet" href="/cookie-consent.css">
   <link rel="stylesheet" href="assets/css/tailwind.generated.css">
+
+<style id="skip-to-main-style">
+.skip-to-main{position:fixed;top:8px;inset-inline-start:8px;z-index:11000;padding:10px 14px;background:#c5a45b;color:#101827;font-weight:700;border-radius:8px;transform:translateY(-200%)}
+.skip-to-main:focus{transform:none;outline:3px solid white;outline-offset:2px}
+</style>
 </head>
 <body class="antialiased selection:bg-gold-500 selection:text-white">
+<a class="skip-to-main" href="#main-content">تخطي إلى المحتوى الرئيسي</a>
 <!-- Header Navigation -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-gold-500/30 text-white transition-all shadow-xl w-full">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -600,6 +606,7 @@
 </div>
 </div>
 </header>
+<main id="main-content" tabindex="-1">
 <!-- Hero Section -->
 <section class="hero-bg relative min-h-[70vh] md:min-h-[600px] flex items-center justify-center text-center text-white px-4 pt-28 pb-16 md:py-20" id="home">
 <div class="max-w-4xl mx-auto space-y-6 z-10">
@@ -1644,6 +1651,7 @@
 </div>
 </div>
 </section>
+</main>
 <!-- Service Modal -->
 <div class="fixed inset-0 z-50 hidden bg-navy-950/90 backdrop-blur-md flex items-center justify-center p-4" id="service-modal">
 <div class="bg-navy-900 text-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 md:p-10 relative shadow-2xl border border-gold-500/40 max-h-[85vh] overflow-y-auto my-auto">

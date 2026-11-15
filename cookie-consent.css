@@ -106,7 +106,7 @@ body.cookie-consent-visible .fixed.bottom-6.left-6 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 9px;
-  margin: 0 0 22px;
+  margin: 28px 0 22px;
   padding: 0;
   list-style: none;
 }
