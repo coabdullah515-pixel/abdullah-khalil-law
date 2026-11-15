@@ -255,11 +255,47 @@ module.exports = async function handler(req, res) {
     directiveCounts[directive] = (directiveCounts[directive] || 0) + 1;
   });
 
-  // Log aggregate security telemetry only; omit visitor URLs and request details.
+  // Privacy-safe diagnostics: no visitor URLs, query strings or request bodies.
+  const diagnostics = normalized.slice(0, 5).map((report) => {
+    const blocked = report.blockedUri || '';
+    let blockedType = 'unknown';
+
+    if (/^(inline|eval|wasm-eval|data)(:|$)/i.test(blocked)) {
+      blockedType = 'inline';
+    } else if (/^https?:\/\//i.test(blocked)) {
+      try {
+        const host = new URL(blocked).hostname;
+        blockedType =
+          host === 'abdullahkhalillaw.vercel.app' ? 'site-resource' :
+          ['fonts.googleapis.com', 'fonts.gstatic.com',
+           'cdnjs.cloudflare.com'].includes(host) ? host :
+          'other-resource';
+      } catch (_) {
+        blockedType = 'other';
+      }
+    } else if (blocked) {
+      blockedType = 'other';
+    }
+
+    return {
+      directive: report.effectiveDirective ||
+                 report.violatedDirective || 'unknown',
+      blockedType,
+      sourceType: report.sourceFile
+        ? report.sourceFile.startsWith(
+            'https://abdullahkhalillaw.vercel.app/'
+          ) ? 'site' : 'other'
+        : 'unknown',
+      sourceLine: Number.isInteger(report.lineNumber)
+        ? report.lineNumber : undefined
+    };
+  });
+
   console.log(JSON.stringify({
     event: 'csp_violation_reports',
     count: normalized.length,
     directiveCounts,
+    diagnostics,
     receivedAt: new Date().toISOString()
   }));
 
