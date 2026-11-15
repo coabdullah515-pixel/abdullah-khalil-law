@@ -2,3 +2,5 @@ node_modules/
 *-test.html
 .DS_Store
 *.log
+
+*.code-workspace
