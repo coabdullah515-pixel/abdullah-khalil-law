@@ -257,6 +257,20 @@ module.exports = async function handler(req, res) {
 
   // Privacy-safe diagnostics: no visitor URLs, query strings or request bodies.
   const diagnostics = normalized.slice(0, 5).map((report) => {
+    let pagePath;
+    try {
+      const url = new URL(report.documentUri);
+      if (
+        url.protocol === 'https:' &&
+        url.hostname === 'abdullahkhalillaw.vercel.app' &&
+        !url.username &&
+        !url.password
+      ) {
+        pagePath = url.pathname;
+      }
+    } catch (_) {
+      // Ignore invalid or non-site URLs.
+    }
     const blocked = report.blockedUri || '';
     let blockedType = 'unknown';
 
@@ -286,6 +300,7 @@ module.exports = async function handler(req, res) {
             'https://abdullahkhalillaw.vercel.app/'
           ) ? 'site' : 'other'
         : 'unknown',
+      pagePath,
       sourceLine: Number.isInteger(report.lineNumber)
         ? report.lineNumber : undefined
     };
