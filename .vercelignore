@@ -1,0 +1,7 @@
+*.md
+*test*.html
+*.code-workspace
+node_modules/
+.git/
+.github/
+.vscode/
