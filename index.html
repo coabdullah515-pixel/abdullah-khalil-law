@@ -3136,7 +3136,7 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
             if (isWeeklyClosed) {
                 ar = 'تنبيه: يومَا الخميس والجمعة عطلة أسبوعية بفروع المؤسسة؛ يرجى اختيار يوم آخر.';
                 en = 'Notice: Thursday and Friday are the Firm’s weekly closing days. Please select another date.';
-            } else if (holiday || followingDateClosed) {
+            } else if (holiday) {
                 const closure = holiday || getOfficialHoliday(followingDate);
                 const source = closure ? APPOINTMENT_CALENDAR.officialSources[closure.source] : null;
                 ar = `تنبيه: التاريخ المختار يوافق إجازة رسمية مسجلة بالتقويم (${closure ? closure.name : 'عطلة أسبوعية أو رسمية في اليوم التالي'}).`;
@@ -3160,7 +3160,7 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
             // Weekly closures, official holidays and dates already elapsed are invalid.
             // A date outside the requested 24/72-hour window remains submittable for manual coordination,
             // but the WhatsApp request clearly labels the date as proposed and subject to Firm review.
-            const invalid = isWeeklyClosed || Boolean(holiday) || Boolean(followingDateClosed) || selectedSlot.end.getTime() < now.getTime();
+            const invalid = isWeeklyClosed || Boolean(holiday) || selectedSlot.end.getTime() < now.getTime();
             input.setCustomValidity(invalid ? (currentLang === 'en' ? en : ar) : '');
         }
 
