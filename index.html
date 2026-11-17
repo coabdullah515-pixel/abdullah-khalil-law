@@ -1468,9 +1468,9 @@
 <div>
 <label class="block text-xs font-bold text-gray-300 mb-2" data-ar="نوع الاستشارة أو المقابلة" data-en="Consultation or Meeting Type" for="appt-type" id="label-appt-type">نوع الاستشارة أو المقابلة</label>
 <select aria-label="نوع المقابلة أو الاستشارة القانونية" aria-labelledby="label-appt-type" class="w-full bg-navy-900 border border-gold-500/40 rounded-xl px-3 py-3.5 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500" id="appt-type" onchange="adjustAppointmentDate()">
-<option data-ar="استشارة هاتفية مفصلة (خلال ٧٢ ساعة)" data-en="Detailed Phone Consultation (within 72 hrs)" value="phone_72">استشارة هاتفية مفصلة (خلال ٧٢ ساعة)</option>
-<option data-ar="استشارة بالمقابلة الشخصية بالمقر (خلال ٧٢ ساعة)" data-en="In-Person Office Consultation (within 72 hrs)" value="office_72">استشارة بالمقابلة الشخصية بالمقر (خلال ٧٢ ساعة)</option>
-<option data-ar="استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة)" data-en="Urgent Phone or In-Person Consultation (within 24 hrs)" value="urgent_24">استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة)</option>
+<option data-ar="استشارة هاتفية مفصلة (خلال ٣ أيام عمل)" data-en="Detailed Phone Consultation (within three working days)" value="phone_72">استشارة هاتفية مفصلة (خلال ٣ أيام عمل)</option>
+<option data-ar="استشارة بالمقابلة الشخصية بالمقر (خلال ٣ أيام عمل)" data-en="In-Person Office Consultation (within three working days)" value="office_72">استشارة بالمقابلة الشخصية بالمقر (خلال ٣ أيام عمل)</option>
+<option data-ar="استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال يوم عمل)" data-en="Urgent Phone or In-Person Consultation (within one working day)" value="urgent_24">استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال يوم عمل)</option>
 </select>
 <p class="appointment-fee-preview" id="appointment-fee-preview" aria-live="polite">يُحسب الحد الأدنى لقيمة الاستشارة وفق نوعها وصفة طالبها.</p>
 </div>
@@ -2109,9 +2109,9 @@ document.addEventListener('keydown', function(event) {
             let options = [];
             if (serviceType === 'consultation') {
                 options = [
-                    { val: 'phone', ar: 'استشارة هاتفية تفصيلية (خلال ٧٢ ساعة)', en: 'Detailed Phone Consultation (within 72 hours)' },
-                    { val: 'office', ar: 'استشارة بالمقابلة الشخصية في المقر (خلال ٧٢ ساعة)', en: 'In-Person Office Consultation (within 72 hours)' },
-                    { val: 'urgent', ar: 'استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة)', en: 'Urgent Phone or In-Person Consultation (within 24 hours)' }
+                    { val: 'phone', ar: 'استشارة هاتفية تفصيلية (خلال ٣ أيام عمل)', en: 'Detailed Phone Consultation (within three working days)' },
+                    { val: 'office', ar: 'استشارة بالمقابلة الشخصية في المقر (خلال ٣ أيام عمل)', en: 'In-Person Office Consultation (within three working days)' },
+                    { val: 'urgent', ar: 'استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال يوم عمل)', en: 'Urgent Phone or In-Person Consultation (within one working day)' }
                 ];
             } else if (serviceType === 'drafting_review') {
                 options = [
@@ -2346,9 +2346,9 @@ document.addEventListener('keydown', function(event) {
             const typeSelect = document.getElementById('appt-type');
             if (!typeSelect) return;
             const definitions = [
-                { value: 'phone_72', ar: 'استشارة هاتفية مفصلة (خلال ٧٢ ساعة)', en: 'Detailed Phone Consultation (within 72 hrs)' },
-                { value: 'office_72', ar: 'استشارة بالمقابلة الشخصية بالمقر (خلال ٧٢ ساعة)', en: 'In-Person Office Consultation (within 72 hrs)' },
-                { value: 'urgent_24', ar: 'استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال ٢٤ ساعة)', en: 'Urgent Phone or In-Person Consultation (within 24 hrs)' }
+                { value: 'phone_72', ar: 'استشارة هاتفية مفصلة (خلال ٣ أيام عمل)', en: 'Detailed Phone Consultation (within three working days)' },
+                { value: 'office_72', ar: 'استشارة بالمقابلة الشخصية بالمقر (خلال ٣ أيام عمل)', en: 'In-Person Office Consultation (within three working days)' },
+                { value: 'urgent_24', ar: 'استشارة طارئة وعاجلة هاتفية أو بالمقابلة (خلال يوم عمل)', en: 'Urgent Phone or In-Person Consultation (within one working day)' }
             ];
             definitions.forEach(def => {
                 const option = Array.from(typeSelect.options).find(item => item.value === def.value);
@@ -2444,13 +2444,13 @@ document.addEventListener('keydown', function(event) {
             const cairoWindow = formatBranchWindowTimes(slot, FIRM_TIME_ZONE, locale);
             const localWindow = formatAppointmentWindow(slot, visitorZone, locale);
             const now = Date.now();
-            const requestDeadline = new Date(now + getAppointmentLeadTimeHours() * 60 * 60 * 1000);
+            const requestDeadline = getAppointmentDeadline();
             const outsideRequestedWindow = slot.end.getTime() < now || slot.start.getTime() > requestDeadline.getTime();
             const timeframeNoteArabic = outsideRequestedWindow
                 ? `التاريخ المقترح قد يتجاوز مهلة ${getAppointmentLeadTimeHours() === 24 ? '٢٤' : '٧٢'} ساعة وفق فترة استقبال هذا الفرع؛ ويجوز للمؤسسة مراجعة الطلب واقتراح موعد بديل.`
                 : '';
             const isUrgentConsultation = getAppointmentLeadTimeHours() === 24;
-            const leadTimeArabic = isUrgentConsultation ? '٢٤ ساعة' : '٧٢ ساعة';
+            const leadTimeArabic = isUrgentConsultation ? 'يوم عمل' : '٣ أيام عمل';
             const localTimeLine = visitorZone !== FIRM_TIME_ZONE
                 ? `\n- ما يقابلها في توقيت العميل المحلي (للاسترشاد فقط – ${visitorZone}): ${localWindow}`
                 : '';
@@ -2847,8 +2847,8 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
             const data = serviceData[activeServiceKey];
             const title = data ? (data[currentLang] ? data[currentLang].title : data['ar'].title) : 'Legal Service';
             const msg = currentLang === 'en' 
-                ? `Hello, I would like to request an appointment (within 72 hours) regarding: ${title}`
-                : `السلام عليكم ورحمة الله وبركاته، أرغب في طلب موعد (خلال ٧٢ ساعة) بخصوص خدمة: ${title}`;
+                ? `Hello, I would like to request an appointment (within three working days) regarding: ${title}`
+                : `السلام عليكم ورحمة الله وبركاته، أرغب في طلب موعد (خلال ٣ أيام عمل) بخصوص خدمة: ${title}`;
             window.open(`https://wa.me/201558115954?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
         }
 
@@ -2995,22 +2995,34 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
             return apptType === 'urgent_24' ? 24 : 72;
         }
 
+
+        // Count working days, excluding weekly and recorded official holidays.
+        function getAppointmentDeadline() {
+            const daysNeeded = getAppointmentLeadTimeHours() === 24 ? 1 : 3;
+            let date = getCairoTodayString();
+            let counted = 0;
+
+            while (counted < daysNeeded) {
+                date = addCalendarDays(date, 1);
+                if (!isWeeklyClosedDate(date) && !getOfficialHoliday(date)) {
+                    counted++;
+                }
+            }
+
+            return zonedDateTimeToUtc(date, 23, 59, FIRM_TIME_ZONE);
+        }
+
         function getEarliestAppointmentDate() {
             const now = new Date();
-            const deadline = new Date(now.getTime() + getAppointmentLeadTimeHours() * 60 * 60 * 1000);
+            const deadline = getAppointmentDeadline();
             const firstCairoDate = getCairoTodayString();
             let firstFutureOpenDate = null;
             for (let offset = 0; offset <= 90; offset++) {
                 const candidate = addCalendarDays(firstCairoDate, offset);
                 if (isWeeklyClosedDate(candidate) || getOfficialHoliday(candidate)) continue;
-                const schedule = getBranchSchedule();
-                if (schedule.endDateOffset) {
-                    const followingDate = addCalendarDays(candidate, schedule.endDateOffset);
-                    if (isWeeklyClosedDate(followingDate) || getOfficialHoliday(followingDate)) continue;
-                }
                 const slot = getBranchAppointmentInstants(candidate);
                 if (slot.end.getTime() >= now.getTime() && !firstFutureOpenDate) firstFutureOpenDate = candidate;
-                // The branch window must overlap the period from now through the selected 24/72-hour deadline.
+                // The branch window must overlap the period from now through the selected 24/three-working-day deadline.
                 if (slot.end.getTime() >= now.getTime() && slot.start.getTime() <= deadline.getTime()) return candidate;
             }
             // If no branch window falls inside the requested lead-time window, show the next open date
@@ -3130,7 +3142,7 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
             const followingDate = selectedSchedule.endDateOffset ? addCalendarDays(dateStr, selectedSchedule.endDateOffset) : null;
             const followingDateClosed = followingDate && (isWeeklyClosedDate(followingDate) || Boolean(getOfficialHoliday(followingDate)));
             const now = new Date();
-            const deadline = new Date(now.getTime() + getAppointmentLeadTimeHours() * 60 * 60 * 1000);
+            const deadline = getAppointmentDeadline();
             const selectedSlot = getBranchAppointmentInstants(dateStr);
 
             if (isWeeklyClosed) {
@@ -3145,8 +3157,8 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
                 ar = 'تنبيه: فترة المقابلات لهذا التاريخ انتهت بالفعل؛ يرجى اختيار تاريخ لاحق.';
                 en = 'Notice: The branch appointment window for this date has already ended. Please choose a later date.';
             } else if (selectedSlot.start.getTime() > deadline.getTime()) {
-                ar = `تنبيه: لا توجد فترة مقابلات بهذا الفرع داخل مهلة ${getAppointmentLeadTimeHours()} ساعة من وقت الطلب. يمكنك إرسال الطلب للتنسيق اليدوي، لكن لا يمكن اعتبار التاريخ المقترح واقعاً داخل هذه المهلة.`;
-                en = `Notice: This branch has no appointment window within ${getAppointmentLeadTimeHours()} hours from now. You may still submit the request for manual coordination, but this proposed date is outside that timeframe.`;
+                ar = `تنبيه: التاريخ خارج مهلة ${getAppointmentLeadTimeHours() === 24 ? 'يوم عمل' : '3 أيام عمل'}. يمكنك اختيار موعد آخر أو طلب التنسيق.`;
+                en = `Notice: This date is outside the ${getAppointmentLeadTimeHours() === 24 ? 'one-working-day' : 'three-working-day'} window. Choose another date or request coordination.`;
             } else if (!APPOINTMENT_CALENDAR.verifiedYears.includes(dateStr.slice(0, 4))) {
                 ar = `تنبيه تقويمي: لم تُراجع بعد قائمة الإجازات الرسمية السنوية الكاملة لعام ${dateStr.slice(0, 4)}؛ يُرجى اعتبار التاريخ المقترح مبدئياً إلى حين التحقق من الإعلانات والقرارات الرسمية اللاحقة.`;
                 en = `Calendar notice: The complete annual official-holiday list for ${dateStr.slice(0, 4)} has not yet been reviewed. Treat this date as provisional pending later official announcements and decisions.`;
@@ -3158,7 +3170,7 @@ ${timeframeNoteArabic ? `\nملاحظة: ${timeframeNoteArabic}` : ''}
                 msgSpan.textContent = currentLang === 'en' ? en : ar;
             }
             // Weekly closures, official holidays and dates already elapsed are invalid.
-            // A date outside the requested 24/72-hour window remains submittable for manual coordination,
+            // A date outside the requested 24/three-working-day window remains submittable for manual coordination,
             // but the WhatsApp request clearly labels the date as proposed and subject to Firm review.
             const invalid = isWeeklyClosed || Boolean(holiday) || selectedSlot.end.getTime() < now.getTime();
             input.setCustomValidity(invalid ? (currentLang === 'en' ? en : ar) : '');
