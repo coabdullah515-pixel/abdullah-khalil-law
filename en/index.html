@@ -2315,7 +2315,7 @@ document.addEventListener('keydown', function(event) {
             const rateNote = currentCurrency === 'USD' && exchangeRateData
                 ? (currentLang === 'en'
                     ? `\n- Reference USD rate via Frankfurter: ${Number(exchangeRateData.mid).toFixed(4)} EGP\n- Rate date: ${exchangeRateData.rateDate}`
-                    : `\n- متوسط سعري شراء وبيع الدولار بالبنك المركزي: ${Number(exchangeRateData.mid).toFixed(4)} جنيه\n- تاريخ السعر: ${exchangeRateData.rateDate}`)
+                    : `\n- سعر الدولار المرجعي عبر Frankfurter: ${Number(exchangeRateData.mid).toFixed(4)} جنيه\n- تاريخ السعر: ${exchangeRateData.rateDate}`)
                 : '';
 
             const text = currentLang === 'en'
