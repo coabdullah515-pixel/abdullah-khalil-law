@@ -2189,9 +2189,9 @@ document.addEventListener('keydown', function(event) {
             const date = formatExchangeDate(exchangeRateData.rateDate);
             const rate = Number(exchangeRateData.mid).toFixed(4);
             if (currentLang === 'en') {
-                el.textContent = `${isStale ? 'Update unavailable; using last valid saved rate' : 'CBE USD buy/sell midpoint'}: ${rate} EGP per USD — rate date: ${date}. Source: Central Bank of Egypt.`;
+                el.textContent = `${isStale ? 'Update unavailable; using last valid saved rate' : 'Reference USD rate via Frankfurter'}: ${rate} EGP per USD — rate date: ${date}. Source: Frankfurter (CBE reference).`;
             } else {
-                el.textContent = `${isStale ? 'تعذر التحديث؛ يُستخدم آخر سعر صحيح محفوظ' : 'متوسط سعري الشراء والبيع للدولار'}: ${rate} جنيه — تاريخ السعر: ${date}. المصدر: البنك المركزي المصري.`;
+                el.textContent = `${isStale ? 'تعذر التحديث؛ يُستخدم آخر سعر صحيح محفوظ' : 'سعر الدولار المرجعي عبر Frankfurter'}: ${rate} جنيه — تاريخ السعر: ${date}. المصدر: Frankfurter (بيانات مرجعية من البنك المركزي المصري).`;
             }
         }
 
@@ -2201,6 +2201,7 @@ document.addEventListener('keydown', function(event) {
                 if (saved && Number.isFinite(Number(saved.mid)) && Number(saved.mid) > 1 &&
                     Number.isFinite(Number(saved.buy)) && Number.isFinite(Number(saved.sell)) &&
                     saved.rateDate) {
+                    const age = Date.now() - Date.parse(saved.rateDate); if (!(age >= -86400000 && age <= 604800000)) return false;
                     exchangeRateData = saved;
                     renderExchangeRateStatus(true);
                     return true;
@@ -2224,8 +2225,8 @@ document.addEventListener('keydown', function(event) {
                 });
                 if (!response.ok) throw new Error(`Exchange rate service returned ${response.status}`);
                 const data = await response.json();
-                const buy = Number(data.buy);
-                const sell = Number(data.sell);
+                const buy = Number(data.buy ?? data.mid);
+                const sell = Number(data.sell ?? data.mid);
                 const mid = Number(data.mid);
                 if (!Number.isFinite(buy) || !Number.isFinite(sell) || !Number.isFinite(mid) ||
                     buy <= 1 || sell <= 1 || mid <= 1 || sell < buy ||
@@ -2236,7 +2237,7 @@ document.addEventListener('keydown', function(event) {
                     buy, sell, mid,
                     rateDate: data.rateDate,
                     fetchedAt: data.fetchedAt || new Date().toISOString(),
-                    source: 'Central Bank of Egypt',
+                    source: data.source || 'Frankfurter (CBE reference rate)',
                     sourceUrl: data.sourceUrl || 'https://www.cbe.org.eg/en/economic-research/statistics/cbe-exchange-rates'
                 };
                 try {
@@ -2313,7 +2314,7 @@ document.addEventListener('keydown', function(event) {
             const feeText = resultDiv.textContent;
             const rateNote = currentCurrency === 'USD' && exchangeRateData
                 ? (currentLang === 'en'
-                    ? `\n- CBE USD buy/sell midpoint: ${Number(exchangeRateData.mid).toFixed(4)} EGP\n- Rate date: ${exchangeRateData.rateDate}`
+                    ? `\n- Reference USD rate via Frankfurter: ${Number(exchangeRateData.mid).toFixed(4)} EGP\n- Rate date: ${exchangeRateData.rateDate}`
                     : `\n- متوسط سعري شراء وبيع الدولار بالبنك المركزي: ${Number(exchangeRateData.mid).toFixed(4)} جنيه\n- تاريخ السعر: ${exchangeRateData.rateDate}`)
                 : '';
 
@@ -2443,7 +2444,7 @@ document.addEventListener('keydown', function(event) {
             const requestDeadline = getAppointmentDeadline();
             const outsideRequestedWindow = slot.end.getTime() < now || slot.start.getTime() > requestDeadline.getTime();
             const timeframeNoteEnglish = outsideRequestedWindow
-                ? `The proposed date may fall outside the requested ${getAppointmentLeadTimeHours()}-hour timeframe based on this branch’s published reception period. The Firm may review the request and suggest an alternative.`
+                ? `The proposed date may fall outside the requested consultation timeframe based on this branch’s published reception period. The Firm may review the request and suggest an alternative.`
                 : '';
             const isUrgentConsultation = getAppointmentLeadTimeHours() === 24;
             const leadTimeEnglish = isUrgentConsultation ? 'one working day' : 'three working days';
@@ -2979,7 +2980,7 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
             const endDate = addCalendarDays(dateString, schedule.endDateOffset);
             return {
                 start: zonedDateTimeToUtc(dateString, schedule.startHour, schedule.startMinute, FIRM_TIME_ZONE),
-                end: zonedDateTimeToUtc(endDate, schedule.endHour, schedule.endMinute, FIRM_TIME_ZONE),
+                end: zonedDateTimeToUtc(endDate, (schedule.endDateOffset && (isWeeklyClosedDate(endDate) || getOfficialHoliday(endDate))) ? 0 : schedule.endHour, schedule.endMinute, FIRM_TIME_ZONE),
                 schedule
             };
         }
@@ -3142,7 +3143,7 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
             if (isWeeklyClosed) {
                 ar = 'تنبيه: يومَا الخميس والجمعة عطلة أسبوعية بفروع المؤسسة؛ يرجى اختيار يوم آخر.';
                 en = 'Notice: Thursday and Friday are the Firm’s weekly closing days. Please select another date.';
-            } else if (holiday || followingDateClosed) {
+            } else if (holiday) {
                 const closure = holiday || getOfficialHoliday(followingDate);
                 const source = closure ? APPOINTMENT_CALENDAR.officialSources[closure.source] : null;
                 ar = `تنبيه: التاريخ المختار يوافق إجازة رسمية مسجلة بالتقويم (${closure ? closure.name : 'عطلة أسبوعية أو رسمية في اليوم التالي'}).`;
@@ -3158,6 +3159,7 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
                 en = `Calendar notice: The complete annual official-holiday list for ${dateStr.slice(0, 4)} has not yet been reviewed. Treat this date as provisional pending later official announcements and decisions.`;
             }
 
+            if (!APPOINTMENT_CALENDAR.verifiedYears.includes(dateStr.slice(0,4)) && !ar.includes("تنبيه تقويمي")) { ar += " تنبيه: تقويم الإجازات غير معتمد؛ الموعد مبدئي."; en += " Holiday calendar unverified; date provisional."; }
             if (msgSpan) {
                 msgSpan.setAttribute('data-ar', ar);
                 msgSpan.setAttribute('data-en', en);
@@ -3166,7 +3168,7 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
             // Weekly closures, official holidays and dates already elapsed are invalid.
             // A date outside the requested 24/three-working-day window remains submittable for manual coordination,
             // but the WhatsApp request clearly labels the date as proposed and subject to Firm review.
-            const invalid = isWeeklyClosed || Boolean(holiday) || Boolean(followingDateClosed) || selectedSlot.end.getTime() < now.getTime();
+            const invalid = isWeeklyClosed || Boolean(holiday) || selectedSlot.end.getTime() < now.getTime();
             input.setCustomValidity(invalid ? (currentLang === 'en' ? en : ar) : '');
         }
 

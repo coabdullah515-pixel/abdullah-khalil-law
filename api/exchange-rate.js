@@ -4,7 +4,7 @@
 // Keep upstream diagnostics private and return only a stable public error.
 
 const SOURCE_URL =
-  'https://www.cbe.org.eg/en/economic-research/statistics/cbe-exchange-rates';
+  'https://api.frankfurter.dev/v2/providers/cbe/rates?base=USD&quotes=EGP';
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
 const FETCH_TIMEOUT_MS = 10000;
 
@@ -64,6 +64,7 @@ async function readLimitedText(response, maxBytes) {
 }
 
 function parseRate(text) {
+  const r=JSON.parse(text)[0]; if(!r || r.base!=="USD" || r.quote!=="EGP" || !Number.isFinite(r.rate) || r.rate<=1 || !r.date) return null; const t=Date.parse(r.date);if(!Number.isFinite(t)||Math.abs(Date.now()-t)>604800000)return null;return {buy:r.rate,sell:r.rate,mid:r.rate,rateDate:r.date};
   const match = text.match(
     /(?:US\s*Dollar|United\s*States\s*Dollar|USD)\s*([\d,]+(?:\.\d+)?)\s*([\d,]+(?:\.\d+)?)/i
   );
@@ -122,7 +123,7 @@ module.exports = async function handler(req, res) {
     }
 
     const contentType = String(response.headers.get('content-type') || '');
-    if (!/text\/html|application\/xhtml\+xml/i.test(contentType)) {
+    if (!contentType.includes("application/json")) {
       throw new Error('UNEXPECTED_UPSTREAM_CONTENT_TYPE');
     }
 
@@ -133,7 +134,7 @@ module.exports = async function handler(req, res) {
 
     const html = await readLimitedText(response, MAX_HTML_BYTES);
 
-    const rate = parseRate(extractPageText(html));
+    const rate = parseRate(html);
     if (!rate) {
       throw new Error('RATE_PARSE_FAILED');
     }
@@ -141,7 +142,7 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({
       ...rate,
       fetchedAt: new Date().toISOString(),
-      source: 'Central Bank of Egypt',
+      source: 'Frankfurter (CBE reference rate)',
       sourceUrl: SOURCE_URL
     });
   } catch (_) {
