@@ -1753,6 +1753,7 @@ document.addEventListener('keydown', function(event) {
                 egpBtn.className = "flex-1 py-2 rounded-lg text-xs font-extrabold text-gray-300 hover:text-white transition-all";
             }
             calculateFee();
+            if (curr === 'USD') requestExchangeRateWhenNeeded();
         }
 
         const precedentData = {
@@ -2210,6 +2211,30 @@ document.addEventListener('keydown', function(event) {
                 console.warn('Could not read saved CBE exchange rate:', error);
             }
             return false;
+        }
+
+
+        let exchangeRateRequestStarted = false;
+
+        function requestExchangeRateWhenNeeded() {
+            if (exchangeRateRequestStarted) return;
+            exchangeRateRequestStarted = true;
+            refreshOfficialExchangeRate();
+        }
+
+        function deferExchangeRateRequest() {
+            const calculator = document.getElementById('calculator');
+            if (!calculator || !('IntersectionObserver' in window)) {
+                window.addEventListener('load', requestExchangeRateWhenNeeded, { once: true });
+                return;
+            }
+            const observer = new IntersectionObserver(entries => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    observer.disconnect();
+                    requestExchangeRateWhenNeeded();
+                }
+            }, { rootMargin: '300px 0px' });
+            observer.observe(calculator);
         }
 
         async function refreshOfficialExchangeRate() {
@@ -3383,7 +3408,9 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
         applyStaticTranslations();
         updateSubOptions();
         calculateFee();
-        refreshOfficialExchangeRate();
+        loadSavedExchangeRate();
+        calculateFee();
+        deferExchangeRateRequest();
     
         function toggleExpandableCards(sectionId) {
             const isPrecedents = sectionId === 'precedents';
