@@ -1368,7 +1368,7 @@
 </div>
 <div class="max-w-2xl mx-auto bg-navy-900 text-white rounded-3xl p-8 md:p-10 shadow-xl border border-gold-500/30 mb-8">
 <div class="text-center mb-6">
-<h3 class="text-xl md:3xl font-bold mb-2" data-ar="أضف رأيك أو تقييمك للمؤسسة" data-en="Submit Your Review or Feedback">Submit Your Review or Feedback</h3>
+<h3 class="text-xl md:text-3xl font-bold mb-2" data-ar="أضف رأيك أو تقييمك للمؤسسة" data-en="Submit Your Review or Feedback">Submit Your Review or Feedback</h3>
 <p class="text-xs text-gray-300" data-ar="نرحب بملاحظاتكم وتجاربكم بشأن الخدمات المقدمة، بما يساعدنا على مراجعة مستوى الخدمة وتطويرها." data-en="We welcome your feedback and comments on the services provided as part of our ongoing service review and improvement.">We welcome your feedback and comments on the services provided as part of our ongoing service review and improvement.</p>
 </div>
 <form class="space-y-4" onsubmit="sendReviewWhatsApp(event)">
@@ -1403,8 +1403,8 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 <div class="text-center max-w-3xl mx-auto mb-20">
 <span class="font-bold text-sm tracking-widest uppercase mb-3 block text-white" data-ar="منهجية العمل القانوني" data-en="Our Legal Working Method">Our Legal Working Method</span>
-<h2 class="text-3xl md:5xl font-black text-gold-600 dark:text-gold-400" data-ar="منهجية تبدأ بفهم الوقائع وتنتهي بتحديد المسار القانوني والإجرائي" data-en="A Structured Approach: From Understanding the Facts to Defining the Legal Course">A Structured Approach: From Understanding the Facts to Defining the Legal Course</h2>
-<p class="mt-4 text-sm md:5xl text-white font-bold" data-ar="تقوم منهجية العمل على فهم الوقائع، وفحص المستندات، وتحديد القواعد القانونية واجبة التطبيق، ثم تقييم البدائل وصياغة خطة عمل تتناسب مع طبيعة التكليف." data-en="Our working method involves understanding the facts, examining the documents, identifying the applicable legal rules, evaluating available alternatives and formulating an approach suited to the engagement.">Our working method involves understanding the facts, examining the documents, identifying the applicable legal rules, evaluating available alternatives and formulating an approach suited to the engagement.</p>
+<h2 class="text-3xl md:text-5xl font-black text-gold-600 dark:text-gold-400" data-ar="منهجية تبدأ بفهم الوقائع وتنتهي بتحديد المسار القانوني والإجرائي" data-en="A Structured Approach: From Understanding the Facts to Defining the Legal Course">A Structured Approach: From Understanding the Facts to Defining the Legal Course</h2>
+<p class="mt-4 text-sm md:text-5xl text-white font-bold" data-ar="تقوم منهجية العمل على فهم الوقائع، وفحص المستندات، وتحديد القواعد القانونية واجبة التطبيق، ثم تقييم البدائل وصياغة خطة عمل تتناسب مع طبيعة التكليف." data-en="Our working method involves understanding the facts, examining the documents, identifying the applicable legal rules, evaluating available alternatives and formulating an approach suited to the engagement.">Our working method involves understanding the facts, examining the documents, identifying the applicable legal rules, evaluating available alternatives and formulating an approach suited to the engagement.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="bg-navy-950 border border-gold-500/30 rounded-2xl p-8 text-center shadow-xl">
@@ -2353,7 +2353,6 @@ document.addEventListener('keydown', function(event) {
 
         let currentLang = 'en';
         let activeModalType = 'service';
-        let activeServiceKey = '';
         let activePrecedentKey = '';
 
         // Appointment fees are selected from the same nationality distinction used by the fee calculator.
@@ -2517,295 +2516,6 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
             window.open(`https://wa.me/201558115954?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         }
 
-        const serviceData = {
-    "criminal": {
-        "ar": {
-            "title": "القضايا الجنائية والدفاع والتمثيل أمام جهات التحقيق والمحاكم",
-            "desc": "مباشرة أعمال الدفاع عن المتهمين والتمثيل القانوني للمجني عليهم والمدعين بالحقوق المدنية في مختلف مراحل الدعوى الجنائية. وتشمل الخدمة فحص محاضر جمع الاستدلالات والتحقيق والمستندات والأدلة، وتحديد المسائل الموضوعية والإجرائية، وإعداد المذكرات والطلبات والدفوع، والحضور والمرافعة، ومباشرة طرق الطعن ومتابعة تنفيذ الأحكام، بحسب الأحوال ونطاق التكليف.",
-            "features": [
-                "الدفاع عن المتهمين وتمثيل المجني عليهم والمدعين بالحقوق المدنية أمام مأموري الضبط القضائي والنيابة العامة وجهات التحقيق والمحاكم المختصة، وفقاً للقانون وطبيعة الصفة والإجراء.",
-                "فحص محاضر جمع الاستدلالات والتحقيق، وأقوال الشهود، وتقارير الخبراء، والأدلة الفنية والرقمية، وتحليل مدى كفايتها وتحديد أوجه القصور أو التناقض المؤثرة في الدعوى.",
-                "إعداد وتقديم المذكرات والطلبات والدفوع، والمرافعة أمام محاكم الجنح والجنح المستأنفة والجنايات، بحسب الاختصاص ومرحلة الدعوى.",
-                "دراسة الأحكام وتقييم توافر شروط الطعن عليها، بما في ذلك الطعن بالنقض متى كان جائزاً، ومباشرة إجراءات الطعن ومتابعة تنفيذ الأحكام الجنائية في حدود التكليف."
-            ]
-        },
-        "en": {
-            "title": "Criminal Defence and Representation before Investigative Authorities and Courts",
-            "desc": "Criminal defence for accused persons and legal representation for victims and civil claimants at the relevant stages of criminal proceedings. Services include reviewing preliminary inquiry and investigation records, documents and evidence; identifying substantive and procedural issues; preparing legal memoranda, applications and defences; attending proceedings and advocacy; pursuing available appeals; and following up on judgment enforcement, as applicable and within the agreed scope.",
-            "features": [
-                "Defence of accused persons and representation of victims and civil claimants before judicial police officers, the Public Prosecution, competent investigative authorities and courts, in accordance with applicable law and the relevant party’s procedural capacity.",
-                "Review of preliminary inquiry and investigation records, witness statements, expert reports, and technical or digital evidence to assess sufficiency and identify material deficiencies or inconsistencies.",
-                "Preparation and submission of legal memoranda, applications and procedural objections, and oral and written advocacy before misdemeanour, appellate misdemeanour and felony courts, as applicable.",
-                "Review of judgments and assessment of available remedies, including appeals before the Court of Cassation where legally permitted, together with follow-up of criminal judgment enforcement within the agreed scope."
-            ]
-        }
-    },
-    "civil_commercial": {
-        "ar": {
-            "title": "القضايا المدنية والتجارية والمطالبات المالية",
-            "desc": "تقديم المشورة والتمثيل في المنازعات المدنية والتجارية والحقوق المالية، بما يشمل المنازعات الناشئة عن العقود والالتزامات والمعاملات التجارية، والمطالبة بالديون والمستحقات والتعويضات، ودعاوى المسؤولية العقدية والتقصيرية، وغيرها من المنازعات أمام الجهات القضائية المختصة.",
-            "features": [
-                "مباشرة الدعاوى والمنازعات المدنية والتجارية الناشئة عن العقود والالتزامات والمعاملات بين الأفراد والشركات.",
-                "إقامة ومباشرة المطالبات بالديون والمستحقات والمبالغ المالية والتعويضات، ومنازعات الوفاء والإخلال بالالتزامات.",
-                "التعامل مع دعاوى المسؤولية العقدية والتقصيرية، والمنازعات المتعلقة بالأوراق التجارية والحقوق المالية بحسب طبيعة النزاع وسنده.",
-                "إعداد صحف الدعاوى والمذكرات والطلبات والدفوع، والمرافعة ومتابعة الطعون وإجراءات تنفيذ الأحكام في حدود التكليف."
-            ]
-        },
-        "en": {
-            "title": "Civil and Commercial Litigation and Monetary Claims",
-            "desc": "Legal advice and representation in civil and commercial disputes and financial claims, including disputes arising from contracts, obligations and commercial transactions; recovery of debts and sums due; compensation claims; and contractual or tortious liability proceedings before the competent courts.",
-            "features": [
-                "Conduct of civil and commercial claims arising from contracts, obligations and transactions between individuals and businesses.",
-                "Pursuit of claims for debts, sums due, financial entitlements and damages, including disputes concerning payment and breach of obligations.",
-                "Handling claims based on contractual and tortious liability, negotiable instruments and other financial rights, according to the nature and legal basis of the dispute.",
-                "Preparation of statements of claim, legal memoranda, applications and defences, advocacy, follow-up of available appeals and judgment enforcement within the agreed scope."
-            ]
-        }
-    },
-    "family": {
-        "ar": {
-            "title": "قضايا محاكم الأسرة والأحوال الشخصية والولاية على المال",
-            "desc": "التمثيل القانوني في منازعات الأحوال الشخصية والأسرة وما يتصل بها من حقوق والتزامات، بما يشمل دعاوى الطلاق والتطليق والخلع والفسخ، والنفقات والأجور، والحضانة والرؤية والاستضافة والولاية التعليمية، والولاية على المال والوصاية عليه، وفقاً للقوانين واجبة التطبيق.",
-            "features": [
-                "مباشرة دعاوى الطلاق والتطليق والخلع والفسخ، والطلبات والمنازعات المرتبطة بالعلاقة الزوجية وآثار انتهائها.",
-                "مباشرة دعاوى النفقات والأجور، بما في ذلك نفقة الزوجية والصغار والمتعة والعدة وأجور الحضانة والمسكن، بحسب الأحوال.",
-                "منازعات الحضانة والرؤية والاستضافة والولاية التعليمية، والمسائل المتعلقة بالولاية على المال والوصاية عليه.",
-                "إعداد صحف الدعاوى والمذكرات والطلبات والدفوع، والمرافعة ومتابعة الطعون وتنفيذ الأحكام الصادرة في مسائل الأسرة، في حدود التكليف."
-            ]
-        },
-        "en": {
-            "title": "Family Court Litigation, Personal Status and Guardianship over Property",
-            "desc": "Legal representation in family and personal status disputes and related rights and obligations. Matters include divorce, judicial divorce, khulʿ and annulment; maintenance and related claims; custody, visitation and child-hosting arrangements; authority over a child's educational affairs; and guardianship over property, in accordance with applicable law.",
-            "features": [
-                "Proceedings for divorce, judicial divorce, khulʿ and annulment, together with disputes and claims arising from the marital relationship and its dissolution.",
-                "Maintenance and related claims, including spousal and child maintenance, mutʿa and ʿidda payments, and custody and housing allowances, as applicable.",
-                "Disputes concerning custody, visitation, child-hosting arrangements and authority over a child's educational affairs, as well as guardianship over property.",
-                "Preparation of court documents, legal memoranda, applications and defences; advocacy; and follow-up of available appeals and enforcement of family judgments within the agreed scope."
-            ]
-        }
-    },
-    "administrative": {
-        "ar": {
-            "title": "قضايا القضاء الإداري ومجلس الدولة",
-            "desc": "تقديم المشورة والتمثيل القانوني في المنازعات الإدارية ومنازعات الوظيفة العامة والعقود الإدارية أمام مجلس الدولة والجهات المختصة، بما يشمل فحص القرارات الإدارية والطعن عليها وطلبات وقف تنفيذها، ومنازعات العاملين والجزاءات التأديبية والتعاقدات الحكومية.",
-            "features": [
-                "فحص القرارات الإدارية وتقييم مشروعيتها، وإعداد دعاوى الإلغاء وطلبات وقف التنفيذ والتظلمات والطعون متى توافرت شروطها القانونية.",
-                "مباشرة منازعات التعيين والترقية والنقل والندب والجزاءات التأديبية وسائر المنازعات المتعلقة بالوظيفة العامة.",
-                "مباشرة المنازعات الناشئة عن العقود الإدارية والمناقصات والمزايدات والتعاقدات الحكومية، بحسب الاختصاص.",
-                "إعداد المذكرات والطلبات والدفوع ومتابعة إجراءات التقاضي وتنفيذ الأحكام في حدود الاختصاص ونطاق التكليف."
-            ]
-        },
-        "en": {
-            "title": "Administrative Litigation and State Council Proceedings",
-            "desc": "Advice and legal representation in administrative disputes, public employment disputes and administrative contract disputes before the State Council and other competent authorities. The practice includes review and challenge of administrative decisions, applications for interim suspension of the challenged administrative decision, disciplinary matters and government contracting disputes.",
-            "features": [
-                "Review of administrative decisions and assessment of their legality; preparation of annulment claims, applications for interim suspension of the challenged administrative decision, grievances and challenges where the legal requirements are met.",
-                "Representation in disputes concerning appointment, promotion, transfer, secondment, disciplinary sanctions and other public employment disputes.",
-                "Representation in disputes arising from administrative contracts, tenders, auctions and government procurement, subject to the relevant jurisdiction.",
-                "Preparation of pleadings, applications and legal arguments, and follow-up of litigation and judgment enforcement within the applicable jurisdiction and agreed scope."
-            ]
-        }
-    },
-    "real_estate": {
-        "ar": {
-            "title": "الملكية العقارية والشهر العقاري والتسجيل",
-            "desc": "تقديم الخدمات القانونية المتعلقة بفحص الملكية والتصرفات العقارية ومنازعات الأراضي والوحدات، وإعداد ومراجعة مستندات البيع والتعاملات العقارية، ومباشرة دعاوى الملكية والحيازة وصحة ونفاذ العقود والتسليم والفسخ والتعويض، ومتابعة إجراءات الشهر والتسجيل وفقاً لطبيعة السند والمتطلبات القانونية.",
-            "features": [
-                "فحص سندات الملكية وتسلسلها والمستندات والقيود والتصرفات السابقة، وتقييم المركز القانوني للعقار قبل الشراء أو التصرف.",
-                "إعداد ومراجعة عقود بيع وشراء الأراضي والوحدات والعقارات، وملاحقها واتفاقيات الحجز والتخصيص والتسوية.",
-                "مباشرة منازعات الملكية والحيازة وصحة ونفاذ العقود والتسليم والفسخ وإنقاص الثمن والتعويض، ومنازعات المطورين العقاريين والإيجارات ذات الصلة.",
-                "متابعة إجراءات التوثيق والشهر والتسجيل والتعامل مع الجهات المختصة، ودعاوى فرز وتجنيب العقارات، بحسب طبيعة السند والإجراء المتاح قانوناً."
-            ]
-        },
-        "en": {
-            "title": "Real Estate Ownership, Notarisation and Registration",
-            "desc": "Legal services concerning title review and real estate transactions and disputes involving land and units. The practice includes preparation and review of sale and property documents; ownership, possession and contract claims; handover, rescission and damages; and follow-up of notarisation and registration procedures in accordance with the title documents and applicable requirements.",
-            "features": [
-                "Review of title instruments, chain of title, supporting documents, encumbrances and prior dealings to assess the legal status of a property before acquisition or disposition.",
-                "Drafting and review of sale and purchase agreements for land, units and other real estate, together with reservation, allocation and settlement documents.",
-                "Representation in ownership, possession and contract claims, including validity and enforceability, handover, rescission, price reduction and damages, as well as relevant developer and lease disputes.",
-                "Follow-up of notarisation, public registration and land registry procedures before the competent authorities, and partition proceedings concerning real estate, as legally available."
-            ]
-        }
-    },
-    "corporate_investment": {
-        "ar": {
-            "title": "تأسيس الشركات والاستثمار المحلي والأجنبي",
-            "desc": "تقديم الخدمات القانونية للشركات والمستثمرين في مراحل التأسيس والقيد والتعديل والتشغيل وإعادة الهيكلة، بما يشمل تأسيس الكيانات بمختلف أشكالها القانونية، وإعداد وثائق التأسيس والاتفاقيات، ومتابعة إجراءات الاستثمار والتراخيص، وتقديم المشورة بشأن الحوكمة وحقوق الشركاء والمساهمين ومنازعات الشركات.",
-            "features": [
-                "تأسيس الشركات بمختلف أشكالها القانونية، وإعداد مستندات التأسيس ومتابعة إجراءات التأسيس والقيد والتعديل أمام الجهات المختصة.",
-                "تقديم الخدمات القانونية للمستثمرين المحليين والأجانب بشأن اختيار الشكل القانوني وإجراءات الاستثمار والتراخيص والموافقات ذات الصلة.",
-                "إعداد ومراجعة عقود التأسيس والأنظمة الأساسية واتفاقيات الشركاء والمساهمين واتفاقيات الاستثمار، وتقديم المشورة بشأن الحوكمة وصلاحيات الإدارة.",
-                "التمثيل في منازعات الشركاء والشركات والمنازعات التجارية، والمسائل المتعلقة بإعادة الهيكلة والتعثر والإفلاس وفقاً للقانون."
-            ]
-        },
-        "en": {
-            "title": "Company Formation and Domestic and Foreign Investment",
-            "desc": "Legal services for companies and investors throughout incorporation, registration, amendment, operations and restructuring. The practice includes formation of entities in the available legal forms, preparation of corporate documents and agreements, investment and licensing procedures, corporate governance, shareholders’ rights and company disputes.",
-            "features": [
-                "Formation of companies in the available legal forms, preparation of incorporation documents, and follow-up of incorporation, registration and amendment procedures before the competent authorities.",
-                "Legal assistance to domestic and foreign investors in selecting an appropriate legal form and navigating investment procedures, licences and related approvals.",
-                "Preparation and review of articles of incorporation, bylaws, partners’ and shareholders’ agreements and investment agreements, together with advice on governance and management powers.",
-                "Representation in partner and shareholder disputes, company and commercial disputes, and matters relating to restructuring, financial distress and insolvency in accordance with applicable law."
-            ]
-        }
-    },
-    "foreigners": {
-        "ar": {
-            "title": "شؤون الأجانب والإقامة وزواج الأجانب واكتساب الجنسية",
-            "desc": "تقديم الخدمات القانونية للأجانب والمستثمرين بشأن الإقامة والإجراءات الإدارية المرتبطة بها، وزواج الأجانب وتوثيقه، وطلبات اكتساب الجنسية المصرية في الحالات التي يجيزها القانون، وذلك بعد فحص المستندات وتحديد المتطلبات القانونية والإجرائية لكل حالة.",
-            "features": [
-                "دراسة أوضاع الأجانب والمستثمرين وتحديد نوع الإقامة المناسب، ومراجعة المستندات والمتطلبات اللازمة لإصدار الإقامة أو تجديدها ومتابعة الطلبات أمام الجهات المختصة.",
-                "مباشرة إجراءات زواج الأجانب في مصر، ومراجعة المستندات والشهادات والتصديقات المطلوبة، ومتابعة التوثيق أمام الجهات المصرية المختصة.",
-                "دراسة طلبات اكتساب الجنسية المصرية للمستثمرين والأجانب، والتحقق من توافر الشروط القانونية والمستندات اللازمة، ومتابعة الإجراءات لدى الجهات المعنية.",
-                "تقديم المشورة والتمثيل في التظلمات والمنازعات الإدارية المرتبطة بملفات الأجانب والإقامة والجنسية، في حدود الاختصاص ونطاق التكليف."
-            ]
-        },
-        "en": {
-            "title": "Foreign Nationals’ Affairs, Residency, Marriage and Acquisition of Citizenship",
-            "desc": "Legal services for foreign nationals and investors concerning residency and related administrative procedures, marriages involving foreign nationals and their documentation, and applications to acquire Egyptian citizenship where permitted by law. Each matter is assessed by reviewing the relevant documents and identifying its legal and procedural requirements.",
-            "features": [
-                "Assessing the position of foreign nationals and investors and identifying the appropriate residency category; reviewing the documents and requirements for issuance or renewal and following up with the competent authorities.",
-                "Handling procedures for marriages involving foreign nationals in Egypt, reviewing the required documents, certificates and attestations, and following up on documentation before the competent Egyptian authorities.",
-                "Assessing applications by investors and foreign nationals to acquire Egyptian citizenship, reviewing statutory eligibility and supporting documents, and following up with the relevant authorities.",
-                "Providing advice and representation in administrative grievances and disputes relating to foreign-national files, residency and citizenship, subject to jurisdiction and the agreed scope of engagement."
-            ]
-        }
-    },
-    "ip": {
-        "ar": {
-            "title": "تسجيل وحماية الملكية الفكرية والعلامات التجارية",
-            "desc": "تقديم الخدمات القانونية المتعلقة بحماية حقوق الملكية الفكرية، وإجراءات إيداع وتسجيل العلامات التجارية والرسوم والنماذج الصناعية وبراءات الاختراع، وصياغة اتفاقيات الترخيص والتنازل، والتمثيل في منازعات التعدي والتقليد والمنافسة غير المشروعة وفقاً للاختصاص.",
-            "features": [
-                "إعداد ومتابعة طلبات إيداع وتسجيل العلامات التجارية والرسوم والنماذج الصناعية وبراءات الاختراع أمام الجهات المختصة.",
-                "تقديم المشورة بشأن ملكية الحقوق الفكرية ونطاق الحماية وطرق الاستغلال التجاري والترخيص والتنازل.",
-                "إعداد ومراجعة اتفاقيات الترخيص ونقل التكنولوجيا والتنازل وعدم الإفصاح وحماية المعلومات السرية.",
-                "التمثيل في المنازعات المتعلقة بالتعدي على حقوق الملكية الفكرية والتقليد والمنافسة غير المشروعة، بحسب الاختصاص."
-            ]
-        },
-        "en": {
-            "title": "Intellectual Property and Trademark Registration and Protection",
-            "desc": "Legal services concerning the protection of intellectual property rights, filing and registration of trademarks, industrial designs and patents, preparation of licensing and assignment agreements, and representation in infringement, counterfeiting and unfair competition disputes, subject to the relevant jurisdiction.",
-            "features": [
-                "Preparation and follow-up of applications for filing and registration of trademarks, industrial designs and patents before the competent authorities.",
-                "Advice on ownership of intellectual property rights, the scope of protection, commercial exploitation, licensing and assignment.",
-                "Preparation and review of licensing, technology transfer, assignment, non-disclosure and confidentiality agreements.",
-                "Representation in disputes involving intellectual property infringement, counterfeiting and unfair competition, subject to the relevant jurisdiction."
-            ]
-        }
-    },
-    "arbitration": {
-        "ar": {
-            "title": "التحكيم التجاري وتسوية المنازعات بالوسائل البديلة",
-            "desc": "تقديم الخدمات القانونية في منازعات التحكيم التجاري ووسائل التسوية البديلة، بدءًا من تقييم شرط التحكيم أو مشارطة التحكيم وصياغة أيٍّ منهما، مرورًا بإجراءات التحكيم وإعداد المذكرات وتقديم المرافعات وتمثيل الأطراف، وانتهاءً بدراسة حكم التحكيم وتقييم مدى توافر أسباب دعوى بطلانه، أو دراسة إجراءات طلب استصدار الأمر بتنفيذه، وفقًا للقانون ونطاق التكليف.",
-            "features": [
-                "صياغة ومراجعة شروط ومشارطات التحكيم واتفاقات تسوية المنازعات، وتقييم مدى ملاءمتها لطبيعة العلاقة التعاقدية.",
-                "تمثيل الأطراف في إجراءات التحكيم التجاري، وإعداد طلبات التحكيم والردود والمذكرات والمستندات، ومباشرة المرافعة وفق قواعد التحكيم المتفق عليها.",
-                "تقديم المشورة والتمثيل في إجراءات الوساطة والتفاوض والتسوية الودية، وإعداد اتفاقات التسوية متى اتفق الأطراف على ذلك.",
-                "دراسة أحكام التحكيم وتقييم أسباب وإجراءات دعوى البطلان، ومباشرة الإجراءات القضائية اللازمة لاستصدار الأمر بتنفيذ حكم التحكيم متى توافرت شروطه القانونية."
-            ]
-        },
-        "en": {
-            "title": "Commercial Arbitration and Alternative Dispute Resolution",
-            "desc": "Legal services in commercial arbitration and alternative dispute resolution, from assessing and drafting arbitration clauses and agreements to conducting arbitral proceedings, preparing submissions and representing parties. The practice also includes review of arbitral awards and related court proceedings to set aside or obtain an enforcement order, subject to applicable law and the agreed scope.",
-            "features": [
-                "Drafting and review of arbitration clauses, arbitration agreements and dispute settlement provisions, with assessment of their suitability for the relevant contractual relationship.",
-                "Representation in commercial arbitration proceedings, including preparation of requests for arbitration, responses, written submissions and supporting documents, and advocacy under the applicable arbitral rules.",
-                "Advice and representation in mediation, negotiation and amicable settlement procedures, including preparation of settlement agreements where agreed by the parties.",
-                "Review of arbitral awards and assessment of grounds and procedures for setting aside, together with court procedures to obtain an enforcement order where statutory requirements are met."
-            ]
-        }
-    },
-    "contracts": {
-        "ar": {
-            "title": "صياغة ومراجعة العقود التجارية والمدنية",
-            "desc": "إعداد وصياغة ومراجعة العقود والاتفاقيات المدنية والتجارية والاستثمارية والعقارية، وفحص المستندات والمراكز القانونية والتعاقدية، وتحليل الالتزامات والضمانات والجزاءات وشروط الإنهاء والتعويض وتسوية المنازعات، بما يحدد المخاطر ويعزز وضوح الحقوق والالتزامات قبل التوقيع وأثناء التنفيذ.",
-            "features": [
-                "صياغة ومراجعة العقود المدنية والتجارية والاستثمارية والعقارية، وملاحقها وشروطها العامة والخاصة.",
-                "فحص المستندات وسندات الملكية والتراخيص والقيود والالتزامات ذات الصلة بالعقد أو التصرف محل الدراسة.",
-                "تحليل المقابل المالي ومواعيد الوفاء والضمانات والجزاءات والفسخ والإنهاء والتعويض وآليات تسوية المنازعات.",
-                "إعداد تقارير بالملاحظات والمخاطر والتعديلات المقترحة، وتقديم المساندة القانونية في التفاوض متى شملها نطاق التكليف."
-            ]
-        },
-        "en": {
-            "title": "Drafting and Review of Commercial and Civil Contracts",
-            "desc": "Drafting and review of civil, commercial, investment and real estate contracts and agreements, together with examination of relevant documents and legal and contractual positions. The service includes analysis of obligations, warranties, contractual penalty clauses, termination and damages provisions, and dispute resolution mechanisms to identify risks and clarify rights and obligations before signing and during performance.",
-            "features": [
-                "Drafting and review of civil, commercial, investment and real estate contracts, including schedules, addenda and general or specific terms.",
-                "Review of supporting documents, title instruments, licences, restrictions and obligations relevant to the contract or proposed transaction.",
-                "Analysis of consideration, payment dates, warranties, contractual penalty clauses, rescission and termination provisions, damages and dispute resolution mechanisms.",
-                "Preparation of written comments, risk assessments and proposed amendments, with legal support in negotiations where included in the agreed scope."
-            ]
-        }
-    },
-    "consultations": {
-        "ar": {
-            "title": "الاستشارات القانونية المؤسسية والفردية",
-            "desc": "تقديم الرأي والمشورة القانونية للأفراد والشركات والمؤسسات في المسائل المدنية والتجارية والجنائية والعقارية والأسرية والإدارية وغيرها، بما يشمل دراسة ومراجعة ملفات القضايا المتداولة عند طلب ذلك، من خلال تحديد موضوع الاستشارة وفهم الوقائع ومراجعة المستندات المتاحة، وبيان المركز القانوني والخيارات والمخاطر والآثار المحتملة.",
-            "features": [
-                "تقديم الاستشارات القانونية للأفراد والشركات والمؤسسات في مختلف فروع القانون، وتحديد نطاق المسألة المطلوب بحثها.",
-                "فحص الوقائع والمستندات والمعلومات المقدمة وتكييف المسألة قانوناً في حدود نطاق الاستشارة.",
-                "بيان القواعد القانونية ذات الصلة والخيارات القانونية والإجرائية والمخاطر والآثار المحتملة لكل خيار.",
-                "إعداد رأي أو مذكرة استشارية مكتوبة عند الاتفاق على ذلك، بما يشمل مراجعة ملف قضية متداولة وتقييم موقفها القانوني والإجرائي عند طلب الخدمة، وتحديد المستندات أو الإجراءات اللاحقة اللازمة."
-            ]
-        },
-        "en": {
-            "title": "Legal Advisory Services for Individuals and Institutions",
-            "desc": "Legal advice to individuals, companies and institutions on civil, commercial, criminal, real estate, family, administrative and other matters, including review and assessment of pending case files where requested. Each engagement begins by defining the issue, considering the relevant facts and reviewing available documents, followed by an assessment of the legal position, available options, risks and potential implications.",
-            "features": [
-                "Legal advice to individuals, companies and institutions across relevant practice areas, with clear definition of the issue and scope of the engagement.",
-                "Review of the facts, documents and information provided, and legal characterisation of the matter within the scope of the consultation.",
-                "Explanation of relevant legal rules, available legal and procedural options, and the potential risks and implications of each option.",
-                "Preparation of a written legal opinion or advisory memorandum where agreed, including review and assessment of a pending case file where requested, and identification of any further documents or procedural steps required."
-            ]
-        }
-    }
-};
-
-        function openServiceModal(serviceKey) {
-            activeServiceKey = serviceKey;
-            activeModalType = 'service';
-            const data = serviceData[serviceKey];
-            if (!data) return;
-
-            const localized = data[currentLang] || data['ar'];
-            document.getElementById('modal-title').textContent = localized.title;
-            document.getElementById('modal-subtitle').textContent = currentLang === 'en' ? 'Practice Area Sector' : 'قطاع التخصص القانوني';
-            document.getElementById('modal-description').textContent = localized.desc;
-            document.getElementById('modal-features-heading').textContent = currentLang === 'en' ? 'Service Procedural Scope & Terms:' : 'البنود والنطاق الإجرائي للخدمة:';
-
-            const featuresList = document.getElementById('modal-features');
-            featuresList.replaceChildren();
-            localized.features.forEach(feat => {
-                const li = document.createElement('li');
-                li.className = 'flex items-start gap-2';
-                const icon = document.createElement('i');
-                icon.className = 'fa-solid fa-check text-gold-400 mt-1 shrink-0';
-                const text = document.createElement('span');
-                text.textContent = feat;
-                li.append(icon, text);
-                featuresList.appendChild(li);
-            });
-
-            const actionBtn = document.getElementById('modal-action-btn');
-            actionBtn.style.display = 'flex';
-            actionBtn.onclick = requestServiceDirectWhatsApp;
-            actionBtn.replaceChildren();
-            const actionIcon = document.createElement('i');
-            actionIcon.className = 'fa-brands fa-whatsapp text-xl';
-            const actionLabel = document.createElement('span');
-            actionLabel.setAttribute('data-ar', 'طلب موعد');
-            actionLabel.setAttribute('data-en', 'Request Appointment');
-            actionLabel.textContent = currentLang === 'en' ? 'Request Appointment' : 'طلب موعد';
-            actionBtn.append(actionIcon, actionLabel);
-
-            const modal = document.getElementById('service-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
         function openPrecedentModal(precedentKey) {
             activePrecedentKey = precedentKey;
             activeModalType = 'precedent';
@@ -2861,16 +2571,6 @@ Please use Cairo time (${FIRM_TIME_ZONE}) as the sole reference for confirming t
                 modal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }
-        }
-
-        function requestServiceDirectWhatsApp(e) {
-            if (e) e.preventDefault();
-            const data = serviceData[activeServiceKey];
-            const title = data ? (data[currentLang] ? data[currentLang].title : data['ar'].title) : 'Legal Service';
-            const msg = currentLang === 'en' 
-                ? `Hello, I would like to request an appointment (within three working days) regarding: ${title}`
-                : `السلام عليكم ورحمة الله وبركاته، أرغب في طلب موعد (خلال ٣ أيام عمل) بخصوص خدمة: ${title}`;
-            window.open(`https://wa.me/201558115954?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
         }
 
         function requestPrecedentWhatsApp(e) {

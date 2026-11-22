@@ -1,3 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.text-gold-300{color:#e6c769}.hover\:text-gold-300:hover{color:#e6c769}.group:hover .group-hover\:text-gold-300{color:#e6c769}

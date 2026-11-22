@@ -8,26 +8,6 @@ const SOURCE_URL =
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
 const FETCH_TIMEOUT_MS = 10000;
 
-function decodeText(value) {
-  return value
-    .replace(/&nbsp;|&#160;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) =>
-      String.fromCharCode(parseInt(n, 16))
-    )
-    .replace(/&[a-z]+;/gi, ' ');
-}
-
-function extractPageText(html) {
-  return decodeText(
-    html
-      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
-  ).replace(/\s+/g, ' ').trim();
-}
-
 async function readLimitedText(response, maxBytes) {
   if (!response.body || typeof response.body.getReader !== 'function') {
     const text = await response.text();
@@ -65,36 +45,7 @@ async function readLimitedText(response, maxBytes) {
 
 function parseRate(text) {
   const r=JSON.parse(text)[0]; if(!r || r.base!=="USD" || r.quote!=="EGP" || !Number.isFinite(r.rate) || r.rate<=1 || !r.date) return null; const t=Date.parse(r.date);if(!Number.isFinite(t)||Math.abs(Date.now()-t)>604800000)return null;return {buy:r.rate,sell:r.rate,mid:r.rate,rateDate:r.date};
-  const match = text.match(
-    /(?:US\s*Dollar|United\s*States\s*Dollar|USD)\s*([\d,]+(?:\.\d+)?)\s*([\d,]+(?:\.\d+)?)/i
-  );
 
-  if (!match) return null;
-
-  const buy = Number(match[1].replace(/,/g, ''));
-  const sell = Number(match[2].replace(/,/g, ''));
-
-  const dateMatch = text.match(
-    /Rates\s+for\s+Date\s*:?\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/i
-  );
-
-  if (
-    !Number.isFinite(buy) ||
-    !Number.isFinite(sell) ||
-    buy <= 0 ||
-    sell < buy ||
-    !dateMatch
-  ) {
-    return null;
-  }
-
-  return {
-    buy,
-    sell,
-    mid: Number(((buy + sell) / 2).toFixed(6)),
-    rateDate:
-      `${dateMatch[3]}-${dateMatch[2].padStart(2, '0')}-${dateMatch[1].padStart(2, '0')}`
-  };
 }
 
 module.exports = async function handler(req, res) {
